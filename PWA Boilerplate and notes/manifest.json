@@ -1,0 +1,80 @@
+
+/*************************************************
+
+  🎯Explain some of the properties of the 'manifest.json' file in order to achieve all the PWA optimization criteria.
+
+  🎯Make sure to link this 'manifest' file to EVERY SINGLE HTML file by using:
+
+    <link rel="manifest" href="/manifest.json">
+
+  🎯Display icons not only for Android but also iOS through the 'apple-touch-icon' that needs to be linked in all of your HTML files inside the <head> like this:
+
+    <link rel="apple-touch-icon" href="/icons/icon-72x72.png">
+    <link rel="apple-touch-icon" href="/icons/icon-96x96.png">
+    <link rel="apple-touch-icon" href="/icons/icon-128x128.png">
+    <link rel="apple-touch-icon" href="/icons/icon-144x144.png">
+    <link rel="apple-touch-icon" href="/icons/icon-152x152.png">
+    <link rel="apple-touch-icon" href="/icons/icon-192x192.png">
+    <link rel="apple-touch-icon" href="/icons/icon-384x384.png">
+    <link rel="apple-touch-icon" href="/icons/icon-512x512.png"> 
+
+*************************************************/
+
+{
+  "name": "Food Ninja", //<--- name of the app and what will be displayed on the splash screen while opening on mobile.
+  "short_name": "FoodNinja", //<--- name that displays underneath the icon on the Home Screen on Mobile  .
+  "start_url": "/index.html", //<--- the landing page file.
+  "display": "standalone", //<---standalone means you want the app to 'look' like native when it opens (wont show the address bar or anything that reminds you of browser).If you put 'browser' it will open on a browser once the user taps it inside his Mobile.
+  "background_color": "#FFE9D2", //<--- the background color of the Splash Screen when we launch it on Mobile.
+  "theme_color": "#FFE1C4", //<--- the color for the 'top bar' of the application
+  "orientation": "portrait-primary", //<--- the orientation which you want your app to be launched on Mobile.
+  "icons": [    //<-- array of icons to suit the type of Mobile resolution with their path,size and type
+
+    {                // <--- Notice that this is the only one that has the property 'purpose'. I saw on the Lighthouse inspector that this is now a requirement for PWA optimization. There is a free program where you convert your image to a maskable icon, so you just add it here and to your icons folder.The purpose is to make PWA icon to look great on all Android devices and enure that they take up all of the space that a Android device provides. More info here:https://web.dev/maskable-icon-audit/ 
+      "src": "/img/icons/maskable_icon.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any maskable" 
+    },
+    {
+      "src": "/img/icons/icon-72x72.png",
+      "type": "image/png",
+      "sizes": "72x72"
+    },
+    {
+      "src": "/img/icons/icon-96x96.png",
+      "type": "image/png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "/img/icons/icon-128x128.png",
+      "type": "image/png",
+      "sizes": "128x128"
+    },
+    {
+      "src": "/img/icons/icon-144x144.png",
+      "type": "image/png",
+      "sizes": "144x144"
+    },
+    {
+      "src": "/img/icons/icon-152x152.png",
+      "type": "image/png",
+      "sizes": "152x152"
+    },
+    {
+      "src": "/img/icons/icon-192x192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/img/icons/icon-384x384.png",
+      "type": "image/png",
+      "sizes": "384x384"
+    },
+    {
+      "src": "/img/icons/icon-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+}
