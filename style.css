@@ -16,7 +16,6 @@ Table of Contents
  * 1. Correct the line height in all browsers.
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
-@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 html {
   line-height: 1.15;
   /* 1 */
@@ -56,8 +55,7 @@ h1 {
    * 2. Show the overflow in Edge and IE.
    */
 hr {
-  -webkit-box-sizing: content-box;
-          box-sizing: content-box;
+  box-sizing: content-box;
   /* 1 */
   height: 0;
   /* 1 */
@@ -94,8 +92,7 @@ abbr[title] {
   /* 1 */
   text-decoration: underline;
   /* 2 */
-  -webkit-text-decoration: underline dotted;
-          text-decoration: underline dotted;
+  text-decoration: underline dotted;
   /* 2 */
 }
 
@@ -242,8 +239,7 @@ fieldset {
    *    `fieldset` elements in all browsers.
    */
 legend {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   /* 1 */
   color: inherit;
   /* 2 */
@@ -277,8 +273,7 @@ textarea {
    */
 [type="checkbox"],
 [type="radio"] {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   /* 1 */
   padding: 0;
   /* 2 */
@@ -355,7 +350,7 @@ template {
 
 /* 2. Typography =============*/
 * {
-  font-family: "Poppins", sans-serif;
+  font-family: "Qanelas", sans-serif;
   color: white;
   text-align: center;
 }
@@ -387,8 +382,7 @@ a {
 /* 5. Accessibility ==========*/
 .visually-hidden {
   clip: rect(0 0 0 0);
-  -webkit-clip-path: inset(50%);
-          clip-path: inset(50%);
+  clip-path: inset(50%);
   height: 1px;
   overflow: hidden;
   position: absolute;
@@ -402,22 +396,13 @@ body {
 }
 
 main {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   gap: 1rem;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: row wrap;
-          flex-flow: row wrap;
+  flex-flow: row wrap;
   margin: 5vh;
   padding: 0;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  align-items: center;
+  justify-content: center;
 }
 
 .placeholder {
@@ -438,8 +423,6 @@ main {
 
 /* ================================================= */
 .splash {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
 
@@ -449,13 +432,8 @@ main {
 
 /* ================================================= */
 .onboarding {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column nowrap;
-          flex-flow: column nowrap;
+  flex-flow: column nowrap;
 }
 
 .onboarding ul {
@@ -469,13 +447,8 @@ main {
 
 /* ================================================= */
 .sign-in {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column;
-          flex-flow: column;
+  flex-flow: column;
 }
 
 .sign-in form {
@@ -488,18 +461,6 @@ main {
   background-color: rgba(0, 0, 0, 0);
   border: 1px solid #e59c6f;
   padding: 10px;
-}
-
-.sign-in form input::-webkit-input-placeholder {
-  color: whitesmoke;
-}
-
-.sign-in form input:-ms-input-placeholder {
-  color: whitesmoke;
-}
-
-.sign-in form input::-ms-input-placeholder {
-  color: whitesmoke;
 }
 
 .sign-in form input::placeholder {
@@ -525,8 +486,7 @@ main {
 
 .sign-in .new-account {
   margin-top: auto;
-  -webkit-box-shadow: 0px -4px 2px #110844;
-          box-shadow: 0px -4px 2px #110844;
+  box-shadow: 0px -4px 2px #110844;
   border-radius: 15px;
   font-size: 0.8rem;
   height: 10%;
@@ -534,56 +494,44 @@ main {
 
 /* ================================================= */
 .menubar ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   margin: 0;
   font-size: 0.8rem;
   padding: 0;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  -webkit-box-shadow: 0px -4px 2px #110844;
-          box-shadow: 0px -4px 2px #110844;
+  justify-content: space-around;
+  box-shadow: 0px -4px 2px #110844;
   border-radius: 15px;
+  background-color: white;
 }
 
 .menubar ul li {
   margin: 1rem;
 }
 
+.menubar ul li .menu-btn {
+  color: black;
+}
+
 /* ================================================= */
 .home {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column;
-          flex-flow: column;
+  flex-flow: column;
 }
 
 .home .home-username {
-  -webkit-box-flex: 4;
-      -ms-flex: 4;
-          flex: 4;
+  flex: 4;
   margin: 0;
-  -ms-flex-item-align: start;
-      align-self: flex-start;
+  align-self: flex-start;
   padding-left: 10px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
 
 .home .home-username p {
-  -ms-flex-item-align: end;
-      align-self: flex-end;
+  align-self: flex-end;
 }
 
 .home div {
-  -webkit-box-flex: 6;
-      -ms-flex: 6;
-          flex: 6;
+  flex: 6;
 }
 
 .home div p {
@@ -596,30 +544,20 @@ main {
   border: none;
   width: 60%;
   padding: 0.5rem 1rem;
-  -webkit-box-pack: right;
-      -ms-flex-pack: right;
-          justify-content: right;
+  justify-content: right;
   text-align: center;
   margin-left: auto;
-  -ms-flex-item-align: end;
-      align-self: flex-end;
+  align-self: flex-end;
 }
 
 .home .home-playlist {
   background-color: #110844;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column nowrap;
-          flex-flow: column nowrap;
+  flex-flow: column nowrap;
 }
 
 .home .home-menu {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+  flex: 1;
   margin-top: 10px;
 }
 

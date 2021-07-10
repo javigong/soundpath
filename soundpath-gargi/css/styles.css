@@ -1,0 +1,319 @@
+/* ========================================================================= */
+/* ========================================================================= */
+/* 
+    Project => SoundPath
+    By      => Melomaniacs Team
+*/
+/* ========================================================================= */
+/* ========================================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    /* color: #333; */
+}
+
+body {
+    height: 100vh;
+}
+
+img {
+    width: 100vw;
+    height: 600px;
+    object-fit: cover;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* for checkbox */
+/* .visually-hidden {
+    position: absolute;
+    left: -100vw;
+} */
+
+/* Display properties ====================================================== */
+
+#popup {
+	display :none;
+  	transform: translate(-50%, -50%);
+}
+
+.page {
+	display :none;
+}
+
+.page.show {
+	display : flex;
+}
+
+ #popup.show {
+	display :unset;
+}
+
+/* ========================================================================= */
+/* 
+    Page-1 Home Page
+*/
+/* ========================================================================= */
+
+.home {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header ========================== */
+
+#page1 h1 {
+    margin: -3rem 0 1rem 2rem;
+}
+
+/* Main-area ======================= */
+
+#page1 .main-area {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 1rem 1rem 2rem;
+}
+
+#page1 .description {
+    height: 158px;
+}
+
+button.create-playlist {
+    align-self: flex-end;
+    display: flex;
+    padding: 0.7rem;
+    background: #333;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    width: fit-content;
+    border: 1px solid #333;
+}
+
+button.create-playlist:hover {
+    cursor: pointer;
+    color: #333;
+    background: white;
+}
+
+button i {
+    padding-right: 0.6rem;
+}
+
+/* Bottom-area ===================== */
+
+#page1 nav {
+    border: 1px solid #333;
+    padding: 1rem;
+    align-content: flex-end;
+    height: fit-content;
+}
+
+#page1 .bottom-nav ul {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
+#page1 .bottom-nav i {
+    font-size: 1.2rem;
+    height: 1.6rem;
+}
+
+/* ========================================================================= */
+/* 
+    Page-2,3 Create new playlist- Name and add artist
+*/
+/* ========================================================================= */
+
+#page2, #page3, #page4, #page5, #page6, #page7 {
+    background: lightgrey;
+}
+
+/* Header ========================== */
+
+#page2 .content, #page3 .content, #page4 .content, #page5 .content, #page6 .content,  #page7 .content {
+    width: 100%;   
+}
+
+#page2 header, #page3 header, #page4 header, #page5 header, #page6 header, #page7 header {
+    background: lightgrey;
+    width: 100%;
+    height: 300px;
+    display: flex;
+}
+
+#page2 header h3, #page3 header h3, #page4 header h3, #page5 header h3, #page6 header h3, #page7 header h3 {
+    align-self: flex-end;
+    padding: 1rem 2rem;
+}
+
+/* Main-area ======================= */
+
+#page2 main, #page3 main, #page4 main, #page5 main, #page6 main, #page7 main {
+    padding: 3rem;
+    border-radius: 20px 20px 0 0;
+    background: white;
+}
+
+#page2 .main-content, #page3 .main-content, #page4 .main-content, #page5 .main-content, #page6 .main-content, #page7 .main-content {
+    background: white;
+}
+
+#page2 input, #page3 input, #page7 input {
+    outline: 0;
+    border-width: 0 0 2px;
+    border-color: lightgray;
+    padding: 0 5rem 0 0;
+    margin: 1.5rem 0 0 0;
+}
+
+/* Bottom-area ===================== */
+
+#page2 nav, #page3 nav, #page4 nav, #page5 nav, #page6 nav, #page7 nav  {
+    background: white;
+}
+
+#page2 ul, #page3 ul, #page4 ul, #page5 ul, #page6 ul, #page7 ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+}
+
+#page2 a, #page3 a, #page4 a, #page5 a, #page6 a, #page7 a {
+    color: #333;
+    font-weight: 600;
+}
+
+#page2 button, #page3 button, #page4 button, #page5 button, #page6 button {
+    background: white;
+    border: 1.5px solid #333;
+    color: #333;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+}
+
+#page2 button:hover, #page3 button:hover, #page4 button:hover, #page5 button:hover, #page6 button:hover {
+    color: white;
+    background: #333;
+    cursor: pointer;
+}
+
+/* ========================================================================= */
+/* 
+    Page-4 Create new playlist- Add Genre
+*/
+/* ========================================================================= */
+
+.genre-tags, .mood-tags {
+    margin: 1rem 0 0 0;
+}
+
+/* Label checkbox styling ========== */
+.ck-button {
+    margin: 4px;
+    background-color: #EFEFEF;
+    border-radius: 20px;
+    border: 1px solid #D0D0D0;
+    overflow: auto;
+    float: left;
+}
+
+.ck-button:hover {
+    background: lightgrey;
+}
+
+.ck-button label {
+    float: left; 
+    width: 6em;
+}
+
+.ck-button label span {
+    text-align: center;
+    padding: 0.5rem 0;
+    display: block; 
+}
+
+.ck-button label input {
+    position:absolute;
+    top:-20px; 
+}
+
+.ck-button input:checked + span {
+    background-color: #333;
+    color:#fff;
+}
+
+.ck-button span {
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+/* ========================================================================= */
+/* 
+    Page-6 Create new playlist- Add Country
+*/
+/* ========================================================================= */
+
+#page6 select {
+    outline: 0;
+    border-width: 0 0 2px;
+    border-color: lightgray;
+    padding: 0 5rem 0 0;
+    margin: 1.5rem 0 0 0;
+}
+
+#page6 select:invalid {
+    color: lightgray;
+}
+
+select:required:invalid {
+    color: gray;
+}
+
+#page6 option[value=""][disabled] {
+   display: none;
+}
+
+#page6 option {
+   color: black;
+}
+
+/* ========================================================================= */
+/* 
+    Page-7 Create new playlist- Add Keywords
+*/
+/* ========================================================================= */
+
+#page7 nav {
+    display: flex;
+    justify-content: start;
+    padding: 2rem 0 0 3rem;
+}
+
+#page7 button.generate-playlist {
+    padding: 0.7rem 5rem;
+    background: #333;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    width: fit-content;
+    border: 1px solid #333;
+}
+
+button.generate-playlist:hover {
+    cursor: pointer;
+    color: #333;
+    background: white;
+}
