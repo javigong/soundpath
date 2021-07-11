@@ -349,7 +349,7 @@ template {
 }
 
 /* 2. Typography =============*/
-* {
+body {
   font-family: "Qanelas", sans-serif;
   color: white;
   text-align: center;
@@ -391,175 +391,45 @@ a {
 }
 
 /* 6. Elements ===============*/
-body {
-  background-color: gainsboro;
+.page {
+  min-width: 100vw;
+  min-height: 100vh;
+  display: none;
 }
 
-main {
-  display: flex;
-  gap: 1rem;
-  flex-flow: row wrap;
-  margin: 5vh;
-  padding: 0;
-  align-items: center;
-  justify-content: center;
-}
-
-.placeholder {
-  background-color: cornsilk;
-}
-
-.title {
-  text-align: center;
-}
-
-.snippet {
-  height: 32rem;
-  width: 18rem;
-  border: 1px solid black;
-  border-radius: 10px;
-  background-color: #4f0056;
-}
-
-/* ================================================= */
-.splash {
-  display: flex;
-}
-
-.splash h1 {
-  margin: auto;
-}
-
-/* ================================================= */
-.onboarding {
+.page.show {
   display: flex;
   flex-flow: column nowrap;
 }
 
-.onboarding ul {
-  margin: auto;
-  padding: 0;
-}
-
-.onboarding ul li {
-  margin: 0.5rem 0;
-}
-
-/* ================================================= */
-.sign-in {
-  display: flex;
-  flex-flow: column;
-}
-
-.sign-in form {
-  margin: 1rem;
-}
-
-.sign-in form input {
-  margin: 10px;
-  border-radius: 10px;
-  background-color: rgba(0, 0, 0, 0);
-  border: 1px solid #e59c6f;
-  padding: 10px;
-}
-
-.sign-in form input::placeholder {
-  color: whitesmoke;
-}
-
-.sign-in form button {
-  background-color: #e59c6f;
+button {
+  background-color: black;
+  color: white;
   border: none;
-  border-radius: 10px;
-  padding: 10px 20px;
-  margin-top: 15px;
+  padding: 5px;
 }
 
-.sign-in h3 {
-  text-align: left;
-}
-
-.sign-in .forgot-password {
-  font-size: 0.7rem;
-  margin-top: 10px;
-}
-
-.sign-in .new-account {
-  margin-top: auto;
-  box-shadow: 0px -4px 2px #110844;
-  border-radius: 15px;
-  font-size: 0.8rem;
-  height: 10%;
-}
-
-/* ================================================= */
-.menubar ul {
-  display: flex;
-  margin: 0;
-  font-size: 0.8rem;
-  padding: 0;
-  justify-content: space-around;
-  box-shadow: 0px -4px 2px #110844;
-  border-radius: 15px;
-  background-color: white;
-}
-
-.menubar ul li {
-  margin: 1rem;
-}
-
-.menubar ul li .menu-btn {
-  color: black;
-}
-
-/* ================================================= */
-.home {
-  display: flex;
-  flex-flow: column;
-}
-
-.home .home-username {
-  flex: 4;
-  margin: 0;
-  align-self: flex-start;
-  padding-left: 10px;
-  display: flex;
-}
-
-.home .home-username p {
-  align-self: flex-end;
-}
-
-.home div {
-  flex: 6;
-}
-
-.home div p {
-  text-align: center;
-}
-
-.home button {
-  background-color: #e59c6f;
-  border-radius: 20px;
-  border: none;
-  width: 60%;
-  padding: 0.5rem 1rem;
-  justify-content: right;
-  text-align: center;
-  margin-left: auto;
-  align-self: flex-end;
-}
-
-.home .home-playlist {
-  background-color: #110844;
-  display: flex;
-  flex-flow: column nowrap;
-}
-
-.home .home-menu {
-  flex: 1;
-  margin-top: 10px;
+button:active {
+  background-color: red;
 }
 
 /* 7. Forms ==================*/
+#form05 {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+#form05 input[type="radio"] {
+  display: none;
+}
+
+#form05 label {
+  display: inline-block;
+  background-color: white;
+  cursor: pointer;
+}
+
+#form05 input[type="radio"]:checked + label {
+  background-color: red;
+}
 /*# sourceMappingURL=style.css.map */

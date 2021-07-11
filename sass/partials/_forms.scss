@@ -1,0 +1,20 @@
+// add genres form /////////////////////
+
+#form05 {
+  display: flex;
+  flex-flow: row nowrap;
+
+  input[type="radio"] {
+    display: none;
+  }
+
+  label {
+    display: inline-block;
+    background-color: white;
+    cursor: pointer;
+  }
+
+  input[type="radio"]:checked + label {
+    background-color: red;
+  }
+}

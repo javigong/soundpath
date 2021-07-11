@@ -1,73 +1,94 @@
-const popBtn = document.querySelector("#popBtn");
-if (popBtn) {
-    popBtn.addEventListener("click", (event) => {
-        document.querySelector("#popup").classList.toggle("show");
-    })
+// Start page 01 : Initial page with Soundpath Logo ==========
+
+const startBtn = document.querySelector("#logo");
+if (startBtn) {
+	startBtn.addEventListener("click", (event) => {
+		document.querySelectorAll(".page").forEach((page) => page.classList.remove("show"));
+		document.querySelector("#page02").classList.add("show")
+	})
 }
 
-// let Show = class {
-//     constructor(button, pageNum) {
-//         if (button) {
-//             button.addEventListener("click", () => {
-//                 document.querySelectorAll(".page").forEach((page) => page.classList.remove("show"));
-//                 document.querySelector(pageNum).classList.add("show")
-//             })
-//         }
-//     }
-// }
+// Start page 02 : Login with Spotify Button ===================
 
-const p1Btn = document.querySelector("#p1Btn");
-if (p1Btn) {
-    p1Btn.addEventListener("click", (event) => {
-        document.querySelectorAll(".page").forEach((page) => page.classList.remove("show"));
-        document.querySelector("#page1").classList.add("show")
-    })
+const loginBtn = document.querySelector("#btn02");
+if (loginBtn) {
+	loginBtn.addEventListener("click", (event) => {
+		document.querySelectorAll(".page").forEach((page) => page.classList.remove("show"));
+		document.querySelector("#page03").classList.add("show")
+	})
 }
 
-const p2Btn = document.querySelector("#p2Btn");
-if (p2Btn) {
-    p2Btn.addEventListener("click", (event) => {
-        document.querySelectorAll(".page").forEach((page) => page.classList.remove("show"));
-        document.querySelector("#page2").classList.add("show");
-    })
+// Start page 03 : Welcome message + Create playlist Button ====
+
+const createPlaylistBtn = document.querySelector("#btn03");
+if (createPlaylistBtn) {
+	createPlaylistBtn.addEventListener("click", (event) => {
+		document.querySelectorAll(".page").forEach((page) => page.classList.remove("show"));
+		document.querySelector("#page04").classList.add("show")
+	})
 }
 
-const p3Btn = document.querySelector("#p3Btn");
-if (p3Btn) {
-    p3Btn.addEventListener("click", (event) => {
-        document.querySelectorAll(".page").forEach((page) => page.classList.remove("show"));
-        document.querySelector("#page3").classList.add("show")
-    })
+// Start page 04 : Form Input Playlist Name ====================
+
+const getNameBtn = document.querySelector("#btn04");
+if (getNameBtn) {
+	getNameBtn.addEventListener("click", (event) => {
+		document.querySelectorAll(".page").forEach((page) => page.classList.remove("show"));
+		document.querySelector("#page05").classList.add("show")
+	})
 }
 
-const p4Btn = document.querySelector("#p4Btn");
-if (p4Btn) {
-    p4Btn.addEventListener("click", (event) => {
-        document.querySelectorAll(".page").forEach((page) => page.classList.remove("show"));
-        document.querySelector("#page4").classList.add("show")
-    })
+// Start page 05 : Add Genres (Max 4) ==========================
+
+const getGenresBtn = document.querySelector("#btn05");
+if (getGenresBtn) {
+	getGenresBtn.addEventListener("click", (event) => {
+		document.querySelectorAll(".page").forEach((page) => page.classList.remove("show"));
+		document.querySelector("#page06").classList.add("show")
+	})
 }
 
-const p5Btn = document.querySelector("#p5Btn");
-if (p5Btn) {
-    p5Btn.addEventListener("click", (event) => {
-        document.querySelectorAll(".page").forEach((page) => page.classList.remove("show"));
-        document.querySelector("#page5").classList.add("show")
-    })
+// Start page 06 : Add country + Generate Playlist Button ======
+
+const generateBtn = document.querySelector("#btn06");
+if (generateBtn) {
+	generateBtn.addEventListener("click", (event) => {
+		document.querySelectorAll(".page").forEach((page) => page.classList.remove("show"));
+		document.querySelector("#page07").classList.add("show")
+	})
 }
 
-const p6Btn = document.querySelector("#p6Btn");
-if (p6Btn) {
-    p6Btn.addEventListener("click", (event) => {
-        document.querySelectorAll(".page").forEach((page) => page.classList.remove("show"));
-        document.querySelector("#page6").classList.add("show")
-    })
+// Start page 07 : Generating playlist Waiting page ===========
+
+const generateDoneBtn = document.querySelector("#page07");
+if (generateDoneBtn) {
+	generateDoneBtn.addEventListener("click", (event) => {
+		document.querySelectorAll(".page").forEach((page) => page.classList.remove("show"));
+		document.querySelector("#page08").classList.add("show")
+	})
 }
 
-const p7Btn = document.querySelector("#p7Btn");
-if (p7Btn) {
-    p7Btn.addEventListener("click", (event) => {
-        document.querySelectorAll(".page").forEach((page) => page.classList.remove("show"));
-        document.querySelector("#page7").classList.add("show")
-    })
+// Start page 08 : Display playlist + Transfer to Spotify Button
+
+const transferBtn = document.querySelector("#btn08");
+if (transferBtn) {
+	transferBtn.addEventListener("click", (event) => {
+		document.querySelectorAll(".page").forEach((page) => page.classList.remove("show"));
+		document.querySelector("#page09").classList.add("show")
+	})
 }
+
+// Start page 09 : Start page 09 : Transferring to Spotify Waiting Page
+
+const transferDoneBtn = document.querySelector("#page09");
+if (transferDoneBtn) {
+	transferDoneBtn.addEventListener("click", (event) => {
+		document.querySelectorAll(".page").forEach((page) => page.classList.remove("show"));
+		document.querySelector("#page10").classList.add("show")
+	})
+}
+
+// Start page 10 : Playlist transferred + Button to return to 
+// create new playlist (#page04) ===============================
+
+// it uses same btn03 Event Listener from page03
