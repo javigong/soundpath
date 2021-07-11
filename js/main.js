@@ -1,3 +1,60 @@
+let access_token = null;
+
+function getAccessToken() {
+  access_token = sessionStorage.getItem("accessToken");
+
+  if (access_token === null) {
+    if (window.location.hash) {
+      console.log("Getting Access Token");
+
+      var hash = window.location.hash.substring(1);
+      var accessString = hash.indexOf("&");
+
+      /* 13 because that bypasses 'access_token' string */
+      access_token = hash.substring(13, accessString);
+      console.log("Access Token: " + access_token);
+
+      /* If first visit or regaining token, store it in session. */
+      if (typeof Storage !== "undefined") {
+        /* Store the access token */
+        sessionStorage.setItem("accessToken", access_token); // store token.
+
+        /* To see if we need a new token later. */
+        sessionStorage.setItem("tokenTimeStamp", secondsSinceEpoch);
+
+        /* Token expire time */
+        sessionStorage.setItem("tokenExpireStamp", secondsSinceEpoch + 3600);
+        console.log(
+          "Access Token Time Stamp: " +
+            sessionStorage.getItem("tokenTimeStamp") +
+            " seconds\nOR: " +
+            dateNowMS +
+            "\nToken expires at: " +
+            sessionStorage.getItem("tokenExpireStamp")
+        );
+      } else {
+        alert(
+          "Your browser does not support web storage...\nPlease try another browser."
+        );
+      }
+    } else {
+      console.log("URL has no hash; no access token");
+    }
+  } else if (upTokenTime >= tokenExpireSec) {
+    console.log("Getting a new access token...Redirecting");
+
+    /* Remove session vars so we dont have to check in implicitGrantFlow */
+    sessionStorage.clear();
+
+    $(location).attr("href", "index.html"); // Get another access token, redirect back.
+  } else {
+    var timeLeft = tokenExpireSec - upTokenTime;
+    console.log(
+      "Token still valid: " + Math.floor(timeLeft / 60) + " minutes left."
+    );
+  }
+}
+
 // Start page 01 : Initial page with Soundpath Logo ==========
 
 const startBtn = document.querySelector("#page01");
@@ -19,6 +76,10 @@ if (loginBtn) {
       .querySelectorAll(".page")
       .forEach((page) => page.classList.remove("show"));
     document.querySelector("#page03").classList.add("show");
+
+    // Testing Spotify oauth
+    //implicitGrantFlow()
+    //getAccessToken();
   });
 }
 
