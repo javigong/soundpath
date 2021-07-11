@@ -1,22 +1,43 @@
+* {
+  box-sizing: border-box;
+}
 .page {
-	min-width:100vw;
-	min-height: 100vh;
-	display :none;
+  min-width: 100vw;
+  min-height: 100vh;
+  display: none;
+
+  background-color: #2b094a;
 }
 
 .page.show {
-	display: flex;
+  display: flex;
   flex-flow: column nowrap;
 }
 
-button{
-	background-color:black;
-	color: white;
-	border: none;
-	padding: 5px;
+button {
+  background-color: black;
+  color: white;
+  border: none;
+  padding: 0.3rem 1.3rem;
+  border-radius: 15px;
 
+  cursor: pointer;
 }
 
-button:active{
-	background-color:red;
+button:active {
+  background-color: red;
+}
+
+// Start page 01 : Initial page with SoundPath Logo ==========
+
+#page01 {
+  .logo {
+    width: 150px;
+  }
+
+  #content01 {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+  }
 }

@@ -351,7 +351,6 @@ template {
 /* 2. Typography =============*/
 body {
   font-family: "Qanelas", sans-serif;
-  color: white;
   text-align: center;
 }
 
@@ -365,18 +364,9 @@ a {
 }
 
 /* 4. Media ==================*/
-/* ================================================= */
-.onboarding img {
-  width: 40%;
+img {
+  max-width: 100%;
   height: auto;
-  margin: auto;
-}
-
-/* ================================================= */
-.sign-in img {
-  width: 20%;
-  height: auto;
-  margin: 1rem auto;
 }
 
 /* 5. Accessibility ==========*/
@@ -391,10 +381,15 @@ a {
 }
 
 /* 6. Elements ===============*/
+* {
+  box-sizing: border-box;
+}
+
 .page {
   min-width: 100vw;
   min-height: 100vh;
   display: none;
+  background-color: #2b094a;
 }
 
 .page.show {
@@ -406,11 +401,23 @@ button {
   background-color: black;
   color: white;
   border: none;
-  padding: 5px;
+  padding: 0.3rem 1.3rem;
+  border-radius: 15px;
+  cursor: pointer;
 }
 
 button:active {
   background-color: red;
+}
+
+#page01 .logo {
+  width: 150px;
+}
+
+#page01 #content01 {
+  display: flex;
+  justify-content: center;
+  align-content: center;
 }
 
 /* 7. Forms ==================*/
@@ -419,7 +426,7 @@ button:active {
   flex-flow: row nowrap;
 }
 
-#form05 input[type="radio"] {
+#form05 input[type="checkbox"] {
   display: none;
 }
 
@@ -427,9 +434,17 @@ button:active {
   display: inline-block;
   background-color: white;
   cursor: pointer;
+  border-radius: 5px;
+  padding: 0.3rem 1rem;
 }
 
-#form05 input[type="radio"]:checked + label {
+#form05 input[type="checkbox"]:checked + label {
   background-color: red;
+}
+
+#form05 .input-wrap {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 1rem;
 }
 /*# sourceMappingURL=style.css.map */

@@ -1,10 +1,10 @@
-// add genres form /////////////////////
+// page 05 : Add Genres ================================== -->
 
 #form05 {
   display: flex;
   flex-flow: row nowrap;
 
-  input[type="radio"] {
+  input[type="checkbox"] {
     display: none;
   }
 
@@ -12,9 +12,18 @@
     display: inline-block;
     background-color: white;
     cursor: pointer;
+
+    border-radius: 5px;
+    padding: 0.3rem 1rem;
   }
 
-  input[type="radio"]:checked + label {
+  input[type="checkbox"]:checked + label {
     background-color: red;
+  }
+
+  .input-wrap {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 1rem;
   }
 }
