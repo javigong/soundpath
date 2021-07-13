@@ -55,7 +55,8 @@ h1 {
    * 2. Show the overflow in Edge and IE.
    */
 hr {
-  box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
   /* 1 */
   height: 0;
   /* 1 */
@@ -92,7 +93,8 @@ abbr[title] {
   /* 1 */
   text-decoration: underline;
   /* 2 */
-  text-decoration: underline dotted;
+  -webkit-text-decoration: underline dotted;
+          text-decoration: underline dotted;
   /* 2 */
 }
 
@@ -239,7 +241,8 @@ fieldset {
    *    `fieldset` elements in all browsers.
    */
 legend {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   /* 1 */
   color: inherit;
   /* 2 */
@@ -273,7 +276,8 @@ textarea {
    */
 [type="checkbox"],
 [type="radio"] {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   /* 1 */
   padding: 0;
   /* 2 */
@@ -348,13 +352,78 @@ template {
   display: none;
 }
 
-/* 2. Typography =============*/
+/* 2. Forms ==================*/
+#page01 .logo {
+  width: 150px;
+}
+
+#page01 #content01 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+#page03 #btn03 {
+  border-radius: 50%;
+  padding: 0.8rem 1rem;
+  -webkit-box-shadow: 0px 3px 18px #00000052;
+          box-shadow: 0px 3px 18px #00000052;
+}
+
+#page03 p {
+  background-image: -webkit-gradient(linear, left top, right bottom, from(#4f0056), to(#110844));
+  background-image: linear-gradient(to bottom right, #4f0056, #110844);
+  padding: 2rem;
+}
+
+#page04 #btnBack04 {
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 0.8rem 1rem;
+  -webkit-box-shadow: 0px 3px 18px #00000052;
+          box-shadow: 0px 3px 18px #00000052;
+  background-image: none;
+}
+
+#page04 .navbar-bottom {
+  margin-top: 20px;
+}
+
+#page04 #name {
+  background-color: rgba(0, 0, 0, 0.1);
+  border: none;
+  border-bottom: 1px solid #c42bd7;
+}
+
+#page05 #btnBack05 {
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 0.8rem 1rem;
+  -webkit-box-shadow: 0px 3px 18px #00000052;
+          box-shadow: 0px 3px 18px #00000052;
+  background-image: none;
+}
+
+#page05 .genre-element label {
+  background-color: #110844;
+  padding: 0.5rem 1rem;
+  text-transform: uppercase;
+  color: #ffffff;
+  border-radius: 10rem;
+  font-weight: lighter;
+}
+
+/* 3. Typography =============*/
 body {
   font-family: "Qanelas", sans-serif;
   text-align: center;
+  color: white;
 }
 
-/* 3. Navigation =============*/
+/* 4. Navigation =============*/
 ul {
   list-style: none;
 }
@@ -363,16 +432,17 @@ a {
   text-decoration: none;
 }
 
-/* 4. Media ==================*/
+/* 5. Media ==================*/
 img {
   max-width: 100%;
   height: auto;
 }
 
-/* 5. Accessibility ==========*/
+/* 6. Accessibility ==========*/
 .visually-hidden {
   clip: rect(0 0 0 0);
-  clip-path: inset(50%);
+  -webkit-clip-path: inset(50%);
+          clip-path: inset(50%);
   height: 1px;
   overflow: hidden;
   position: absolute;
@@ -380,21 +450,28 @@ img {
   width: 1px;
 }
 
-/* 6. Elements ===============*/
+/* 7. Elements ===============*/
 * {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 .page {
   min-width: 100vw;
   min-height: 100vh;
   display: none;
-  background-color: #2b094a;
+  background-image: -webkit-gradient(linear, left top, right bottom, from(#110844), to(#4f0056));
+  background-image: linear-gradient(to bottom right, #110844, #4f0056);
 }
 
 .page.show {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-flow: column nowrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
 }
 
 button {
@@ -404,26 +481,23 @@ button {
   padding: 0.3rem 1.3rem;
   border-radius: 15px;
   cursor: pointer;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#c42bd7), color-stop(#d465a1), to(#e59c6f));
+  background-image: linear-gradient(#c42bd7, #d465a1, #e59c6f);
 }
 
 button:active {
   background-color: red;
 }
 
-#page01 .logo {
-  width: 150px;
-}
-
-#page01 #content01 {
-  display: flex;
-  justify-content: center;
-  align-content: center;
-}
-
-/* 7. Forms ==================*/
+/* 8. Forms ==================*/
 #form05 {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-flow: row nowrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
 }
 
 #form05 input[type="checkbox"] {
@@ -443,8 +517,13 @@ button:active {
 }
 
 #form05 .input-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-flow: row wrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
   gap: 1rem;
 }
 /*# sourceMappingURL=style.css.map */
