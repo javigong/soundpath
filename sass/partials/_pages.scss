@@ -37,9 +37,35 @@
         background-image: none;
     }
 
+    .navbar-bottom {
+        margin-top: 20px;
+    }
+
     #name {
         background-color: rgba(0, 0, 0, 0.1);
         border: none;
         border-bottom: 1px solid #c42bd7;
+    }
+}
+
+// // Start page 05 : Create New Playlist, Genres ==========
+
+#page05 {
+    #btnBack05 {
+        background-color: rgba(0, 0, 0, 0.1);
+        padding: 0.8rem 1rem;
+        box-shadow: 0px 3px 18px #00000052;
+        background-image: none;
+    }
+
+    .genre-element {
+        label {
+            background-color: #110844;
+            padding: 0.5rem 1rem;
+            text-transform: uppercase;
+            color: #ffffff;
+            border-radius: 10rem;
+            font-weight: lighter;
+        }
     }
 }
