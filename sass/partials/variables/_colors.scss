@@ -2,8 +2,8 @@ $color_accent: #e59c6f;
 $color_dark_tone: #110844;
 $color_mid_tone: #4f0056;
 $color_high_tone: #c42bd7;
-// $color_gradient_clear:;
-// $color_gradient_dark:;
-// $color_gradient_button:;
+$color_gradient_clear: linear-gradient(to bottom right, #4f0056, #110844);
+$color_gradient_dark: linear-gradient(to bottom right, #110844, #4f0056);
+$color_gradient_button: linear-gradient(#c42bd7, #d465a1, #e59c6f);
 
-$color_gradient_bg: #2b094a;;
+$color_gradient_bg: #2b094a;
