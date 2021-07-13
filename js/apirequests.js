@@ -1,15 +1,15 @@
-/////////////////////////////////////////////////////////////////////
-//                         API REQUESTS                            //
-/////////////////////////////////////////////////////////////////////
+// ================================================================== //
+//                   GET Playlist Recommendation                      //
+// ================================================================== //
 
-// access token /////////////////////////////////////////////////////
+// access token (temporary solution until oAuth implementation):
 
 let access_token =
-  "BQA41RuCojGDOgr_qq4qruALMYUd8_cxsA2PjsM9b1E78Xx9x4aFgHagSxsQN1cjxVGBh4pGjcKL9i-rtQ0elabanTQ3-Sx9WO6w6uY4DMaBvO4tPy_c6zI49DZ-pf3WvMtS8jOLLT4G5K1lzYf1WVxTptc";
+  "BQAwJbLCwS3GgBSLZWjxitJ1LuS_xx1XwUrf0cfe5q36jdaTffStYbNYzbGRnHAPMyxc-TZ7ozzE3o2ECYDFLMrPLz2_NOSYOvh8e34Y0xLmJHLVShfLVlbsq_SGDrbFvD1THRmXhJ5WKSUn8HBQSVo5c3w";
 
-// Parameters to GET Song Recommendations ///////////////////////////
+// Parameters to GET Song Recommendations =========================== //
 
-// default values:
+// Testing Parameters (Values need to come from UI form inputs):
 
 let songLimit = 25;
 let market = "US";
@@ -18,39 +18,44 @@ let genre2 = "pop";
 let genre3 = "folk";
 let genre4 = "chill";
 
-let getRecomURL = `https://api.spotify.com/v1/recommendations?limit=${songLimit}&market=${market}&seed_genres=${genre1}%2C${genre2}%2C${genre3}%2C${genre4}`;
-
-// Get Request: Recommendations Based on Seeds //////////////////////
+// Get Request: Recommendations Based on Seeds ====================== //
 // https://developer.spotify.com/console/get-recommendations/
 
-// Store Song Objects in an Array ///////////////////////////////////
+// API Endpoint URL:
+
+let getRecommendationsURL = `https://api.spotify.com/v1/recommendations?limit=${songLimit}&market=${market}&seed_genres=${genre1}%2C${genre2}%2C${genre3}%2C${genre4}`;
+
+// New Array to store Playlist:
 
 let songsArray = [];
 
-// Async Function to GET Playlist Recommendation ////////////////////
+// Async Function to GET Playlist Recommendation ==================== //
 
 async function getRecommendedSongs() {
-  const res = await fetch(getRecomURL, {
+  // Fetch from the api endpoint to get playlist
+  const res = await fetch(getRecommendationsURL, {
     headers: {
       Accept: "application/json",
       Authorization: `Bearer ${access_token}`,
       "Content-Type": "application/json",
     },
   });
+  // Parse the JSON playlist to an array of objects
   const data = await res.json();
+  // Store the playlist data, just the tracks
   songsArray = data.tracks;
   console.log(songsArray);
 
-  // For Loop to Populate Playlist //////////////////////////////////
+  // For Loop to Populate Playlist ================ //
   for (let i = 0; i < songsArray.length; i++) {
     const thisSong = songsArray[i];
 
-    // define new song output element /////////////////////
+    // Define new song output element:
 
     let songOutput = document.createElement("ul");
     songOutput.classList.add("songOutput");
 
-    // append song cover //////////////////////////////////
+    // Append song cover:
 
     let coverElement = document.createElement("li");
     let songCover = document.createElement("img");
@@ -60,7 +65,7 @@ async function getRecommendedSongs() {
     coverElement.append(songCover);
     songOutput.append(coverElement);
 
-    // append song title //////////////////////////////////
+    // Append song title:
 
     let titleElement = document.createElement("li");
     titleElement.classList.add("titleElement");
@@ -69,7 +74,7 @@ async function getRecommendedSongs() {
     titleElement.append(songTitle);
     songOutput.append(titleElement);
 
-    // append song artist /////////////////////////////////
+    // Append song artist:
 
     let artistElement = document.createElement("li");
     artistElement.classList.add("artistElement");
@@ -78,7 +83,8 @@ async function getRecommendedSongs() {
     artistElement.append(songArtist);
     songOutput.append(artistElement);
 
-    // append songs duration //////////////////////////////
+    // Append songs duration:
+    // (Need to convert from milliseconds to minutes:seconds)
 
     let songElement = document.createElement("li");
     songElement.classList.add("songElement");
@@ -87,14 +93,16 @@ async function getRecommendedSongs() {
     songElement.append(songDurationMs);
     songOutput.append(songElement);
 
-    // append songOutput to index.html output /////////////
+    // Append songOutput to UI output:
 
     output.append(songOutput);
   }
+  // end For Loop to Populate Playlist ============= //
 }
+// end Async Function to GET Playlist Recommendation ================ //
 
-// Invoke Async Function to GET Playlist Recommendation ///
+// Invoke Async Function to GET Playlist Recommendation:
 
 getRecommendedSongs();
 
-// end ////////////////////////////////////////////////////
+// end GET Playlist Recommendation  ================================ //
