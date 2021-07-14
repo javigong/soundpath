@@ -3,10 +3,24 @@
 //                   OAuth 2.0 Authentication Flow                       //
 // ================================================================== //
 
+/* KNOWN ISSUES:
+	To find out how to redirect the user to a specific page 
+	instead of keeping showing the others as well.
+	
+*/
+
+/* TO MAKE THIS WORK:
+
+Replace the client_id & client_secret with your own credentials.
+
+*/
+
+
+
 let redirect_uri = "http://127.0.0.1:5501/index.html";
 
-let client_id = "31db226f23454e7eaca8e03c74077d04"; 
-let client_secret = "f871ad0c146147a180c47af75790e048"; 
+let client_id = "<YOUR CLIENT ID HERE"; 
+let client_secret = "<YOUR CLIENT SECRET HERE>"; 
 
 let access_token = null;
 
@@ -15,7 +29,10 @@ const TOKEN = "https://accounts.spotify.com/api/token";
 
 // Evaluation to be made on every page once it loads.
 // If we have a token, take the user to the next page.
-// If we do not have a token, do 
+// If we do not have a token, have the user to be sent to the first page.
+
+//** I believe the KNOWN ISSUE lies here */
+
 function onPageLoad(){
 	client_id = localStorage.getItem("client_id");
 	client_secret = localStorage.getItem("client_secret");
@@ -34,6 +51,10 @@ function onPageLoad(){
 		 }
 	}
 }
+
+// handleRedirect() & getCode()
+//Will get the value of 'code=XYZ' from the URL Address Bar and store inside the variable 'code'
+
 
 function handleRedirect(){
 	let code = getCode();
@@ -64,11 +85,12 @@ function fetchAccessToken( code ){
 	callAuthorizationApi(body);
 }
 
-// Take user to Spotify's AUthorization Screen
+// Takes the user to Spotify's AUthorization Screen
 
 function requestAuthorization(){
-	client_id = "31db226f23454e7eaca8e03c74077d04";
-	client_secret = "f871ad0c146147a180c47af75790e048";
+	// PS* I dont know why but you need to repeat the variables' values here. They don't
+	client_id = "<YOUR CLIENT ID HERE>";
+	client_secret = "< YOUR CLIENT SECRET HERE>;
 	localStorage.setItem("client_id", client_id);
 	localStorage.setItem("client_secret", client_secret); // In a real app you should not expose your client_secret to the user
 
@@ -78,8 +100,12 @@ function requestAuthorization(){
 	url += "&redirect_uri=" + encodeURI(redirect_uri);
 	url += "&show_dialog=true";
 	url += "&scope=user-read-private user-read-email user-modify-playback-state user-read-playback-position user-library-read streaming user-read-playback-state user-read-recently-played playlist-read-private";
-	window.location.href = url; // Show Spotify's authorization screen
+	window.location.href = url; 
 }
+
+// TOKEN REFRESHER ===============================
+
+// Creates the ENDPOINT + Parameters to obtain the Refresh Token
 
 function refreshAccessToken(){
     refresh_token = localStorage.getItem("refresh_token");
@@ -88,6 +114,8 @@ function refreshAccessToken(){
     body += "&client_id=" + client_id;
     callAuthorizationApi(body);
 }
+
+// XMLHTTP Request to POST the recently created ENDPOINTand calls the other function handleAUthorizaitonResopnse
 
 function callAuthorizationApi(body){
 	let xhr = new XMLHttpRequest();
@@ -98,11 +126,12 @@ function callAuthorizationApi(body){
 	xhr.onload = handleAuthorizationResponse;
 }
 
+//  Stores access / refresh tokens.
+
 function handleAuthorizationResponse(){
 	if ( this.status == 200 ){
 		 var data = JSON.parse(this.responseText);
 		 console.log(data);
-		 var data = JSON.parse(this.responseText);
 		 if ( data.access_token != undefined ){
 			  access_token = data.access_token;
 			  localStorage.setItem("access_token", access_token);
@@ -115,7 +144,6 @@ function handleAuthorizationResponse(){
 	}
 	else {
 		 console.log(this.responseText);
-		//  alert(this.responseText);
 	}
 }
 
