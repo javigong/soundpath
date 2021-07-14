@@ -11,12 +11,12 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     />
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="js/oauth.js" defer></script>
     <script src="js/apirequests.js" defer></script>
+    <script src="js/oauth.js" defer></script>
     <script src="js/main.js" defer></script>
     <title>SoundPath PWA</title>
   </head>
-  <body>
+  <body onload="onPageLoad()">
     <main>
       <!-- Start page 01 : Initial page with Soundpath Logo ========== -->
 
@@ -26,6 +26,7 @@
             <img class="logo" src="img/soundpath_logo.png" alt="Soundpath logo" />
           </div>
         </div>
+          <button   id="login"> CONNECT WITH SPOTIFY</button>
       </div>
 
       <!-- end page 01 ================================================= -->
@@ -34,7 +35,7 @@
 
       <div class="page" id="page02">
         <div class="content" id="content02">
-          <button class="btn" id="btn02">Login with Spotify</button>
+          <button class="btn" onclick = "requestAuthorization()"id="btn02">Login with Spotify</button>
         </div>
       </div>
 
@@ -172,7 +173,7 @@
 
         </div>
         <div class="navbar-bottom" id="navbarBottom06">
-          <button class="btn" id="btn06">Generate Playlist</button>
+          <button class="btn" onclick="getRecommendedSongs()" id="btn06">Generate Playlist</button>
         </div>
       </div>
 
