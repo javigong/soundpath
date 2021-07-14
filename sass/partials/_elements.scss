@@ -1,0 +1,30 @@
+* {
+    box-sizing: border-box;
+}
+.page {
+    min-width: 100vw;
+    min-height: 100vh;
+    display: none;
+
+    background-image: $color_gradient_dark;
+}
+
+.page.show {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+button {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 0.3rem 1.3rem;
+    border-radius: 15px;
+
+    cursor: pointer;
+    background-image: $color_gradient_button;
+}
+
+button:active {
+    background-color: red;
+}
