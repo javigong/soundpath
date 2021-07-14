@@ -12,6 +12,12 @@
     }
 }
 
+// Start page 02 : Login With Spotify ==========
+
+#btn02 {
+    margin: 5rem;
+}
+
 // Start page 03 : Greetings, create a new playlist ==========
 
 #page03 {
@@ -48,7 +54,7 @@
     }
 }
 
-// // Start page 05 : Create New Playlist, Genres ==========
+// Start page 05 : Create New Playlist, Genres ==========
 
 #page05 {
     #btnBack05 {
@@ -67,5 +73,50 @@
             border-radius: 10rem;
             font-weight: lighter;
         }
+
+        label:active {
+            background-color: #ffffff;
+            color: #c42bd7;
+        }
+    }
+
+    .navbar-bottom {
+        margin-top: 20px;
+    }
+}
+
+// Start page 06 : Create New Playlist, Genres ==========
+
+#page06 {
+    #btnBack06 {
+        background-color: rgba(0, 0, 0, 0.1);
+        padding: 0.8rem 1rem;
+        box-shadow: 0px 3px 18px #00000052;
+        background-image: none;
+    }
+
+    .navbar-bottom {
+        margin-top: 20px;
+    }
+
+    #form05 {
+        margin-left: 45%;
+    }
+}
+
+// Start page 08 : Playlist ==========
+
+#page08 {
+    #btnBack08 {
+        background-color: rgba(0, 0, 0, 0.1);
+        padding: 0.8rem 1rem;
+        box-shadow: 0px 3px 18px #00000052;
+        background-image: none;
+    }
+
+    #outputList {
+        display: flex;
+        flex-flow: column nowrap;
+        gap: 1rem;
     }
 }
