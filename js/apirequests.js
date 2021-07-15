@@ -4,8 +4,35 @@
 
 // access token (temporary solution until oAuth implementation):
 
-let access_token =
-  "BQDRxF9nf3pZmpcgaimGgohN4NQJjvyvmnLBpzye9eGvprksjSf9sxEDgMCn-dHxNvc36OOLaRwkStFgT73Mln0xzsdS7msvxP3yJMsee6au86hfKlWKYvLggMCi_YN0cD6AoRvztD9-fszCI1MHZFjiYVg";
+// let access_token =
+//   "BQDRxF9nf3pZmpcgaimGgohN4NQJjvyvmnLBpzye9eGvprksjSf9sxEDgMCn-dHxNvc36OOLaRwkStFgT73Mln0xzsdS7msvxP3yJMsee6au86hfKlWKYvLggMCi_YN0cD6AoRvztD9-fszCI1MHZFjiYVg";
+
+// Get Access Token function ======================================== //
+
+const clientID = "ea6dbfb6ca0e451e8fa3da6cfc97b5c7";
+// const redirectURI = '____';
+const redirectURI = "http://localhost:5501/";
+let accessToken;
+
+function getAccessToken() {
+  
+  const accessTokenMatch = window.location.href.match(/access_token=([^&]*)/);
+  const expiresInMatch = window.location.href.match(/expires_in=([^&]*)/);
+
+  if (accessTokenMatch && expiresInMatch) {
+    accessToken = accessTokenMatch[1];
+    const expiresIn = Number(expiresInMatch[1]);
+    // Clears Parameters From URL
+    window.setTimeout(() => (accessToken = ""), expiresIn * 1000);
+    window.history.pushState("Access Token", null, "/");
+    return accessToken;
+  } else {
+    const accessUrl = `https://accounts.spotify.com/authorize?client_id=${clientID}&response_type=token&scope=playlist-modify-public&redirect_uri=${redirectURI}`;
+    window.location = accessUrl;
+    
+  }
+  console.log(accessToken);
+}
 
 // Parameters to GET Song Recommendations =========================== //
 
@@ -36,7 +63,7 @@ async function getRecommendedSongs() {
   const res = await fetch(getRecommendationsURL, {
     headers: {
       Accept: "application/json",
-      Authorization: `Bearer ${access_token}`,
+      Authorization: `Bearer ${accessToken}`,
       "Content-Type": "application/json",
     },
   });
@@ -103,6 +130,6 @@ async function getRecommendedSongs() {
 
 // Invoke Async Function to GET Playlist Recommendation:
 
-getRecommendedSongs();
+// getRecommendedSongs();
 
 // end GET Playlist Recommendation  ================================ //

@@ -2,6 +2,7 @@
 
 const startBtn = document.querySelector("#page01");
 if (startBtn) {
+  getAccessToken();
   startBtn.addEventListener("click", (event) => {
     document
       .querySelectorAll(".page")
@@ -20,7 +21,7 @@ if (loginBtn) {
       .forEach((page) => page.classList.remove("show"));
     document.querySelector("#page03").classList.add("show");
 
-    // Testing Spotify oauth
+    //Testing Spotify oauth
     //implicitGrantFlow()
     //getAccessToken();
   });
