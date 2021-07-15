@@ -3,6 +3,7 @@
 const startBtn = document.querySelector("#page01");
 if (startBtn) {
   getAccessToken();
+  getAccessToken();
   startBtn.addEventListener("click", (event) => {
     document
       .querySelectorAll(".page")
@@ -87,6 +88,7 @@ if (goBack05Btn) {
 
 const generateBtn = document.querySelector("#btn06");
 if (generateBtn) {
+  getRecommendedSongs();
   generateBtn.addEventListener("click", (event) => {
     document
       .querySelectorAll(".page")

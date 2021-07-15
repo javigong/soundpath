@@ -15,7 +15,10 @@ const redirectURI = "http://localhost:5501/";
 let accessToken;
 
 function getAccessToken() {
-  
+  if (accessToken) {
+    console.log(accessToken);
+    return accessToken;
+  }
   const accessTokenMatch = window.location.href.match(/access_token=([^&]*)/);
   const expiresInMatch = window.location.href.match(/expires_in=([^&]*)/);
 
@@ -29,9 +32,7 @@ function getAccessToken() {
   } else {
     const accessUrl = `https://accounts.spotify.com/authorize?client_id=${clientID}&response_type=token&scope=playlist-modify-public&redirect_uri=${redirectURI}`;
     window.location = accessUrl;
-    
   }
-  console.log(accessToken);
 }
 
 // Parameters to GET Song Recommendations =========================== //
