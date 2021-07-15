@@ -11,7 +11,7 @@
 
 const clientID = "ea6dbfb6ca0e451e8fa3da6cfc97b5c7";
 // const redirectURI = '____';
-const redirectURI = "http://localhost:5501/";
+const redirectURI = "http://localhost:5500/";
 let accessToken;
 
 function getAccessToken() {
@@ -29,6 +29,7 @@ function getAccessToken() {
     window.setTimeout(() => (accessToken = ""), expiresIn * 1000);
     window.history.pushState("Access Token", null, "/");
     return accessToken;
+    console.log(accessToken);
   } else {
     const accessUrl = `https://accounts.spotify.com/authorize?client_id=${clientID}&response_type=token&scope=playlist-modify-public&redirect_uri=${redirectURI}`;
     window.location = accessUrl;
@@ -60,6 +61,7 @@ let songsArray = [];
 // Async Function to GET Playlist Recommendation ==================== //
 
 async function getRecommendedSongs() {
+  getAccessToken();
   // Fetch from the api endpoint to get playlist
   const res = await fetch(getRecommendationsURL, {
     headers: {
