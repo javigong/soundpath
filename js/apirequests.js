@@ -9,9 +9,9 @@
 
 // Get Access Token function ======================================== //
 
-const clientID = "ea6dbfb6ca0e451e8fa3da6cfc97b5c7";
+const clientID = "ea6dbfb6ca0e451e8fa3da6cfc97b5c7"; // ADD YOUR CLIENT ID
 // const redirectURI = '____';
-const redirectURI = "http://localhost:5500/";
+const redirectURI = "http://localhost:5500/"; // ADD TO YOUR LOCAL SERVER
 let accessToken;
 
 function getAccessToken() {

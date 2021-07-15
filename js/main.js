@@ -86,8 +86,8 @@ if (goBack05Btn) {
 
 const generateBtn = document.querySelector("#btn06");
 if (generateBtn) {
-  getRecommendedSongs();
   generateBtn.addEventListener("click", (event) => {
+    getRecommendedSongs();
     document
       .querySelectorAll(".page")
       .forEach((page) => page.classList.remove("show"));
