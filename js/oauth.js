@@ -16,11 +16,11 @@ Replace the client_id & client_secret with your own credentials.
 */
 
 
-
 let redirect_uri = "http://127.0.0.1:5501/index.html";
 
-let client_id = "<YOUR CLIENT ID HERE"; 
-let client_secret = "<YOUR CLIENT SECRET HERE>"; 
+
+let client_id = "Your Client ID here"; 
+let client_secret = "your Client Secret here"; 
 
 let access_token = null;
 
@@ -43,25 +43,27 @@ function onPageLoad(){
 		 access_token = localStorage.getItem("access_token");
 		 if ( access_token == null ){
 			 //If we dont have an ACCESS TOKEN,keep user on the First Page.
-			  document.getElementById("page01").style.display = 'block';  
+			//  document.getElementById("page01").style.display = 'block'; 
+			 
+			  setTimeout(requestAuthorization,2000);
 		 }
 		 else {
 			  // If we DO have an ACCESS TOKEN, take the user to the next Page.
-			  document.getElementById("page03").style.display = 'block';  
+		
+			  document.getElementById("page03").style.display = 'block';
+			  document.getElementById("page03").scrollIntoView();  
+			  
 		 }
 	}
 }
-
 // handleRedirect() & getCode()
 //Will get the value of 'code=XYZ' from the URL Address Bar and store inside the variable 'code'
-
 
 function handleRedirect(){
 	let code = getCode();
 	fetchAccessToken( code );
 	window.history.pushState("", "", redirect_uri); // remove param from url
 }
-
 function getCode(){
     let code = null;
     const queryString = window.location.search;
@@ -71,7 +73,6 @@ function getCode(){
     }
     return code;
 }
-
 // Builds  Spotify's Authorization ENDPOINT + parameters
 //							 &
 // Calls the Authorization function
@@ -84,13 +85,12 @@ function fetchAccessToken( code ){
 	body += "&client_secret=" + client_secret;
 	callAuthorizationApi(body);
 }
-
 // Takes the user to Spotify's AUthorization Screen
 
 function requestAuthorization(){
-	// PS* I dont know why but you need to repeat the variables' values here. They don't
-	client_id = "<YOUR CLIENT ID HERE>";
-	client_secret = "< YOUR CLIENT SECRET HERE>;
+	// PS* Need to repeat the variable values here.
+	client_id = "Your Client ID here";
+	client_secret = "Your Client Secret here";
 	localStorage.setItem("client_id", client_id);
 	localStorage.setItem("client_secret", client_secret); // In a real app you should not expose your client_secret to the user
 
