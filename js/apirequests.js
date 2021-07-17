@@ -5,7 +5,7 @@
 // access token (temporary solution until oAuth implementation):
 
 let access_token =
-  "BQDpEBRYM2wIE_XKLBF1huW7Xm-ostsaWMUl1aoz1ZPKuPlbhzEF3r-4tg1LsHUP8BjlI7YO8lR4GNlP_baMKHAhFxWcraCfLkFL3-VDc6XIIYduYOdUfxgGBi0iI4deljOQsGv298MP-9IZkYV-G3LvHOGCJYOGkHHf";
+  "BQBhcqMgNCT48aeUV2dOmZ404v3yGsuXrkoTvKM8yq15Y_F1_XHVwZYtSTpDfqSgzQ_rkJoQV8z7AF3l5J6myMOP0GKfbIgyI9kKXkkEfdLtoZea1uvQ091o2tE712yi5Qcu3b4IrvIKJtHeAWqi_XkUEZaL8gnPieFt";
 
 // Parameters to GET Song Recommendations =========================== //
 

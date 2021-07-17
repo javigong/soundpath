@@ -473,6 +473,7 @@ template {
   grid-column: 2/3;
   justify-self: start;
   font-size: 19px;
+  text-align: left;
 }
 .songOutput .artistElement {
   grid-row: 2/3;
