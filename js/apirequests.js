@@ -4,8 +4,37 @@
 
 // access token (temporary solution until oAuth implementation):
 
-let access_token =
-  "BQDRxF9nf3pZmpcgaimGgohN4NQJjvyvmnLBpzye9eGvprksjSf9sxEDgMCn-dHxNvc36OOLaRwkStFgT73Mln0xzsdS7msvxP3yJMsee6au86hfKlWKYvLggMCi_YN0cD6AoRvztD9-fszCI1MHZFjiYVg";
+// let access_token =
+//   "BQDRxF9nf3pZmpcgaimGgohN4NQJjvyvmnLBpzye9eGvprksjSf9sxEDgMCn-dHxNvc36OOLaRwkStFgT73Mln0xzsdS7msvxP3yJMsee6au86hfKlWKYvLggMCi_YN0cD6AoRvztD9-fszCI1MHZFjiYVg";
+
+// Get Access Token function ======================================== //
+
+const clientID = "ea6dbfb6ca0e451e8fa3da6cfc97b5c7"; // ADD YOUR CLIENT ID
+// const redirectURI = '____';
+const redirectURI = "http://localhost:5500/"; // ADD TO YOUR LOCAL SERVER
+let accessToken;
+
+function getAccessToken() {
+  if (accessToken) {
+    console.log(accessToken);
+    return accessToken;
+  }
+  const accessTokenMatch = window.location.href.match(/access_token=([^&]*)/);
+  const expiresInMatch = window.location.href.match(/expires_in=([^&]*)/);
+
+  if (accessTokenMatch && expiresInMatch) {
+    accessToken = accessTokenMatch[1];
+    const expiresIn = Number(expiresInMatch[1]);
+    // Clears Parameters From URL
+    window.setTimeout(() => (accessToken = ""), expiresIn * 1000);
+    window.history.pushState("Access Token", null, "/");
+    return accessToken;
+    console.log(accessToken);
+  } else {
+    const accessUrl = `https://accounts.spotify.com/authorize?client_id=${clientID}&response_type=token&scope=playlist-modify-public&redirect_uri=${redirectURI}`;
+    window.location = accessUrl;
+  }
+}
 
 // Parameters to GET Song Recommendations =========================== //
 
@@ -32,11 +61,12 @@ let songsArray = [];
 // Async Function to GET Playlist Recommendation ==================== //
 
 async function getRecommendedSongs() {
+  getAccessToken();
   // Fetch from the api endpoint to get playlist
   const res = await fetch(getRecommendationsURL, {
     headers: {
       Accept: "application/json",
-      Authorization: `Bearer ${access_token}`,
+      Authorization: `Bearer ${accessToken}`,
       "Content-Type": "application/json",
     },
   });
@@ -103,6 +133,52 @@ async function getRecommendedSongs() {
 
 // Invoke Async Function to GET Playlist Recommendation:
 
-getRecommendedSongs();
+// getRecommendedSongs();
 
 // end GET Playlist Recommendation  ================================ //
+
+// Async Function to GET User ID, Playlist Name and Save Playlist == //
+
+// Parameters
+let playlistName = "My New Playlist Test";
+
+function savePlaylist(playlistName, uriArr) {
+  if (!playlistName || !uriArr.length) {
+      return;
+  }
+  const accessToken = getAccessToken();
+  const headers = { Authorization: `Bearer ${accessToken}` };
+  let userId;
+
+  return fetch(`https://api.spotify.com/v1/me`, {
+      headers: headers,
+  })
+      .then((response) => {
+          return response.json();
+      })
+      .then((jsonResponse) => {
+          userId = jsonResponse.id;
+          return fetch(
+              `https://api.spotify.com/v1/users/${userId}/playlists`,
+              {
+                  headers: headers,
+                  method: 'POST',
+                  body: JSON.stringify({ name: playlistName }),
+              }
+          )
+              .then((response) => {
+                  return response.json();
+              })
+              .then((jsonResponse) => {
+                  const playlistId = jsonResponse.id;
+                  return fetch(
+                      `https://api.spotify.com/v1/users/${userId}/playlists/${playlistId}/tracks`,
+                      {
+                          headers: headers,
+                          method: 'POST',
+                          body: JSON.stringify({ uris: uriArr }),
+                      }
+                  );
+              });
+      });
+}

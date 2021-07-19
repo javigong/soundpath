@@ -20,9 +20,9 @@ if (loginBtn) {
       .forEach((page) => page.classList.remove("show"));
     document.querySelector("#page03").classList.add("show");
 
-    // Testing Spotify oauth
+    //Testing Spotify oauth
     //implicitGrantFlow()
-    //getAccessToken();
+    getAccessToken();
   });
 }
 
@@ -87,6 +87,7 @@ if (goBack05Btn) {
 const generateBtn = document.querySelector("#btn06");
 if (generateBtn) {
   generateBtn.addEventListener("click", (event) => {
+    getRecommendedSongs();
     document
       .querySelectorAll(".page")
       .forEach((page) => page.classList.remove("show"));
