@@ -368,6 +368,10 @@ template {
       align-content: center;
 }
 
+#btn02 {
+  margin: 5rem;
+}
+
 #page03 #btn03 {
   border-radius: 50%;
   padding: 0.8rem 1rem;
@@ -414,6 +418,50 @@ template {
   color: #ffffff;
   border-radius: 10rem;
   font-weight: lighter;
+}
+
+#page05 .genre-element label:active {
+  background-color: #ffffff;
+  color: #c42bd7;
+}
+
+#page05 .navbar-bottom {
+  margin-top: 20px;
+}
+
+#page06 #btnBack06 {
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 0.8rem 1rem;
+  -webkit-box-shadow: 0px 3px 18px #00000052;
+          box-shadow: 0px 3px 18px #00000052;
+  background-image: none;
+}
+
+#page06 .navbar-bottom {
+  margin-top: 20px;
+}
+
+#page06 #form05 {
+  margin-left: 45%;
+}
+
+#page08 #btnBack08 {
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 0.8rem 1rem;
+  -webkit-box-shadow: 0px 3px 18px #00000052;
+          box-shadow: 0px 3px 18px #00000052;
+  background-image: none;
+}
+
+#page08 #outputList {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  gap: 1rem;
 }
 
 /* 3. Typography =============*/
@@ -485,10 +533,6 @@ button {
   background-image: linear-gradient(#c42bd7, #d465a1, #e59c6f);
 }
 
-button:active {
-  background-color: red;
-}
-
 /* 8. Forms ==================*/
 #form05 {
   display: -webkit-box;
@@ -513,7 +557,8 @@ button:active {
 }
 
 #form05 input[type="checkbox"]:checked + label {
-  background-color: red;
+  background-color: #ffffff;
+  color: #c42bd7;
 }
 
 #form05 .input-wrap {
