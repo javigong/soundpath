@@ -1,3 +1,19 @@
+// Progress bar ===============================================================
+.progress-bar {
+    height: 4px;
+    width: 100vw;
+    background: $color_mid_tone;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+}
+
+#progress1 .progress-child1,
+#progress2 .progress-child1, #progress2 .progress-child2,
+#progress3 .progress-child1, #progress3 .progress-child2, #progress3 .progress-child3 {
+    background: $color_high_tone;
+}
+
 // Start page 01 : Initial page with SoundPath Logo ==========
 
 #page01 {
