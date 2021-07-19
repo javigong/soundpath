@@ -55,8 +55,7 @@ h1 {
    * 2. Show the overflow in Edge and IE.
    */
 hr {
-  -webkit-box-sizing: content-box;
-          box-sizing: content-box;
+  box-sizing: content-box;
   /* 1 */
   height: 0;
   /* 1 */
@@ -93,8 +92,7 @@ abbr[title] {
   /* 1 */
   text-decoration: underline;
   /* 2 */
-  -webkit-text-decoration: underline dotted;
-          text-decoration: underline dotted;
+  text-decoration: underline dotted;
   /* 2 */
 }
 
@@ -200,9 +198,9 @@ select {
    * Correct the inability to style clickable types in iOS and Safari.
    */
 button,
-[type="button"],
-[type="reset"],
-[type="submit"] {
+[type=button],
+[type=reset],
+[type=submit] {
   -webkit-appearance: button;
 }
 
@@ -210,9 +208,9 @@ button,
    * Remove the inner border and padding in Firefox.
    */
 button::-moz-focus-inner,
-[type="button"]::-moz-focus-inner,
-[type="reset"]::-moz-focus-inner,
-[type="submit"]::-moz-focus-inner {
+[type=button]::-moz-focus-inner,
+[type=reset]::-moz-focus-inner,
+[type=submit]::-moz-focus-inner {
   border-style: none;
   padding: 0;
 }
@@ -221,9 +219,9 @@ button::-moz-focus-inner,
    * Restore the focus styles unset by the previous rule.
    */
 button:-moz-focusring,
-[type="button"]:-moz-focusring,
-[type="reset"]:-moz-focusring,
-[type="submit"]:-moz-focusring {
+[type=button]:-moz-focusring,
+[type=reset]:-moz-focusring,
+[type=submit]:-moz-focusring {
   outline: 1px dotted ButtonText;
 }
 
@@ -241,8 +239,7 @@ fieldset {
    *    `fieldset` elements in all browsers.
    */
 legend {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   /* 1 */
   color: inherit;
   /* 2 */
@@ -274,10 +271,9 @@ textarea {
    * 1. Add the correct box sizing in IE 10.
    * 2. Remove the padding in IE 10.
    */
-[type="checkbox"],
-[type="radio"] {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+[type=checkbox],
+[type=radio] {
+  box-sizing: border-box;
   /* 1 */
   padding: 0;
   /* 2 */
@@ -286,8 +282,8 @@ textarea {
 /**
    * Correct the cursor style of increment and decrement buttons in Chrome.
    */
-[type="number"]::-webkit-inner-spin-button,
-[type="number"]::-webkit-outer-spin-button {
+[type=number]::-webkit-inner-spin-button,
+[type=number]::-webkit-outer-spin-button {
   height: auto;
 }
 
@@ -295,7 +291,7 @@ textarea {
    * 1. Correct the odd appearance in Chrome and Safari.
    * 2. Correct the outline style in Safari.
    */
-[type="search"] {
+[type=search] {
   -webkit-appearance: textfield;
   /* 1 */
   outline-offset: -2px;
@@ -305,7 +301,7 @@ textarea {
 /**
    * Remove the inner padding in Chrome and Safari on macOS.
    */
-[type="search"]::-webkit-search-decoration {
+[type=search]::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 
@@ -353,19 +349,28 @@ template {
 }
 
 /* 2. Forms ==================*/
+.progress-bar {
+  height: 4px;
+  width: 100vw;
+  background: #4f0056;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
+}
+
+#progress1 .progress-child1,
+#progress2 .progress-child1, #progress2 .progress-child2,
+#progress3 .progress-child1, #progress3 .progress-child2, #progress3 .progress-child3 {
+  background: #c42bd7;
+}
+
 #page01 .logo {
   width: 150px;
 }
-
 #page01 #content01 {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -ms-flex-line-pack: center;
-      align-content: center;
+  justify-content: center;
+  align-content: center;
 }
 
 #btn02 {
@@ -375,12 +380,9 @@ template {
 #page03 #btn03 {
   border-radius: 50%;
   padding: 0.8rem 1rem;
-  -webkit-box-shadow: 0px 3px 18px #00000052;
-          box-shadow: 0px 3px 18px #00000052;
+  box-shadow: 0px 3px 18px #00000052;
 }
-
 #page03 p {
-  background-image: -webkit-gradient(linear, left top, right bottom, from(#4f0056), to(#110844));
   background-image: linear-gradient(to bottom right, #4f0056, #110844);
   padding: 2rem;
 }
@@ -388,15 +390,12 @@ template {
 #page04 #btnBack04 {
   background-color: rgba(0, 0, 0, 0.1);
   padding: 0.8rem 1rem;
-  -webkit-box-shadow: 0px 3px 18px #00000052;
-          box-shadow: 0px 3px 18px #00000052;
+  box-shadow: 0px 3px 18px #00000052;
   background-image: none;
 }
-
 #page04 .navbar-bottom {
   margin-top: 20px;
 }
-
 #page04 #name {
   background-color: rgba(0, 0, 0, 0.1);
   border: none;
@@ -406,11 +405,9 @@ template {
 #page05 #btnBack05 {
   background-color: rgba(0, 0, 0, 0.1);
   padding: 0.8rem 1rem;
-  -webkit-box-shadow: 0px 3px 18px #00000052;
-          box-shadow: 0px 3px 18px #00000052;
+  box-shadow: 0px 3px 18px #00000052;
   background-image: none;
 }
-
 #page05 .genre-element label {
   background-color: #110844;
   padding: 0.5rem 1rem;
@@ -419,12 +416,10 @@ template {
   border-radius: 10rem;
   font-weight: lighter;
 }
-
 #page05 .genre-element label:active {
   background-color: #ffffff;
   color: #c42bd7;
 }
-
 #page05 .navbar-bottom {
   margin-top: 20px;
 }
@@ -432,15 +427,12 @@ template {
 #page06 #btnBack06 {
   background-color: rgba(0, 0, 0, 0.1);
   padding: 0.8rem 1rem;
-  -webkit-box-shadow: 0px 3px 18px #00000052;
-          box-shadow: 0px 3px 18px #00000052;
+  box-shadow: 0px 3px 18px #00000052;
   background-image: none;
 }
-
 #page06 .navbar-bottom {
   margin-top: 20px;
 }
-
 #page06 #form05 {
   margin-left: 45%;
 }
@@ -448,20 +440,49 @@ template {
 #page08 #btnBack08 {
   background-color: rgba(0, 0, 0, 0.1);
   padding: 0.8rem 1rem;
-  -webkit-box-shadow: 0px 3px 18px #00000052;
-          box-shadow: 0px 3px 18px #00000052;
+  box-shadow: 0px 3px 18px #00000052;
   background-image: none;
 }
-
 #page08 #outputList {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column nowrap;
-          flex-flow: column nowrap;
+  flex-flow: column nowrap;
   gap: 1rem;
+}
+
+.output-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.songOutput {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  width: 600px;
+  height: 50px;
+}
+.songOutput .coverElement {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  grid-row: 1/3;
+  grid-column: 1/2;
+}
+.songOutput .titleElement {
+  grid-row: 1/2;
+  grid-column: 2/3;
+  justify-self: start;
+  font-size: 19px;
+  text-align: left;
+}
+.songOutput .artistElement {
+  grid-row: 2/3;
+  grid-column: 2/3;
+  justify-self: start;
+  font-size: 16px;
+}
+.songOutput .artistElement::before {
+  content: "by ";
 }
 
 /* 3. Typography =============*/
@@ -489,8 +510,7 @@ img {
 /* 6. Accessibility ==========*/
 .visually-hidden {
   clip: rect(0 0 0 0);
-  -webkit-clip-path: inset(50%);
-          clip-path: inset(50%);
+  clip-path: inset(50%);
   height: 1px;
   overflow: hidden;
   position: absolute;
@@ -500,26 +520,19 @@ img {
 
 /* 7. Elements ===============*/
 * {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .page {
   min-width: 100vw;
   min-height: 100vh;
   display: none;
-  background-image: -webkit-gradient(linear, left top, right bottom, from(#110844), to(#4f0056));
   background-image: linear-gradient(to bottom right, #110844, #4f0056);
 }
 
 .page.show {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column nowrap;
-          flex-flow: column nowrap;
+  flex-flow: column nowrap;
 }
 
 button {
@@ -529,25 +542,17 @@ button {
   padding: 0.3rem 1.3rem;
   border-radius: 15px;
   cursor: pointer;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#c42bd7), color-stop(#d465a1), to(#e59c6f));
   background-image: linear-gradient(#c42bd7, #d465a1, #e59c6f);
 }
 
 /* 8. Forms ==================*/
 #form05 {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: row nowrap;
-          flex-flow: row nowrap;
+  flex-flow: row nowrap;
 }
-
-#form05 input[type="checkbox"] {
+#form05 input[type=checkbox] {
   display: none;
 }
-
 #form05 label {
   display: inline-block;
   background-color: white;
@@ -555,20 +560,12 @@ button {
   border-radius: 5px;
   padding: 0.3rem 1rem;
 }
-
-#form05 input[type="checkbox"]:checked + label {
+#form05 input[type=checkbox]:checked + label {
   background-color: #ffffff;
   color: #c42bd7;
 }
-
 #form05 .input-wrap {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: row wrap;
-          flex-flow: row wrap;
+  flex-flow: row wrap;
   gap: 1rem;
-}
-/*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */
