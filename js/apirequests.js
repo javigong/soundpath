@@ -2,11 +2,6 @@
 //                   GET Playlist Recommendation                      //
 // ================================================================== //
 
-// access token (temporary solution until oAuth implementation):
-
-// let access_token =
-//   "BQDRxF9nf3pZmpcgaimGgohN4NQJjvyvmnLBpzye9eGvprksjSf9sxEDgMCn-dHxNvc36OOLaRwkStFgT73Mln0xzsdS7msvxP3yJMsee6au86hfKlWKYvLggMCi_YN0cD6AoRvztD9-fszCI1MHZFjiYVg";
-
 // Get Access Token function ======================================== //
 
 const clientID = "ea6dbfb6ca0e451e8fa3da6cfc97b5c7"; // ADD YOUR CLIENT ID
