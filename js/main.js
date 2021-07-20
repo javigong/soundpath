@@ -1,5 +1,6 @@
 // Start page 01 : Initial page with Soundpath Logo ==========
 
+
 const startBtn = document.querySelector("#page01");
 if (startBtn) {
   startBtn.addEventListener("click", (event) => {
@@ -20,9 +21,11 @@ if (loginBtn) {
       .forEach((page) => page.classList.remove("show"));
     document.querySelector("#page03").classList.add("show");
 
-    // Testing Spotify oauth
+    //Testing Spotify oauth
     //implicitGrantFlow()
-    //getAccessToken();
+    // getAccessToken();
+    //Spotify Oauth Standard
+    requestAuthorization();
   });
 }
 
@@ -87,6 +90,7 @@ if (goBack05Btn) {
 const generateBtn = document.querySelector("#btn06");
 if (generateBtn) {
   generateBtn.addEventListener("click", (event) => {
+    getRecommendedSongs();
     document
       .querySelectorAll(".page")
       .forEach((page) => page.classList.remove("show"));

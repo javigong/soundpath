@@ -14,20 +14,23 @@ Table of Contents
 /* 1. Reset  =================*/
 @import "partials/reset";
 
-/* 2. Typography =============*/
+/* 2. Forms ==================*/
+@import "partials/pages";
+
+/* 3. Typography =============*/
 @import "partials/typography";
 
-/* 3. Navigation =============*/
+/* 4. Navigation =============*/
 @import "partials/navigation";
 
-/* 4. Media ==================*/
+/* 5. Media ==================*/
 @import "partials/media";
 
-/* 5. Accessibility ==========*/
+/* 6. Accessibility ==========*/
 @import "partials/accessibility";
 
-/* 6. Elements ===============*/
+/* 7. Elements ===============*/
 @import "partials/elements";
 
-/* 7. Forms ==================*/
+/* 8. Forms ==================*/
 @import "partials/forms";

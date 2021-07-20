@@ -2,28 +2,54 @@
 //                   GET Playlist Recommendation                      //
 // ================================================================== //
 
-// access token (temporary solution until oAuth implementation):
 
-// let access_token =
-//   "BQDvU5eAZTlUBVeiUZm4wPprGUvZJJ3Laoqb1vd7noJS3_fXY0ExxP11r35PHljokBwsvbMt3BBDz-mF5h3cMUoItyzdVFjvzv_tE57eWYqqgFhyehWsukk0WMNMtZ5tIq8atKvhl2O252cKpLbUvhFR0Ok81YGPdtAjxxpUUYx-NXVA4YONSPtInEhC7brH";
+// Get Access Token function ======================================== //
+
+// const clientID = "ea6dbfb6ca0e451e8fa3da6cfc97b5c7"; // ADD YOUR CLIENT ID
+// // const redirectURI = '____';
+// const redirectURI = "http://localhost:5501/"; // ADD TO YOUR LOCAL SERVER
+// let access_token;
+
+// function getAccessToken() {
+//   if (access_token) {
+//     console.log(access_token);
+//     return access_token;
+//   }
+//   const access_tokenMatch = window.location.href.match(/access_token=([^&]*)/);
+//   const expiresInMatch = window.location.href.match(/expires_in=([^&]*)/);
+
+//   if (access_tokenMatch && expiresInMatch) {
+//     access_token = access_tokenMatch[1];
+//     const expiresIn = Number(expiresInMatch[1]);
+//     // Clears Parameters From URL
+//     window.setTimeout(() => (access_token = ""), expiresIn * 1000);
+//     window.history.pushState("Access Token", null, "/");
+//     return access_token;
+//     console.log(access_token);
+//   } else {
+//     const accessUrl = `https://accounts.spotify.com/authorize?client_id=${clientID}&response_type=token&scope=playlist-modify-public&redirect_uri=${redirectURI}`;
+//     window.location = accessUrl;
+//   }
+// }
 
 // Parameters to GET Song Recommendations =========================== //
 
 // Testing Parameters (Values need to come from UI form inputs):
 
 let songLimit = 25;
-let market = 'US';
-let genre1 = 'rock';
-let genre2 = 'pop';
-let genre3 = 'folk';
-let genre4 = 'chill';
+let market = "US";
+let genre1 = "rock";
+let genre2 = "pop";
+let genre3 = "folk";
+let genre4 = "chill";
 
 // Get Request: Recommendations Based on Seeds ====================== //
 // https://developer.spotify.com/console/get-recommendations/
 
 // API Endpoint URL:
 
-let getRecommendationsURL = `https://api.spotify.com/v1/recommendations?limit=${songLimit}&market=${market}&seed_genres=${genre1}%2C${genre2}%2C${genre3}%2C${genre4}`;
+let getRecommendationsURL =
+`https://api.spotify.com/v1/recommendations?limit=${songLimit}&market=${market}&seed_genres=${genre1}%2C${genre2}%2C${genre3}%2C${genre4}`;
 
 // New Array to store Playlist:
 
@@ -32,81 +58,73 @@ let songsArray = [];
 // Async Function to GET Playlist Recommendation ==================== //
 
 async function getRecommendedSongs() {
-	// Fetch from the api endpoint to get playlist
-	const res = await fetch(getRecommendationsURL, {
-		headers: {
-			Accept: 'application/json',
-			Authorization: `Bearer ${access_token}`,
-			'Content-Type': 'application/json',
-		},
-	});
+  // getAccessToken();
+  // Fetch from the api endpoint to get playlist
+  const res = await fetch(getRecommendationsURL, {
+    headers: {
+      Accept: "application/json",
+      Authorization: `Bearer ${access_token}`,
+      "Content-Type": "application/json",
+    },
+  });
+  // Parse the JSON playlist to an array of objects
+  const data = await res.json();
+  // Store the playlist data, just the tracks
+  songsArray = data.tracks;
+  console.log(songsArray);
 
-  // If the status of the fetch request is OK (200) then proceed.
-  // Otherwise, refresh the Access Token with refreshAccessToken();
+  // For Loop to Populate Playlist ================ //
+  for (let i = 0; i < songsArray.length; i++) {
+    const thisSong = songsArray[i];
 
-	if (res.status == 200) {
-		// Parse the JSON playlist to an array of objects
-		const data = await res.json();
-		// Store the playlist data, just the tracks
-		songsArray = data.tracks;
-		console.log(songsArray);
+    // Define new song output element:
 
-		// For Loop to Populate Playlist ================ //
-		for (let i = 0; i < songsArray.length; i++) {
-			const thisSong = songsArray[i];
+    let songOutput = document.createElement("ul");
+    songOutput.classList.add("songOutput");
 
-			// Define new song output element:
+    // Append song cover:
 
-			let songOutput = document.createElement('ul');
-			songOutput.classList.add('songOutput');
+    let coverElement = document.createElement("li");
+    let songCover = document.createElement("img");
+    songCover.src = thisSong.album.images[1].url;
+    coverElement.classList.add("coverElement");
+    // console.log(songCover);
+    coverElement.append(songCover);
+    songOutput.append(coverElement);
 
-			// Append song cover:
+    // Append song title:
 
-			let coverElement = document.createElement('li');
-			let songCover = document.createElement('img');
-			songCover.src = thisSong.album.images[1].url;
-			coverElement.classList.add('coverElement');
-			// console.log(songCover);
-			coverElement.append(songCover);
-			songOutput.append(coverElement);
+    let titleElement = document.createElement("li");
+    titleElement.classList.add("titleElement");
+    let songTitle = thisSong.name;
+    // console.log(songTitle);
+    titleElement.append(songTitle);
+    songOutput.append(titleElement);
 
-			// Append song title:
+    // Append song artist:
 
-			let titleElement = document.createElement('li');
-			titleElement.classList.add('titleElement');
-			let songTitle = thisSong.name;
-			// console.log(songTitle);
-			titleElement.append(songTitle);
-			songOutput.append(titleElement);
+    let artistElement = document.createElement("li");
+    artistElement.classList.add("artistElement");
+    let songArtist = thisSong.album.artists[0].name;
+    // console.log(songArtist);
+    artistElement.append(songArtist);
+    songOutput.append(artistElement);
 
-			// Append song artist:
+    // Append songs duration:
+    // (Need to convert from milliseconds to minutes:seconds)
 
-			let artistElement = document.createElement('li');
-			artistElement.classList.add('artistElement');
-			let songArtist = thisSong.album.artists[0].name;
-			// console.log(songArtist);
-			artistElement.append(songArtist);
-			songOutput.append(artistElement);
+    let songElement = document.createElement("li");
+    songElement.classList.add("songElement");
+    let songDurationMs = thisSong.duration_ms;
+    // console.log(songDurationMs);
+    songElement.append(songDurationMs);
+    songOutput.append(songElement);
 
-			// Append songs duration:
-			// (Need to convert from milliseconds to minutes:seconds)
+    // Append songOutput to UI output:
 
-			let songElement = document.createElement('li');
-			songElement.classList.add('songElement');
-			let songDurationMs = thisSong.duration_ms;
-			// console.log(songDurationMs);
-			songElement.append(songDurationMs);
-			songOutput.append(songElement);
-
-			// Append songOutput to UI output:
-
-			output.append(songOutput);
-		}
-	}
-	// end For Loop to Populate Playlist ============= //
-	else {
-		refreshAccessToken();
-	}
+    output.append(songOutput);
+  }
+  // end For Loop to Populate Playlist ============= //
 }
 // end Async Function to GET Playlist Recommendation ================ //
 
@@ -115,3 +133,48 @@ async function getRecommendedSongs() {
 // getRecommendedSongs();
 
 // end GET Playlist Recommendation  ================================ //
+
+// Async Function to GET User ID, Playlist Name and Save Playlist == //
+
+// Parameters
+let playlistName = "My New Playlist Test";
+
+function savePlaylist(playlistName, uriArr) {
+  if (!playlistName || !uriArr.length) {
+      return;
+  }
+  const headers = { Authorization: `Bearer ${access_token}` };
+  let userId;
+
+  return fetch(`https://api.spotify.com/v1/me`, {
+      headers: headers,
+  })
+      .then((response) => {
+          return response.json();
+      })
+      .then((jsonResponse) => {
+          userId = jsonResponse.id;
+          return fetch(
+              `https://api.spotify.com/v1/users/${userId}/playlists`,
+              {
+                  headers: headers,
+                  method: 'POST',
+                  body: JSON.stringify({ name: playlistName }),
+              }
+          )
+              .then((response) => {
+                  return response.json();
+              })
+              .then((jsonResponse) => {
+                  const playlistId = jsonResponse.id;
+                  return fetch(
+                      `https://api.spotify.com/v1/users/${userId}/playlists/${playlistId}/tracks`,
+                      {
+                          headers: headers,
+                          method: 'POST',
+                          body: JSON.stringify({ uris: uriArr }),
+                      }
+                  );
+              });
+      });
+}
