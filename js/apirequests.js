@@ -114,8 +114,15 @@ async function getRecommendedSongs() {
     let songElement = document.createElement("li");
     songElement.classList.add("songElement");
     let songDurationMs = thisSong.duration_ms;
+    // convert ms to min:sec
+    function millisToMinSec(millis) {
+      let minutes = Math.floor(millis / 60000);
+      let seconds = ((millis % 60000) / 1000).toFixed(0);
+      return minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
+    }
+    let songDurationMinSec = millisToMinSec(songDurationMs);
     // console.log(songDurationMs);
-    songElement.append(songDurationMs);
+    songElement.append(songDurationMinSec);
     songOutput.append(songElement);
 
     // Append songOutput to UI output:
