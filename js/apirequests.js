@@ -41,13 +41,14 @@ let genre1 = "rock";
 let genre2 = "pop";
 let genre3 = "folk";
 let genre4 = "chill";
+let genre5 = "alternative";
 
 // Get Request: Recommendations Based on Seeds ====================== //
 // https://developer.spotify.com/console/get-recommendations/
 
 // API Endpoint URL:
 
-let getRecommendationsURL = `https://api.spotify.com/v1/recommendations?limit=${songLimit}&market=${market}&seed_genres=${genre1}%2C${genre2}%2C${genre3}%2C${genre4}`;
+let getRecommendationsURL = `https://api.spotify.com/v1/recommendations?limit=${songLimit}&market=${market}&seed_genres=${genre1}%2C${genre2}%2C${genre3}%2C${genre4}%2C${genre5}`;
 
 // New Array to store Playlist:
 
