@@ -22,7 +22,9 @@ if (loginBtn) {
 
     //Testing Spotify oauth
     //implicitGrantFlow()
-    getAccessToken();
+    //getAccessToken();
+    //Spotify Oauth Standard
+    requestAuthorization();
   });
 }
 
