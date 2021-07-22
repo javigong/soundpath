@@ -9,8 +9,11 @@
 }
 
 #progress1 .progress-child1,
-#progress2 .progress-child1, #progress2 .progress-child2,
-#progress3 .progress-child1, #progress3 .progress-child2, #progress3 .progress-child3 {
+#progress2 .progress-child1,
+#progress2 .progress-child2,
+#progress3 .progress-child1,
+#progress3 .progress-child2,
+#progress3 .progress-child3 {
     background: $color_high_tone;
 }
 
@@ -40,7 +43,6 @@
     #btn03 {
         border-radius: 50%;
         padding: 0.8rem 1rem;
-        box-shadow: 0px 3px 18px #00000052;
     }
 
     p {
@@ -61,12 +63,6 @@
 
     .navbar-bottom {
         margin-top: 20px;
-    }
-
-    #name {
-        background-color: rgba(0, 0, 0, 0.1);
-        border: none;
-        border-bottom: 1px solid #c42bd7;
     }
 }
 
@@ -147,11 +143,11 @@
     grid-template-columns: 1fr 3fr 1fr;
     grid-template-rows: 1fr 1fr;
     width: 600px;
-    height: 50px; 
+    height: 85px;
 
     .coverElement {
-        width: 50px;
-        height: 50px;
+        width: 85px;
+        height: 85px;
         object-fit: cover;
         grid-row: 1 / 3;
         grid-column: 1 / 2;

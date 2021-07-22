@@ -1,3 +1,15 @@
+// page 04 : Name Playlist ================================== -->
+
+#form04 {
+    #name {
+        background-color: rgba(0, 0, 0, 0.1);
+        border: none;
+        border-bottom: 1px solid #c42bd7;
+        color: white;
+        padding: 0.2rem;
+    }
+}
+
 // page 05 : Add Genres ================================== -->
 
 #form05 {
@@ -25,5 +37,19 @@
         display: flex;
         flex-flow: row wrap;
         gap: 1rem;
+    }
+}
+
+// page 06 : Add Country ================================== -->
+
+#country {
+    background-color: rgba(0, 0, 0, 0.1);
+    border: none;
+    border-bottom: 1px solid #c42bd7;
+    color: white;
+    padding: 0.2rem;
+
+    option {
+        background-color: #110844;
     }
 }

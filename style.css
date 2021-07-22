@@ -55,7 +55,8 @@ h1 {
    * 2. Show the overflow in Edge and IE.
    */
 hr {
-  box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
   /* 1 */
   height: 0;
   /* 1 */
@@ -92,7 +93,8 @@ abbr[title] {
   /* 1 */
   text-decoration: underline;
   /* 2 */
-  text-decoration: underline dotted;
+  -webkit-text-decoration: underline dotted;
+          text-decoration: underline dotted;
   /* 2 */
 }
 
@@ -239,7 +241,8 @@ fieldset {
    *    `fieldset` elements in all browsers.
    */
 legend {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   /* 1 */
   color: inherit;
   /* 2 */
@@ -273,7 +276,8 @@ textarea {
    */
 [type="checkbox"],
 [type="radio"] {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   /* 1 */
   padding: 0;
   /* 2 */
@@ -353,14 +357,20 @@ template {
   height: 4px;
   width: 100vw;
   background: #4f0056;
+  display: -ms-grid;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 1fr;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  -ms-grid-rows: 1fr;
+      grid-template-rows: 1fr;
 }
 
 #progress1 .progress-child1,
-#progress2 .progress-child1, #progress2 .progress-child2,
-#progress3 .progress-child1, #progress3 .progress-child2, #progress3 .progress-child3 {
+#progress2 .progress-child1,
+#progress2 .progress-child2,
+#progress3 .progress-child1,
+#progress3 .progress-child2,
+#progress3 .progress-child3 {
   background: #c42bd7;
 }
 
@@ -369,9 +379,14 @@ template {
 }
 
 #page01 #content01 {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
 }
 
 #btn02 {
@@ -381,10 +396,10 @@ template {
 #page03 #btn03 {
   border-radius: 50%;
   padding: 0.8rem 1rem;
-  box-shadow: 0px 3px 18px #00000052;
 }
 
 #page03 p {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#4f0056), to(#110844));
   background-image: linear-gradient(180deg, #4f0056, #110844);
   padding: 2rem;
 }
@@ -392,7 +407,8 @@ template {
 #page04 #btnBack04 {
   background-color: rgba(0, 0, 0, 0.1);
   padding: 0.8rem 1rem;
-  box-shadow: 0px 3px 18px #00000052;
+  -webkit-box-shadow: 0px 3px 18px #00000052;
+          box-shadow: 0px 3px 18px #00000052;
   background-image: none;
 }
 
@@ -400,16 +416,11 @@ template {
   margin-top: 20px;
 }
 
-#page04 #name {
-  background-color: rgba(0, 0, 0, 0.1);
-  border: none;
-  border-bottom: 1px solid #c42bd7;
-}
-
 #page05 #btnBack05 {
   background-color: rgba(0, 0, 0, 0.1);
   padding: 0.8rem 1rem;
-  box-shadow: 0px 3px 18px #00000052;
+  -webkit-box-shadow: 0px 3px 18px #00000052;
+          box-shadow: 0px 3px 18px #00000052;
   background-image: none;
 }
 
@@ -434,7 +445,8 @@ template {
 #page06 #btnBack06 {
   background-color: rgba(0, 0, 0, 0.1);
   padding: 0.8rem 1rem;
-  box-shadow: 0px 3px 18px #00000052;
+  -webkit-box-shadow: 0px 3px 18px #00000052;
+          box-shadow: 0px 3px 18px #00000052;
   background-image: none;
 }
 
@@ -449,49 +461,77 @@ template {
 #page08 #btnBack08 {
   background-color: rgba(0, 0, 0, 0.1);
   padding: 0.8rem 1rem;
-  box-shadow: 0px 3px 18px #00000052;
+  -webkit-box-shadow: 0px 3px 18px #00000052;
+          box-shadow: 0px 3px 18px #00000052;
   background-image: none;
 }
 
 #page08 #outputList {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-flow: column nowrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
   gap: 1rem;
 }
 
 .output-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .songOutput {
+  display: -ms-grid;
   display: grid;
-  grid-template-columns: 1fr 3fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  -ms-grid-columns: 1fr 3fr 1fr;
+      grid-template-columns: 1fr 3fr 1fr;
+  -ms-grid-rows: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
   width: 600px;
-  height: 50px;
+  height: 85px;
 }
 
 .songOutput .coverElement {
-  width: 50px;
-  height: 50px;
-  object-fit: cover;
+  width: 85px;
+  height: 85px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
   grid-row: 1 / 3;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
   grid-column: 1 / 2;
 }
 
 .songOutput .titleElement {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
   grid-row: 1 / 2;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
   grid-column: 2 / 3;
-  justify-self: start;
+  -ms-grid-column-align: start;
+      justify-self: start;
   font-size: 19px;
   text-align: left;
 }
 
 .songOutput .artistElement {
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
   grid-row: 2 / 3;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
   grid-column: 2 / 3;
-  justify-self: start;
+  -ms-grid-column-align: start;
+      justify-self: start;
   font-size: 16px;
 }
 
@@ -524,7 +564,8 @@ img {
 /* 6. Accessibility ==========*/
 .visually-hidden {
   clip: rect(0 0 0 0);
-  clip-path: inset(50%);
+  -webkit-clip-path: inset(50%);
+          clip-path: inset(50%);
   height: 1px;
   overflow: hidden;
   position: absolute;
@@ -534,19 +575,26 @@ img {
 
 /* 7. Elements ===============*/
 * {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 .page {
   min-width: 100vw;
   min-height: 100vh;
   display: none;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#110844), to(#4f0056));
   background-image: linear-gradient(180deg, #110844, #4f0056);
 }
 
 .page.show {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-flow: column nowrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
 }
 
 button {
@@ -556,13 +604,29 @@ button {
   padding: 0.3rem 1.3rem;
   border-radius: 15px;
   cursor: pointer;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#c42bd7), color-stop(#d465a1), to(#e59c6f));
   background-image: linear-gradient(#c42bd7, #d465a1, #e59c6f);
+  -webkit-box-shadow: 0px 3px 18px #00000052;
+          box-shadow: 0px 3px 18px #00000052;
 }
 
 /* 8. Forms ==================*/
+#form04 #name {
+  background-color: rgba(0, 0, 0, 0.1);
+  border: none;
+  border-bottom: 1px solid #c42bd7;
+  color: white;
+  padding: 0.2rem;
+}
+
 #form05 {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-flow: row nowrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
 }
 
 #form05 input[type="checkbox"] {
@@ -583,8 +647,25 @@ button {
 }
 
 #form05 .input-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-flow: row wrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
   gap: 1rem;
+}
+
+#country {
+  background-color: rgba(0, 0, 0, 0.1);
+  border: none;
+  border-bottom: 1px solid #c42bd7;
+  color: white;
+  padding: 0.2rem;
+}
+
+#country option {
+  background-color: #110844;
 }
 /*# sourceMappingURL=style.css.map */
