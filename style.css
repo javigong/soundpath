@@ -198,9 +198,9 @@ select {
    * Correct the inability to style clickable types in iOS and Safari.
    */
 button,
-[type=button],
-[type=reset],
-[type=submit] {
+[type="button"],
+[type="reset"],
+[type="submit"] {
   -webkit-appearance: button;
 }
 
@@ -208,9 +208,9 @@ button,
    * Remove the inner border and padding in Firefox.
    */
 button::-moz-focus-inner,
-[type=button]::-moz-focus-inner,
-[type=reset]::-moz-focus-inner,
-[type=submit]::-moz-focus-inner {
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
   border-style: none;
   padding: 0;
 }
@@ -219,9 +219,9 @@ button::-moz-focus-inner,
    * Restore the focus styles unset by the previous rule.
    */
 button:-moz-focusring,
-[type=button]:-moz-focusring,
-[type=reset]:-moz-focusring,
-[type=submit]:-moz-focusring {
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
   outline: 1px dotted ButtonText;
 }
 
@@ -271,8 +271,8 @@ textarea {
    * 1. Add the correct box sizing in IE 10.
    * 2. Remove the padding in IE 10.
    */
-[type=checkbox],
-[type=radio] {
+[type="checkbox"],
+[type="radio"] {
   box-sizing: border-box;
   /* 1 */
   padding: 0;
@@ -282,8 +282,8 @@ textarea {
 /**
    * Correct the cursor style of increment and decrement buttons in Chrome.
    */
-[type=number]::-webkit-inner-spin-button,
-[type=number]::-webkit-outer-spin-button {
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
   height: auto;
 }
 
@@ -291,7 +291,7 @@ textarea {
    * 1. Correct the odd appearance in Chrome and Safari.
    * 2. Correct the outline style in Safari.
    */
-[type=search] {
+[type="search"] {
   -webkit-appearance: textfield;
   /* 1 */
   outline-offset: -2px;
@@ -301,7 +301,7 @@ textarea {
 /**
    * Remove the inner padding in Chrome and Safari on macOS.
    */
-[type=search]::-webkit-search-decoration {
+[type="search"]::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 
@@ -367,6 +367,7 @@ template {
 #page01 .logo {
   width: 150px;
 }
+
 #page01 #content01 {
   display: flex;
   justify-content: center;
@@ -382,8 +383,9 @@ template {
   padding: 0.8rem 1rem;
   box-shadow: 0px 3px 18px #00000052;
 }
+
 #page03 p {
-  background-image: linear-gradient(to bottom right, #4f0056, #110844);
+  background-image: linear-gradient(180deg, #4f0056, #110844);
   padding: 2rem;
 }
 
@@ -393,9 +395,11 @@ template {
   box-shadow: 0px 3px 18px #00000052;
   background-image: none;
 }
+
 #page04 .navbar-bottom {
   margin-top: 20px;
 }
+
 #page04 #name {
   background-color: rgba(0, 0, 0, 0.1);
   border: none;
@@ -408,6 +412,7 @@ template {
   box-shadow: 0px 3px 18px #00000052;
   background-image: none;
 }
+
 #page05 .genre-element label {
   background-color: #110844;
   padding: 0.5rem 1rem;
@@ -416,10 +421,12 @@ template {
   border-radius: 10rem;
   font-weight: lighter;
 }
+
 #page05 .genre-element label:active {
   background-color: #ffffff;
   color: #c42bd7;
 }
+
 #page05 .navbar-bottom {
   margin-top: 20px;
 }
@@ -430,9 +437,11 @@ template {
   box-shadow: 0px 3px 18px #00000052;
   background-image: none;
 }
+
 #page06 .navbar-bottom {
   margin-top: 20px;
 }
+
 #page06 #form05 {
   margin-left: 45%;
 }
@@ -443,6 +452,7 @@ template {
   box-shadow: 0px 3px 18px #00000052;
   background-image: none;
 }
+
 #page08 #outputList {
   display: flex;
   flex-flow: column nowrap;
@@ -461,26 +471,30 @@ template {
   width: 600px;
   height: 50px;
 }
+
 .songOutput .coverElement {
   width: 50px;
   height: 50px;
   object-fit: cover;
-  grid-row: 1/3;
-  grid-column: 1/2;
+  grid-row: 1 / 3;
+  grid-column: 1 / 2;
 }
+
 .songOutput .titleElement {
-  grid-row: 1/2;
-  grid-column: 2/3;
+  grid-row: 1 / 2;
+  grid-column: 2 / 3;
   justify-self: start;
   font-size: 19px;
   text-align: left;
 }
+
 .songOutput .artistElement {
-  grid-row: 2/3;
-  grid-column: 2/3;
+  grid-row: 2 / 3;
+  grid-column: 2 / 3;
   justify-self: start;
   font-size: 16px;
 }
+
 .songOutput .artistElement::before {
   content: "by ";
 }
@@ -527,7 +541,7 @@ img {
   min-width: 100vw;
   min-height: 100vh;
   display: none;
-  background-image: linear-gradient(to bottom right, #110844, #4f0056);
+  background-image: linear-gradient(180deg, #110844, #4f0056);
 }
 
 .page.show {
@@ -550,9 +564,11 @@ button {
   display: flex;
   flex-flow: row nowrap;
 }
-#form05 input[type=checkbox] {
+
+#form05 input[type="checkbox"] {
   display: none;
 }
+
 #form05 label {
   display: inline-block;
   background-color: white;
@@ -560,12 +576,15 @@ button {
   border-radius: 5px;
   padding: 0.3rem 1rem;
 }
-#form05 input[type=checkbox]:checked + label {
+
+#form05 input[type="checkbox"]:checked + label {
   background-color: #ffffff;
   color: #c42bd7;
 }
+
 #form05 .input-wrap {
   display: flex;
   flex-flow: row wrap;
   gap: 1rem;
-}/*# sourceMappingURL=style.css.map */
+}
+/*# sourceMappingURL=style.css.map */
