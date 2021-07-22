@@ -2,34 +2,34 @@
 //                   GET Playlist Recommendation                      //
 // ================================================================== //
 
-// Get Access Token function ======================================== //
+// // Get Access Token function ======================================== //
 
-const clientID = "ea6dbfb6ca0e451e8fa3da6cfc97b5c7"; // ADD YOUR CLIENT ID
-// const redirectURI = '____';
-const redirectURI = "http://localhost:5501/"; // ADD TO YOUR LOCAL SERVER
-let accessToken;
+// const clientID = "ea6dbfb6ca0e451e8fa3da6cfc97b5c7"; // ADD YOUR CLIENT ID
+// // const redirectURI = '____';
+// const redirectURI = "http://localhost:5501/"; // ADD TO YOUR LOCAL SERVER
+// let access_token;
 
-function getAccessToken() {
-  if (accessToken) {
-    console.log(accessToken);
-    return accessToken;
-  }
-  const accessTokenMatch = window.location.href.match(/access_token=([^&]*)/);
-  const expiresInMatch = window.location.href.match(/expires_in=([^&]*)/);
+// function getAccessToken() {
+//   if (access_token) {
+//     console.log(access_token);
+//     return access_token;
+//   }
+//   const access_tokenMatch = window.location.href.match(/access_token=([^&]*)/);
+//   const expiresInMatch = window.location.href.match(/expires_in=([^&]*)/);
 
-  if (accessTokenMatch && expiresInMatch) {
-    accessToken = accessTokenMatch[1];
-    const expiresIn = Number(expiresInMatch[1]);
-    // Clears Parameters From URL
-    window.setTimeout(() => (accessToken = ""), expiresIn * 1000);
-    window.history.pushState("Access Token", null, "/");
-    return accessToken;
-    console.log(accessToken);
-  } else {
-    const accessUrl = `https://accounts.spotify.com/authorize?client_id=${clientID}&response_type=token&scope=playlist-modify-public&redirect_uri=${redirectURI}`;
-    window.location = accessUrl;
-  }
-}
+//   if (access_tokenMatch && expiresInMatch) {
+//     access_token = access_tokenMatch[1];
+//     const expiresIn = Number(expiresInMatch[1]);
+//     // Clears Parameters From URL
+//     window.setTimeout(() => (access_token = ""), expiresIn * 1000);
+//     window.history.pushState("Access Token", null, "/");
+//     return access_token;
+//     console.log(access_token);
+//   } else {
+//     const accessUrl = `https://accounts.spotify.com/authorize?client_id=${clientID}&response_type=token&scope=playlist-modify-public&redirect_uri=${redirectURI}`;
+//     window.location = accessUrl;
+//   }
+// }
 
 // Parameters to GET Song Recommendations =========================== //
 
@@ -57,12 +57,12 @@ let songsArray = [];
 // Async Function to GET Playlist Recommendation ==================== //
 
 async function getRecommendedSongs() {
-  getAccessToken();
+  // getAccessToken();
   // Fetch from the api endpoint to get playlist
   const res = await fetch(getRecommendationsURL, {
     headers: {
       Accept: "application/json",
-      Authorization: `Bearer ${accessToken}`,
+      Authorization: `Bearer ${access_token}`,
       "Content-Type": "application/json",
     },
   });
@@ -110,7 +110,6 @@ async function getRecommendedSongs() {
     songOutput.append(artistElement);
 
     // Append songs duration:
-    // (Need to convert from milliseconds to minutes:seconds)
 
     let songElement = document.createElement("li");
     songElement.classList.add("songElement");
@@ -122,7 +121,6 @@ async function getRecommendedSongs() {
       return minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
     }
     let songDurationMinSec = millisToMinSec(songDurationMs);
-    // console.log(songDurationMs);
     songElement.append(songDurationMinSec);
     songOutput.append(songElement);
 
@@ -149,8 +147,8 @@ function savePlaylist(playlistName, uriArr) {
   if (!playlistName || !uriArr.length) {
     return;
   }
-  const accessToken = getAccessToken();
-  const headers = { Authorization: `Bearer ${accessToken}` };
+  const access_token = getAccessToken();
+  const headers = { Authorization: `Bearer ${access_token}` };
   let userId;
 
   return fetch(`https://api.spotify.com/v1/me`, {
