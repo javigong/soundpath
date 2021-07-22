@@ -36,12 +36,12 @@ function getAccessToken() {
 // Testing Parameters (Values need to come from UI form inputs):
 
 let songLimit = 25;
-let market = "US";
-let genre1 = "rock";
-let genre2 = "pop";
-let genre3 = "folk";
-let genre4 = "chill";
-let genre5 = "alternative";
+let market = null;
+let genre1 = null;
+let genre2 = null;
+let genre3 = null;
+let genre4 = null;
+let genre5 = null;
 
 // Get Request: Recommendations Based on Seeds ====================== //
 // https://developer.spotify.com/console/get-recommendations/
