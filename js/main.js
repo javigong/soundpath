@@ -1,3 +1,10 @@
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker
+    .register("/sw.js")
+    .then((reg) => console.log("service worker registered", reg))
+    .catch((err) => console.log("service worker not registerd", err));
+}
+
 // Start page 01 : Initial page with Soundpath Logo ==========
 
 const startBtn = document.querySelector("#page01");
@@ -62,9 +69,10 @@ if (goBack04Btn) {
   });
 }
 
-// Start page 05 : Add Genres (Max 4) ==========================
+// Start page 05 : Add Genres (Max 5) ==========================
 
 const getGenresBtn = document.querySelector("#btn05");
+
 if (getGenresBtn) {
   getGenresBtn.addEventListener("click", (event) => {
     document
