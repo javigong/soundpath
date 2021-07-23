@@ -6,9 +6,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css" />
-  <link href="http://fonts.cdnfonts.com/css/qanelas" rel="stylesheet" />
+  <link href="https://fonts.cdnfonts.com/css/qanelas" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <script src="js/oauth.js" defer></script>
   <script src="js/apirequests.js" defer></script>
   <script src="js/main.js" defer></script>
@@ -75,8 +75,14 @@
         <div id="form-area04">
           <form id="form04" action="javascript:void(0)">
             <div class="input-wrap">
-              <label for="name">Name your playlist:</label>
-              <input type="text" id="name" />
+              <div>
+                <label for="name">Name your playlist:</label>
+                <input type="text" id="namePlaylist" required/>
+              </div>
+              <div>
+                <label for="name">Number of songs:</label>
+                <input type="number" id="numberSongs" value="20" min="1" max="100" required/>
+              </div>
             </div>
           </form>
         </div>
@@ -105,7 +111,7 @@
         <h3>Create New Playlist</h3>
 
         <div id="form-area05">
-          <h2>Add Genres:</h2>
+          <h2>Add Genres (up to 5):</h2>
           <form id="form05" action="javascript:void(0)">
             <div class="input-wrap">
               <div class="genre-element">
@@ -147,6 +153,77 @@
                 <input type="checkbox" id="genre08" value="metal" />
                 <label for="genre08">Metal</label>
               </div>
+
+              <div class="genre-element">
+                <input type="checkbox" id="genre09" value="emo" />
+                <label for="genre09">Emo</label>
+              </div>
+
+              <div class="genre-element">
+                <input type="checkbox" id="genre10" value="reggae" />
+                <label for="genre10">Reggae</label>
+              </div>
+
+              <div class="genre-element">
+                <input type="checkbox" id="genre11" value="world-music" />
+                <label for="genre11">World-music</label>
+              </div>
+
+              <div class="genre-element">
+                <input type="checkbox" id="genre12" value="acoustic" />
+                <label for="genre12">Acoustic</label>
+              </div>
+
+              <div class="genre-element">
+                <input type="checkbox" id="genre13" value="soul" />
+                <label for="genre13">Soul</label>
+              </div>
+
+              <div class="genre-element">
+                <input type="checkbox" id="genre14" value="r-n-b" />
+                <label for="genre14">R'n'B</label>
+              </div>
+
+              <div class="genre-element">
+                <input type="checkbox" id="genre15" value="guitar" />
+                <label for="genre15">Guitar</label>
+              </div>
+
+              <div class="genre-element">
+                <input type="checkbox" id="genre16" value="piano" />
+                <label for="genre16">Piano</label>
+              </div>
+
+              <div class="genre-element">
+                <input type="checkbox" id="genre17" value="hip-hop" />
+                <label for="genre17">Hip-Hop</label>
+              </div>
+
+              <div class="genre-element">
+                <input type="checkbox" id="genre18" value="house" />
+                <label for="genre18">House</label>
+              </div>
+
+              <div class="genre-element">
+                <input type="checkbox" id="genre19" value="funk" />
+                <label for="genre19">Funk</label>
+              </div>
+
+              <div class="genre-element">
+                <input type="checkbox" id="genre20" value="alternative" />
+                <label for="genre20">Alternative</label>
+              </div>
+
+              <div class="genre-element">
+                <input type="checkbox" id="genre21" value="indie" />
+                <label for="genre21">Indie</label>
+              </div>
+
+              <div class="genre-element">
+                <input type="checkbox" id="genre22" value="electronic" />
+                <label for="genre22">Electronic</label>
+              </div>
+
             </div>
           </form>
         </div>
@@ -176,7 +253,7 @@
 
         <div id="form-area06">
           <h2>Choose Country:</h2>
-          <form id="form05" action="javascript:void(0)">
+          <form id="form06" action="javascript:void(0)">
             <div class="input-wrap">
               <select name="country" id="country" class="form-control">
                 <option value="" disabled selected>Please Select Country</option>

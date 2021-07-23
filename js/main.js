@@ -62,9 +62,10 @@ if (goBack04Btn) {
   });
 }
 
-// Start page 05 : Add Genres (Max 4) ==========================
+// Start page 05 : Add Genres (Max 5) ==========================
 
 const getGenresBtn = document.querySelector("#btn05");
+
 if (getGenresBtn) {
   getGenresBtn.addEventListener("click", (event) => {
     document
