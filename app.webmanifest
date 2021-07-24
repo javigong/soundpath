@@ -40,8 +40,7 @@
       "density": "4.0"
     }
   ],
-  "start_url": "/index.html?source=pwa",
-  "scope": "https://soundpath.netlify.app/",
+  "start_url": "/",
   "display": "standalone",
   "background_color": "#2b094a",
   "theme_color": "#4f0056",
