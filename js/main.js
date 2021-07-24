@@ -173,3 +173,20 @@ if (returnCreatePlayBtn) {
     document.querySelector("#page04").classList.add("show");
   });
 }
+
+//  Start Offline Notification =================================
+
+window.addEventListener("load", () => {
+  function handleNetworkChange(event) {
+    if (navigator.onLine) {
+      document.body.classList.remove("offline");
+    } else {
+      document.body.classList.add("offline");
+    }
+  }
+
+  window.addEventListener("online", handleNetworkChange);
+  window.addEventListener("offline", handleNetworkChange);
+});
+
+//  end Start Offline Notification =============================

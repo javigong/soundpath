@@ -24,3 +24,44 @@ button {
   cursor: pointer;
   background-image: $color_gradient_button;
 }
+
+// Offline Notification ===============================
+
+.offline-popup {
+  transition: transform 0.3s;
+  transform: translateY(-100%) translateX(-50%);
+  position: fixed;
+  left: 50%;
+  background: #222;
+  color: white;
+  padding: 0.5em;
+  text-align: center;
+  
+  .offline-msg {
+    display: none;
+  }
+  
+}
+
+
+.offline {
+  .offline-notification {
+    transition: transform 0.3s;
+    transform: translateY(0) translateX(-50%);
+  }
+  
+  .online-msg {
+    display: none;
+  }
+  
+  .offline-msg {
+    display: block;
+  }
+}
+
+body, html {
+  margin: 0;
+  height: 200vh;
+}
+
+// ends Offline Notification ==========================
