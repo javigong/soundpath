@@ -559,6 +559,34 @@ button {
   background-image: linear-gradient(#c42bd7, #d465a1, #e59c6f);
 }
 
+.slider {
+  background: linear-gradient(to right, #c42bd7, #d465a1, #e59c6f);
+  border: solid 1px #82cfd0;
+  border-radius: 8px;
+  height: 7px;
+  width: 125px;
+  outline: none;
+  transition: all 450ms ease-in;
+  -webkit-appearance: none;
+}
+
+.slider::-webkit-slider-thumb {
+  width: 6px;
+  -webkit-appearance: none;
+  height: 12px;
+  background: black;
+  border-radius: 2px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  width: 12px;
+  -webkit-appearance: none;
+  height: 12px;
+  background: #110844;
+  border-radius: 10px;
+  border: solid 1px white;
+}
+
 /* 8. Forms ==================*/
 #form05 {
   display: flex;

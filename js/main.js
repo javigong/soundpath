@@ -92,7 +92,14 @@ if (goBack05Btn) {
   });
 }
 
-// Start page 06 : Add country + Generate Playlist Button ======
+// Start page 06 : Add country + Song Attributes + Generate Playlist Button ======
+
+// Sliders: .chrome styling 
+
+document.querySelectorAll(".slider").oninput = function() {
+  let value = (this.value-this.min)/(this.max-this.min)*100
+  this.style.background = 'linear-gradient(to right, #82CFD0 0%, #82CFD0 ' + value + '%, #fff ' + value + '%, white 100%)'
+};
 
 const generateBtn = document.querySelector("#btn06");
 if (generateBtn) {
