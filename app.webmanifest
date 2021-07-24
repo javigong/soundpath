@@ -1,6 +1,7 @@
 {
   "short_name": "SoundPath",
   "name": "SoundPath PWA",
+  "description": "Playlist Generator powered by Spotify",
   "icons": [
     {
       "src": "/icons/android-icon-36x36.png",
@@ -40,6 +41,7 @@
     }
   ],
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#FFE9D2",
   "theme_color": "#03fcdf",
