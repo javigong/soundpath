@@ -1,4 +1,4 @@
-const cacheName = "v1";
+const cacheName = "soundpath-v1";
 const urlsToCache = [
   "/",
   "/index.html",
