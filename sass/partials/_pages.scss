@@ -17,17 +17,27 @@
     background: $color_high_tone;
 }
 
+.page {
+    min-width: 100vw;
+    min-height: 100vh;
+    display: none;
+
+    background-image: $color_gradient_dark;
+}
+
+.page.show {
+    display: grid;
+}
+
 // Start page 01 : Initial page with SoundPath Logo ==========
 
-#page01 {
-    .logo {
-        width: 150px;
-    }
+#content01 {
+    display: grid;
+    grid-template-rows: 1fr;
+    align-items: center;
 
-    #content01 {
-        display: flex;
-        justify-content: center;
-        align-content: center;
+    .logo {
+        width: 250px;
     }
 }
 
@@ -97,7 +107,7 @@
     }
 }
 
-// Start page 06 : Create New Playlist, Genres ==========
+// Start page 06 : Add country + Generate Playlist Button ==========
 
 #page06 {
     #btnBack06 {

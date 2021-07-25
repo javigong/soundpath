@@ -13,31 +13,55 @@
 // page 05 : Add Genres ================================== -->
 
 #form05 {
+  display: flex;
+  flex-flow: row nowrap;
+
+  input[type="checkbox"] {
+    display: none;
+  }
+
+  label {
+    display: inline-block;
+    background-color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 0.3rem 1rem;
+  }
+
+  input[type="checkbox"]:checked + label {
+    background-color: #ffffff;
+    color: #c42bd7;
+  }
+
+  .input-wrap {
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: row wrap;
+    gap: 1rem;
+  }
+}
 
-    input[type="checkbox"] {
-        display: none;
-    }
+#form06 {
+  display: grid;
+  grid-template-columns: auto;
+  gap: 1.05rem;
 
-    label {
-        display: inline-block;
-        background-color: white;
-        cursor: pointer;
-        border-radius: 5px;
-        padding: 0.3rem 1rem;
-    }
-
-    input[type="checkbox"]:checked + label {
-        background-color: #ffffff;
-        color: #c42bd7;
-    }
+  .slider-wrap {
+    display: grid;
+    grid-template-columns: auto;
+    gap: 1rem;
 
     .input-wrap {
-        display: flex;
-        flex-flow: row wrap;
-        gap: 1rem;
+      width: 250px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      margin: 0 auto;
+      gap: 1rem;
+      
+      label {
+        text-align: left;
+      }
     }
+  }
 }
 
 // page 06 : Add Country ================================== -->

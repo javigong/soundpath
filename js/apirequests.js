@@ -2,61 +2,51 @@
 //                   GET Playlist Recommendation                      //
 // ================================================================== //
 
-
-// // Get Access Token function ======================================== //
-
-// const clientID = "ea6dbfb6ca0e451e8fa3da6cfc97b5c7"; // ADD YOUR CLIENT ID
-// // const redirectURI = '____';
-// const redirectURI = "http://localhost:5501/"; // ADD TO YOUR LOCAL SERVER
-// let access_token;
-
-// function getAccessToken() {
-//   if (access_token) {
-//     console.log(access_token);
-//     return access_token;
-//   }
-//   const access_tokenMatch = window.location.href.match(/access_token=([^&]*)/);
-//   const expiresInMatch = window.location.href.match(/expires_in=([^&]*)/);
-
-//   if (access_tokenMatch && expiresInMatch) {
-//     access_token = access_tokenMatch[1];
-//     const expiresIn = Number(expiresInMatch[1]);
-//     // Clears Parameters From URL
-//     window.setTimeout(() => (access_token = ""), expiresIn * 1000);
-//     window.history.pushState("Access Token", null, "/");
-//     return access_token;
-//     console.log(access_token);
-//   } else {
-//     const accessUrl = `https://accounts.spotify.com/authorize?client_id=${clientID}&response_type=token&scope=playlist-modify-public&redirect_uri=${redirectURI}`;
-//     window.location = accessUrl;
-//   }
-// }
-
 // Parameters to GET Song Recommendations =========================== //
 
-// Testing Parameters (Values need to come from UI form inputs):
-
-let songLimit = 25;
-let market = "US";
-let genre1 = "rock";
-let genre2 = "pop";
-let genre3 = "folk";
-let genre4 = "chill";
+// Default Parameters from UI
+let market = "CA";
+let songLimit = 20;
 
 // Get Request: Recommendations Based on Seeds ====================== //
 // https://developer.spotify.com/console/get-recommendations/
 
-// API Endpoint URL:
-
-let getRecommendationsURL = `https://api.spotify.com/v1/recommendations?limit=${songLimit}&market=${market}&seed_genres=${genre1}%2C${genre2}%2C${genre3}%2C${genre4}`;
-
 // New Array to store Playlist:
 
 let songsArray = [];
+const genresArray = [];
 
 // Async Function to GET Playlist Recommendation ==================== //
 
 async function getRecommendedSongs() {
+  // default genre values
+  let genre1 = null;
+  let genre2 = null;
+  let genre3 = null;
+  let genre4 = null;
+  let genre5 = null;
+  // get genre values and store them in array
+  const genresForm = document.querySelector("#form05").elements;
+  // loop checked genres from UI
+  for (let i = 0; i < genresForm.length; i++) {
+    const element = genresForm[i];
+    if (element.checked == true) {
+      genresArray.push(element.value);
+    }
+  }
+  console.log(genresArray);
+  // assign value to genre variables
+  genre1 = genresArray[0];
+  genre2 = genresArray[1];
+  genre3 = genresArray[2];
+  genre4 = genresArray[3];
+  genre5 = genresArray[4];
+  console.log(genre1);
+
+  // API Endpoint URL:
+
+  let getRecommendationsURL = `https://api.spotify.com/v1/recommendations?limit=${songLimit}&market=${market}&seed_genres=${genre1}%2C${genre2}%2C${genre3}%2C${genre4}%2C${genre5}`;
+
   // getAccessToken();
   // Fetch from the api endpoint to get playlist
   const res = await fetch(getRecommendationsURL, {
@@ -141,7 +131,7 @@ async function getRecommendedSongs() {
 // Async Function to GET User ID, Playlist Name and Save Playlist == //
 
 // Parameters
-let playlistName = "My New Playlist Test";
+const namePlaylist = document.querySelector("#namePlaylist").value;
 
 function savePlaylist(playlistName, uriArr) {
   if (!playlistName || !uriArr.length) {
@@ -180,3 +170,4 @@ function savePlaylist(playlistName, uriArr) {
         });
     });
 }
+

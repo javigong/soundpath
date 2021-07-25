@@ -1,3 +1,10 @@
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker
+    .register("/sw.js")
+    .then((reg) => console.log("service worker registered", reg))
+    .catch((err) => console.log("service worker not registered", err));
+}
+
 // Start page 01 : Initial page with Soundpath Logo ==========
 
 const startBtn = document.querySelector("#page01");
@@ -62,9 +69,10 @@ if (goBack04Btn) {
   });
 }
 
-// Start page 05 : Add Genres (Max 4) ==========================
+// Start page 05 : Add Genres (Max 5) ==========================
 
 const getGenresBtn = document.querySelector("#btn05");
+
 if (getGenresBtn) {
   getGenresBtn.addEventListener("click", (event) => {
     document
@@ -84,7 +92,14 @@ if (goBack05Btn) {
   });
 }
 
-// Start page 06 : Add country + Generate Playlist Button ======
+// Start page 06 : Add country + Song Attributes + Generate Playlist Button ======
+
+// Sliders: .chrome styling 
+
+document.querySelectorAll(".slider").oninput = function() {
+  let value = (this.value-this.min)/(this.max-this.min)*100
+  this.style.background = 'linear-gradient(to right, #82CFD0 0%, #82CFD0 ' + value + '%, #fff ' + value + '%, white 100%)'
+};
 
 const generateBtn = document.querySelector("#btn06");
 if (generateBtn) {
