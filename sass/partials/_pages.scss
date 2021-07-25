@@ -48,6 +48,32 @@
   margin: 5rem;
 }
 
+#content02 {
+    background-color: #FCFBFB;
+}
+
+.landing-page-nav {
+    background: #663A5A;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.landing-page-logo > img {
+    width: 200px;
+    height: auto;
+}
+
+.nav-btns > a {
+    color: #FCFBFB;
+}
+
+.nav-btns > a:hover {
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
 // Start page 03 : Greetings, create a new playlist ==========
 
 #page03 {
