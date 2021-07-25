@@ -490,6 +490,11 @@ template {
   justify-content: center;
 }
 
+#playlistCover > img {
+  width: 640px;
+  height: 480px;
+}
+
 #page08 #btnBack08 {
   background-color: rgba(0, 0, 0, 0.1);
   padding: 0.8rem 1rem;

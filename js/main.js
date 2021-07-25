@@ -129,7 +129,13 @@ capture.addEventListener("click", function () {
 // Cancel or taking another picture
 
 newPhoto.addEventListener("click", function () {
+  // Takes another picture
+  canvas.classList.add("hide-canvas");
 
+  // adds logo image as cover
+  const logoImg = "../img/logo.svg";
+  copyImg.src = logoImg;
+  playlistCover.appendChild(copyImg);
 });
 
 // Start page 05 : Add Genres (Max 5) ==========================
