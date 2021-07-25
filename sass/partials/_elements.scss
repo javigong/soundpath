@@ -1,18 +1,6 @@
 * {
   box-sizing: border-box;
 }
-.page {
-  min-width: 100vw;
-  min-height: 100vh;
-  display: none;
-
-  background-image: $color_gradient_dark;
-}
-
-.page.show {
-  display: flex;
-  flex-flow: column nowrap;
-}
 
 button {
   background-color: black;
