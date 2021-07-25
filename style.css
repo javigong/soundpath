@@ -387,8 +387,11 @@ template {
   width: 250px;
 }
 
-#btn02 {
-  margin: 5rem;
+.nav-btns {
+  padding-left: 2rem;
+  width: 15rem;
+  display: flex;
+  justify-content: space-between;
 }
 
 #content02 {
@@ -399,7 +402,7 @@ template {
   background: #663A5A;
   padding: 1rem;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 }
 

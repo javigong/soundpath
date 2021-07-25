@@ -45,7 +45,14 @@
 // Start page 02 : Login With Spotify ==========
 
 #btn02 {
-  margin: 5rem;
+//   margin: 5rem;
+}
+
+.nav-btns {
+    padding-left: 2rem;
+    width: 15rem;
+    display: flex;
+    justify-content: space-between;
 }
 
 #content02 {
@@ -56,9 +63,13 @@
     background: #663A5A;
     padding: 1rem;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
 }
+
+// .landing-page-logo {
+//     margin-left: ;
+// }
 
 .landing-page-logo > img {
     width: 200px;
