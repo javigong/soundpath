@@ -359,19 +359,33 @@ template {
 }
 
 #progress1 .progress-child1,
-#progress2 .progress-child1, #progress2 .progress-child2,
-#progress3 .progress-child1, #progress3 .progress-child2, #progress3 .progress-child3 {
+#progress2 .progress-child1,
+#progress2 .progress-child2,
+#progress3 .progress-child1,
+#progress3 .progress-child2,
+#progress3 .progress-child3 {
   background: #c42bd7;
 }
 
-#page01 .logo {
-  width: 150px;
+.page {
+  min-width: 100vw;
+  min-height: 100vh;
+  display: none;
+  background-image: linear-gradient(180deg, #110844, #4f0056);
 }
 
-#page01 #content01 {
-  display: flex;
-  justify-content: center;
-  align-content: center;
+.page.show {
+  display: grid;
+}
+
+#content01 {
+  display: grid;
+  grid-template-rows: 1fr;
+  align-items: center;
+}
+
+#content01 .logo {
+  width: 250px;
 }
 
 #btn02 {
@@ -537,18 +551,6 @@ img {
   box-sizing: border-box;
 }
 
-.page {
-  min-width: 100vw;
-  min-height: 100vh;
-  display: none;
-  background-image: linear-gradient(180deg, #110844, #4f0056);
-}
-
-.page.show {
-  display: flex;
-  flex-flow: column nowrap;
-}
-
 button {
   background-color: black;
   color: white;
@@ -557,6 +559,34 @@ button {
   border-radius: 15px;
   cursor: pointer;
   background-image: linear-gradient(#c42bd7, #d465a1, #e59c6f);
+}
+
+.slider {
+  background: linear-gradient(to right, #c42bd7, #d465a1, #e59c6f);
+  border: solid 1px #82cfd0;
+  border-radius: 8px;
+  height: 7px;
+  width: 125px;
+  outline: none;
+  transition: all 450ms ease-in;
+  -webkit-appearance: none;
+}
+
+.slider::-webkit-slider-thumb {
+  width: 6px;
+  -webkit-appearance: none;
+  height: 12px;
+  background: black;
+  border-radius: 2px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  width: 12px;
+  -webkit-appearance: none;
+  height: 12px;
+  background: #110844;
+  border-radius: 10px;
+  border: solid 1px white;
 }
 
 /* 8. Forms ==================*/
@@ -586,5 +616,29 @@ button {
   display: flex;
   flex-flow: row wrap;
   gap: 1rem;
+}
+
+#form06 {
+  display: grid;
+  grid-template-columns: auto;
+  gap: 1.05rem;
+}
+
+#form06 .slider-wrap {
+  display: grid;
+  grid-template-columns: auto;
+  gap: 1rem;
+}
+
+#form06 .slider-wrap .input-wrap {
+  width: 250px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin: 0 auto;
+  gap: 1rem;
+}
+
+#form06 .slider-wrap .input-wrap label {
+  text-align: left;
 }
 /*# sourceMappingURL=style.css.map */
