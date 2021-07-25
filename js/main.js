@@ -5,7 +5,7 @@ if ("serviceWorker" in navigator) {
     .catch((err) => console.log("service worker not registerd", err));
 }
 
-// Start page 01 : Initial page with Soundpath Logo ==========
+// Start page 01 : Initial page with Soundpath Logo ============
 
 const startBtn = document.querySelector("#page01");
 if (startBtn) {
@@ -16,6 +16,35 @@ if (startBtn) {
     document.querySelector("#page02").classList.add("show");
   });
 }
+
+// Camera function =============================================
+
+const startCamera = document.getElementById("startCamera");
+const camWrapper = document.querySelector(".camera-wrapper");
+const canvas = document.getElementById("canvas");
+const context = canvas.getContext("2d");
+const captureButton = document.getElementById("capture");
+const copyImg = document.createElement("img");
+
+
+// Start Camera =============
+
+startCamera.addEventListener("click", function () {
+  document
+    .querySelectorAll(".page")
+    .forEach((page) => page.classList.remove("show"));
+
+  camWrapper.classList.add("show");
+
+  if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+    navigator.mediaDevices.getUserMedia({ video: true }).then(function (stream) {
+      video.srcObject = stream;
+    });
+  } else {
+    console.log("media devices not available in this browser")
+  }
+});
+
 
 // Start page 02 : Login with Spotify Button ===================
 
