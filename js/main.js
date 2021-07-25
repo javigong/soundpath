@@ -17,35 +17,6 @@ if (startBtn) {
   });
 }
 
-// Camera function =============================================
-
-const startCamera = document.getElementById("startCamera");
-const camWrapper = document.querySelector(".camera-wrapper");
-const canvas = document.getElementById("canvas");
-const context = canvas.getContext("2d");
-const captureButton = document.getElementById("capture");
-const copyImg = document.createElement("img");
-
-
-// Start Camera =============
-
-startCamera.addEventListener("click", function () {
-  document
-    .querySelectorAll(".page")
-    .forEach((page) => page.classList.remove("show"));
-
-  camWrapper.classList.add("show");
-
-  if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-    navigator.mediaDevices.getUserMedia({ video: true }).then(function (stream) {
-      video.srcObject = stream;
-    });
-  } else {
-    console.log("media devices not available in this browser")
-  }
-});
-
-
 // Start page 02 : Login with Spotify Button ===================
 
 const loginBtn = document.querySelector("#btn02");
@@ -97,6 +68,48 @@ if (goBack04Btn) {
     document.querySelector("#page03").classList.add("show");
   });
 }
+
+// Camera function =============================================
+
+const camWrapper = document.querySelector(".camera-wrapper");
+const canvas = document.getElementById('canvas');
+const context = canvas.getContext("2d");
+const copyImg = document.createElement("img");
+
+
+// Start Camera =============
+
+startCamera.addEventListener("click", function () {
+  document
+    .querySelectorAll(".page")
+    .forEach((page) => page.classList.remove("show"));
+
+  camWrapper.classList.add("show");
+
+  if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+    navigator.mediaDevices.getUserMedia({ video: true }).then(function (stream) {
+      video.srcObject = stream;
+    });
+  } else {
+    console.log("media devices not available in this browser")
+  }
+});
+
+// Back to page 01 from camera
+
+backFromCam.addEventListener("click", function () {
+  // Stops the camera
+  const tracks = video.srcObject.getTracks();
+  tracks.forEach(track => track.stop());
+
+  // Goes back to page
+  camWrapper.classList.remove("show");
+  document
+    .querySelectorAll(".page")
+    .forEach((page) => page.classList.remove("show"));
+  document.querySelector("#page04").classList.add("show");
+
+});
 
 // Start page 05 : Add Genres (Max 5) ==========================
 

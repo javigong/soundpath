@@ -387,7 +387,7 @@ template {
 }
 
 .camera-screen {
-  margin: 10%;
+  margin: 1rem;
   position: relative;
 }
 
@@ -409,6 +409,11 @@ template {
   left: 0;
   right: 0;
   bottom: 0;
+}
+
+.cam-btn-wrapper {
+  margin-top: -3.5rem;
+  z-index: 3;
 }
 
 #btn02 {
