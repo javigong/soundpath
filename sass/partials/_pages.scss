@@ -34,12 +34,38 @@
     min-width: 100vw;
     min-height: 100vh;
     display: none;  
-    background-image: black;
+    background: black;
 }
   
 .camera-wrapper.show {
     display: flex;
-    // flex-flow: column nowrap;
+    justify-content: center;
+    flex-flow: column nowrap;
+}
+
+.camera-screen {
+    margin: 10%;
+    position: relative;
+}
+
+#video {
+    border: 1px solid white;
+    display: block;
+    position: relative;
+    z-index: 1;
+    pointer-events: none;
+    margin: auto;
+}
+
+#canvas {
+    border: 1px solid red;
+    position: absolute;
+    z-index: 2;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
 
 // Start page 02 : Login With Spotify =====================
