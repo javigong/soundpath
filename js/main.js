@@ -77,7 +77,7 @@ const context = canvas.getContext("2d");
 const copyImg = document.createElement("img");
 
 
-// Start Camera =============
+// Start Camera =================================
 
 startCamera.addEventListener("click", function () {
   document
@@ -95,7 +95,7 @@ startCamera.addEventListener("click", function () {
   }
 });
 
-// Back to page 01 from camera
+// Back to page 01 from camera ==================
 
 backFromCam.addEventListener("click", function () {
   // Stops the camera
@@ -108,6 +108,27 @@ backFromCam.addEventListener("click", function () {
     .querySelectorAll(".page")
     .forEach((page) => page.classList.remove("show"));
   document.querySelector("#page04").classList.add("show");
+
+});
+
+// Capture the picture ==========================
+
+function handleBlob(blob) {
+  const objectURL = window.URL.createObjectURL(blob);
+  copyImg.src = objectURL;
+  playlistCover.appendChild(copyImg);
+  console.log(objectURL);
+}
+
+capture.addEventListener("click", function () {
+  context.drawImage(video, 0, 0);
+  const imageBlob = canvas.toBlob(handleBlob, 'image/png');
+  canvas.classList.remove("hide-canvas");
+});
+
+// Cancel or taking another picture
+
+newPhoto.addEventListener("click", function () {
 
 });
 

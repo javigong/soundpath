@@ -416,6 +416,10 @@ template {
   z-index: 3;
 }
 
+#canvas.hide-canvas {
+  display: none;
+}
+
 #btn02 {
   margin: 5rem;
 }
@@ -478,6 +482,12 @@ template {
 }
 #page06 #form05 {
   margin-left: 45%;
+}
+
+#content08 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 #page08 #btnBack08 {
