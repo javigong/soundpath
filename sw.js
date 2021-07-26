@@ -1,13 +1,12 @@
 const cacheName = "v1";
 const urlsToCache = [
-  "./",
-  "./index.html",
-  "./style.css",
-  "./js/main.js",
-  "./index.html?source=pwa",
-  "./img/logo.svg",
-  "./icons/",
-  "./safari-pinned-tab.svg",
+  "/",
+  "/index.html",
+  "/style.css",
+  "/js/main.js",
+  "/img/logo.svg",
+  "/icons/",
+  "/safari-pinned-tab.svg",
 ];
 
 self.addEventListener("install", (event) => {
