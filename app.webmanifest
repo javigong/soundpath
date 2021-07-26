@@ -40,7 +40,7 @@
       "density": "4.0"
     }
   ],
-  "start_url": "index.html",
+  "start_url": "index.html?=pwa",
   "scope": "/",
   "display": "standalone",
   "background_color": "#2b094a",
