@@ -78,15 +78,16 @@
 
     <title>SoundPath PWA</title>
 
-    <!-- <script>
+    <script>
       if ("serviceWorker" in navigator) {
         navigator.serviceWorker
-          .register("sw.js")
+          .register("./sw.js", { scope: "/" })
           .then((reg) => console.log("service worker registered", reg))
           .catch((err) => console.log("service worker not registered", err));
       }
-    </script> -->
-    <script>
+    </script>
+
+    <!-- <script>
       // does the browser support service workers?
       if ("serviceWorker" in navigator) {
         // fires when the service worker is ready
@@ -110,7 +111,7 @@
         // happens when the app isn't served over a TLS connection (HTTPS)
         console.warn("Service Worker not available");
       }
-    </script>
+    </script> -->
 
     <script src="js/oauth.js" defer></script>
     <script src="js/apirequests.js" defer></script>
