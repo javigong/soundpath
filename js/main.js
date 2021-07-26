@@ -1,8 +1,26 @@
+// if ("serviceWorker" in navigator) {
+//   navigator.serviceWorker
+//     .register("/sw.js")
+//     .then((reg) => console.log("service worker registered", reg))
+//     .catch((err) => console.log("service worker not registered", err));
+// }
+
 if ("serviceWorker" in navigator) {
-  navigator.serviceWorker
-    .register("/sw.js")
-    .then((reg) => console.log("service worker registered", reg))
-    .catch((err) => console.log("service worker not registered", err));
+  window.addEventListener("load", function () {
+    navigator.serviceWorker.register("/sw.js").then(
+      function (registration) {
+        // Registration was successful
+        console.log(
+          "ServiceWorker registration successful with scope: ",
+          registration.scope
+        );
+      },
+      function (err) {
+        // registration failed :(
+        console.log("ServiceWorker registration failed: ", err);
+      }
+    );
+  });
 }
 
 // Start page 01 : Initial page with Soundpath Logo ==========
@@ -94,11 +112,16 @@ if (goBack05Btn) {
 
 // Start page 06 : Add country + Song Attributes + Generate Playlist Button ======
 
-// Sliders: .chrome styling 
+// Sliders: .chrome styling
 
-document.querySelectorAll(".slider").oninput = function() {
-  let value = (this.value-this.min)/(this.max-this.min)*100
-  this.style.background = 'linear-gradient(to right, #82CFD0 0%, #82CFD0 ' + value + '%, #fff ' + value + '%, white 100%)'
+document.querySelectorAll(".slider").oninput = function () {
+  let value = ((this.value - this.min) / (this.max - this.min)) * 100;
+  this.style.background =
+    "linear-gradient(to right, #82CFD0 0%, #82CFD0 " +
+    value +
+    "%, #fff " +
+    value +
+    "%, white 100%)";
 };
 
 const generateBtn = document.querySelector("#btn06");
