@@ -41,7 +41,7 @@
     }
   ],
   "scope": "/",
-  "start_url": "/index.html",
+  "start_url": "/index.html?source=pwa",
   "display": "standalone",
   "background_color": "#2b094a",
   "theme_color": "#4f0056",
