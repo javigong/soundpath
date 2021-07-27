@@ -131,7 +131,7 @@ async function getRecommendedSongs() {
 // Async Function to GET User ID, Playlist Name and Save Playlist == //
 
 // Parameters
-const namePlaylist = document.querySelector("#namePlaylist").value;
+const playlistName = document.querySelector("#namePlaylist").value;
 
 function savePlaylist(playlistName, uriArr) {
   if (!playlistName || !uriArr.length) {
@@ -139,7 +139,7 @@ function savePlaylist(playlistName, uriArr) {
   }
   const access_token = getAccessToken();
   const headers = { Authorization: `Bearer ${access_token}` };
-  let userId;
+  let userId = client_id;
 
   return fetch(`https://api.spotify.com/v1/me`, {
     headers: headers,
