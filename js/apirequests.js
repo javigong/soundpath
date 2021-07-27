@@ -145,9 +145,7 @@ function createPlaylist() {
   console.log("New playlist created");
 }
 
-// Async Function to GET User ID, Playlist Name and Save Playlist == //
-
-// Parameters
+// ***KEEPING THIS FUNCTION JUST FOR GUIDANCE*** Async Function to GET User ID, Playlist Name and Save Playlist  
 
 function savePlaylist(playlistName, uriArr) {
   if (!playlistName || !uriArr.length) {
