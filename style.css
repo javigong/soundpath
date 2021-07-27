@@ -420,6 +420,41 @@ template {
   transition: 0.2s ease;
 }
 
+.hero-area {
+  color: #663A5A;
+  height: 400px;
+  background: linear-gradient(0.25turn, #DBB4D7, #DFC87C);
+  display: flex;
+  padding: 2rem;
+  align-items: center;
+}
+.hero-area h2 {
+  margin: 0;
+  font-size: 30px;
+}
+.hero-area p {
+  font-size: 20px;
+}
+.hero-area img {
+  height: 200px;
+}
+
+.hero-left {
+  text-align: left;
+  line-height: 50px;
+}
+
+.hero-text {
+  line-height: 10px;
+}
+
+#downloadBtn {
+  background: #4f0056;
+  padding: 0.5rem 1.5rem;
+  font-size: 20px;
+  margin-top: 50px;
+}
+
 #page03 #btn03 {
   border-radius: 50%;
   padding: 0.8rem 1rem;
