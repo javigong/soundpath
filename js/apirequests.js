@@ -122,18 +122,14 @@ async function getRecommendedSongs() {
 }
 // end Async Function to GET Playlist Recommendation ================ //
 
-// Invoke Async Function to GET Playlist Recommendation:
+// ================================================================= //
+// =     Create New Playlist with Title on User's Spotify          = //
+// ================================================================= //
 
-// getRecommendedSongs();
-
-// end GET Playlist Recommendation  ================================ //
-
-// Create New Playlist:
+let playlistName = document.querySelector("#namePlaylist").value;
 function createPlaylist() {
-  const playlistName = document.querySelector("#namePlaylist").value;
   const user_id = "fluobox"; // personal user id
-  console.log("Run new playlist");
-  fetch(`https://api.spotify.com/v1/users/${user_id}/playlists`, {
+  await fetch(`https://api.spotify.com/v1/users/${user_id}/playlists`, {
     body: `{"name":"${playlistName}","description":"","public":false}`,
     headers: {
       Accept: "application/json",
@@ -145,7 +141,26 @@ function createPlaylist() {
   console.log("New playlist created");
 }
 
-// ***KEEPING THIS FUNCTION JUST FOR GUIDANCE*** Async Function to GET User ID, Playlist Name and Save Playlist  
+// ================================================================= //
+// =        Get the Last Playlist Created for the User             = //
+// ================================================================= //
+
+const playlistId;
+function getPlaylistId() {
+  return fetch("https://api.spotify.com/v1/me/playlists?limit=1", {
+    headers: {
+      Accept: "application/json",
+      Authorization: `Bearer ${access_token}`,
+      "Content-Type": "application/json",
+    }}).then((response) => {
+      return response.json();
+    }).then((jsonResponse) => {
+      playlistId = jsonResponse.id;
+      console.log(playlistId);
+    });
+};
+
+// ***KEEPING THIS FUNCTION JUST FOR GUIDANCE*** Async Function to GET User ID, Playlist Name and Save Playlist
 
 function savePlaylist(playlistName, uriArr) {
   if (!playlistName || !uriArr.length) {
