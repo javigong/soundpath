@@ -4,7 +4,7 @@
 
 // Parameters to GET Song Recommendations =========================== //
 
-// Parameters from UI
+// Default Parameters from UI
 let market = "CA";
 let songLimit = 20;
 
