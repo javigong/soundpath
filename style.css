@@ -455,6 +455,29 @@ template {
   margin-top: 50px;
 }
 
+.about-area {
+  color: #4f0056;
+  text-align: left;
+}
+
+.about-article {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem 0;
+  gap: 10rem;
+}
+
+.about-text {
+  width: 300px;
+}
+
+img.about-img {
+  clip-path: circle(50% at 50% 50%);
+  height: 200px;
+  width: 200px;
+}
+
 #page03 #btn03 {
   border-radius: 50%;
   padding: 0.8rem 1rem;

@@ -86,7 +86,7 @@
     transition: 0.2s ease;
 }
 
-// Landing-page hero section
+// Landing-page hero section ==========
 .hero-area {
   color: $color_landing_page;
   height: 400px;
@@ -124,6 +124,31 @@
   padding: 0.5rem 1.5rem;
   font-size: 20px;
   margin-top: 50px;
+}
+
+// About section ======================
+.about-area {
+  color: $color_mid_tone;
+  text-align: left;
+}
+
+.about-article {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem 0;
+  gap: 10rem;
+}
+
+.about-text {
+  width: 300px;
+}
+
+img.about-img {
+  clip-path: circle(50% at 50% 50%);
+  height: 200px;
+  width: 200px;
+  // margin: ;
 }
 
 // Start page 03 : Greetings, create a new playlist ==========
