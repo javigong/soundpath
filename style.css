@@ -491,8 +491,8 @@ template {
 }
 
 #playlistCover > img {
-  width: 640px;
-  height: 480px;
+  width: auto;
+  height: 250px;
 }
 
 #page08 #btnBack08 {

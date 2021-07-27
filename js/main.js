@@ -138,6 +138,21 @@ newPhoto.addEventListener("click", function () {
   playlistCover.appendChild(copyImg);
 });
 
+// Upload Image =================================
+window.addEventListener('load', function () {
+  document.querySelector('input[type="file"]').addEventListener('change', function () {
+    if (this.files && this.files[0]) {
+
+      copyImg.onload = () => {
+        URL.revokeObjectURL(img.src);
+      }
+
+      copyImg.src = URL.createObjectURL(this.files[0]);
+      playlistCover.appendChild(copyImg);
+    }
+  });
+});
+
 // Start page 05 : Add Genres (Max 5) ==========================
 
 const getGenresBtn = document.querySelector("#btn05");
