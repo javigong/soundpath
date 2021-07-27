@@ -45,6 +45,7 @@ if (createPlaylistBtn) {
 const getNameBtn = document.querySelector("#btn04");
 if (getNameBtn) {
   getNameBtn.addEventListener("click", (event) => {
+    createPlaylist();
     document
       .querySelectorAll(".page")
       .forEach((page) => page.classList.remove("show"));
