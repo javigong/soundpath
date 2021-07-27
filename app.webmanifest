@@ -1,10 +1,11 @@
 {
-  "short_name": "SoundPath",
   "name": "SoundPath PWA",
-  "start_url": "/index.html?source=pwa",
+  "short_name": "SoundPath",
+  "description": "Playlist Generator powered by Spotify",
+  "start_url": "/index.html",
   "display": "standalone",
   "background_color": "#2b094a",
-  "theme_color": "#2b094a",
+  "theme_color": "#4f0056",
   "orientation": "portrait-primary",
   "icons": [
     {
