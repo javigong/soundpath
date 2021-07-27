@@ -4,7 +4,7 @@
 
 // Parameters to GET Song Recommendations =========================== //
 
-// Parameters from UI
+// Default Parameters from UI
 let market = "CA";
 let songLimit = 20;
 
@@ -128,10 +128,26 @@ async function getRecommendedSongs() {
 
 // end GET Playlist Recommendation  ================================ //
 
+// Create New Playlist:
+function createPlaylist() {
+  const playlistName = document.querySelector("#namePlaylist").value;
+  const user_id = "fluobox"; // personal user id
+  console.log("Run new playlist");
+  fetch(`https://api.spotify.com/v1/users/${user_id}/playlists`, {
+    body: `{"name":"${playlistName}","description":"","public":false}`,
+    headers: {
+      Accept: "application/json",
+      Authorization: `Bearer ${access_token}`,
+      "Content-Type": "application/json",
+    },
+    method: "POST",
+  });
+  console.log("New playlist created");
+}
+
 // Async Function to GET User ID, Playlist Name and Save Playlist == //
 
 // Parameters
-const namePlaylist = document.querySelector("#namePlaylist").value;
 
 function savePlaylist(playlistName, uriArr) {
   if (!playlistName || !uriArr.length) {
@@ -139,7 +155,7 @@ function savePlaylist(playlistName, uriArr) {
   }
   const access_token = getAccessToken();
   const headers = { Authorization: `Bearer ${access_token}` };
-  let userId;
+  let userId = client_id;
 
   return fetch(`https://api.spotify.com/v1/me`, {
     headers: headers,
@@ -170,4 +186,3 @@ function savePlaylist(playlistName, uriArr) {
         });
     });
 }
-

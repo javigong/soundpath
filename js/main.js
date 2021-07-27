@@ -2,7 +2,7 @@ if ("serviceWorker" in navigator) {
   navigator.serviceWorker
     .register("/sw.js")
     .then((reg) => console.log("service worker registered", reg))
-    .catch((err) => console.log("service worker not registerd", err));
+    .catch((err) => console.log("service worker not registered", err));
 }
 
 // Start page 01 : Initial page with Soundpath Logo ==========
@@ -52,6 +52,7 @@ if (createPlaylistBtn) {
 const getNameBtn = document.querySelector("#btn04");
 if (getNameBtn) {
   getNameBtn.addEventListener("click", (event) => {
+    createPlaylist();
     document
       .querySelectorAll(".page")
       .forEach((page) => page.classList.remove("show"));
@@ -92,7 +93,19 @@ if (goBack05Btn) {
   });
 }
 
-// Start page 06 : Add country + Generate Playlist Button ======
+// Start page 06 : Add country + Song Attributes + Generate Playlist Button ======
+
+// Sliders: .chrome styling
+
+document.querySelectorAll(".slider").oninput = function () {
+  let value = ((this.value - this.min) / (this.max - this.min)) * 100;
+  this.style.background =
+    "linear-gradient(to right, #82CFD0 0%, #82CFD0 " +
+    value +
+    "%, #fff " +
+    value +
+    "%, white 100%)";
+};
 
 const generateBtn = document.querySelector("#btn06");
 if (generateBtn) {
