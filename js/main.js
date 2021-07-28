@@ -149,6 +149,7 @@ if (transferBtn) {
 const goBack08Btn = document.querySelector("#btnBack08");
 if (goBack08Btn) {
   goBack08Btn.addEventListener("click", (event) => {
+    sendSongs();
     document
       .querySelectorAll(".page")
       .forEach((page) => page.classList.remove("show"));
