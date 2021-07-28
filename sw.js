@@ -1,6 +1,6 @@
-let cacheName = "v1";
+let cacheName = "v2";
 
-let dynamicCache = "dynamic-v1";
+let dynamicCache = "dynamic-v2";
 
 const urlsToCache = [
   "/",
@@ -39,13 +39,14 @@ self.addEventListener("activate", (event) => {
   console.log(`Event fired: ${event.type}`);
   console.dir(event);
   event.waitUntil(
-    caches.keys().then(keys => {
-      return Promise.all(keys
-        .filter(key => key !== cacheName && key !== dynamicCache)
-        .map(key => caches.delete(key))
-      )
+    caches.keys().then((keys) => {
+      return Promise.all(
+        keys
+          .filter((key) => key !== cacheName && key !== dynamicCache)
+          .map((key) => caches.delete(key))
+      );
     })
-  )
+  );
 });
 
 // Fires whenever the app requests a resource (file or data)
@@ -107,13 +108,19 @@ event.respondWith( ( async() => {
 
 self.addEventListener("fetch", (event) => {
   event.respondWith(
-    caches.match(event.request).then(cacheRes => {
-      return cacheRes || fetch(event.request).then(fetchRes => {
-        return caches.open(dynamicCache).then(cache => {
-          cache.put(event.request.url, fetchRes.clone());
-          return fetchRes;
-        });
+    caches
+      .match(event.request)
+      .then((cacheRes) => {
+        return (
+          cacheRes ||
+          fetch(event.request).then((fetchRes) => {
+            return caches.open(dynamicCache).then((cache) => {
+              cache.put(event.request.url, fetchRes.clone());
+              return fetchRes;
+            });
+          })
+        );
       })
-    }).catch(() => caches.match('/pages/fallback.html'))
+      .catch(() => caches.match("/pages/fallback.html"))
   );
-})
+});

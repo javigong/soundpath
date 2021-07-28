@@ -122,10 +122,29 @@ async function getRecommendedSongs() {
 }
 // end Async Function to GET Playlist Recommendation ================ //
 
+// ================================================================== //
+//                   GET User's ID                                    //
+// ================================================================== //
+
+let user_id;
+async function getSpotId() {
+  let res = await fetch("https://api.spotify.com/v1/me", {
+    headers: {
+      Accept: "application/json",
+      Authorization: `Bearer ${access_token}`,
+      "Content-Type": "application/json",
+    },
+  });
+
+  let data = await res.json();
+  //user ID
+  user_id = await data.id;
+  console.log(user_id);
+}
 // ================================================================= //
 // =     Create New Playlist with Title on User's Spotify          = //
 // ================================================================= //
-let user_id = "fluobox"; // personal id
+
 let playlistName = document.querySelector("#namePlaylist").value;
 async function createPlaylist() {
   await fetch(`https://api.spotify.com/v1/users/${user_id}/playlists`, {
@@ -140,10 +159,10 @@ async function createPlaylist() {
 }
 
 // ================================================================= //
-// =        Get the Last Playlist Id Created for the User             = //
+// =        Get the Last Playlist Id Created for the User          = //
 // ================================================================= //
 
-// let playlistId = "";
+let playlistId = "";
 async function getPlaylistId() {
   const res = await fetch(
     `https://api.spotify.com/v1/me/playlists?offset=0&limit=1`,
@@ -157,8 +176,8 @@ async function getPlaylistId() {
     }
   );
   const data = await res.json();
-  playlistId = data[0].id;
-  console.log(data);
+  playlistId = data.id;
+  console.log(playlistId);
 }
 
 // ================================================================= //
