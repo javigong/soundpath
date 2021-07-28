@@ -1,7 +1,11 @@
-const redirect_uri = "http://localhost:5501/"; //Replace with you localhost
+const redirect_uri = "https://soundpath.netlify.app/index.html"; //Replace with you localhost
 
-let client_id = "a0875c5745d349afa70d58abc2368d8b";
-let client_secret = "f3be40b89030473bac2a1cf2cc7cdda2";
+//gustavo
+// let client_id = "a0875c5745d349afa70d58abc2368d8b";
+// let client_secret = "f3be40b89030473bac2a1cf2cc7cdda2";
+//javierg
+let client_id = "ea6dbfb6ca0e451e8fa3da6cfc97b5c7";
+let client_secret = "82e9c8e180cd447aa61bcab97df41a2b";
 
 let access_token = null;
 let refresh_token = null;
@@ -61,15 +65,16 @@ localStorage.setItem("client_id", client_id);
 localStorage.setItem("client_secret", client_secret);
 
 function requestAuthorization() {
-  client_id = "a0875c5745d349afa70d58abc2368d8b";
-  client_secret = "f3be40b89030473bac2a1cf2cc7cdda2";
+    // client_id = "a0875c5745d349afa70d58abc2368d8b";
+    // client_secret = "f3be40b89030473bac2a1cf2cc7cdda2";
 
-  let url = AUTHORIZE;
-  url += "?client_id=" + client_id;
-  url += "&response_type=code";
-  url += "&redirect_uri=" + encodeURI(redirect_uri);
-  url += "&show_dialog=true";
-  window.location.href = url;
+    let url = AUTHORIZE;
+    url += "?client_id=" + client_id;
+    url += "&response_type=code";
+    url += "&redirect_uri=" + encodeURI(redirect_uri);
+    url += "&show_dialog=true";
+    url += "&scope=user-read-private user-read-email playlist-modify-private playlist-modify-public user-library-read streaming user-read-playback-state user-read-recently-played playlist-read-private";
+    window.location.href = url;
 }
 url +=
   "&scope=user-read-private user-read-email playlist-modify-private playlist-modify-public user-library-read streaming user-read-playback-state user-read-playback-position user-read-recently-played user-modify-playback-state ugc-image-upload";
