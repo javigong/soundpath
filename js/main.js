@@ -69,6 +69,7 @@ const getGenresBtn = document.querySelector("#btn05");
 
 if (getGenresBtn) {
   getGenresBtn.addEventListener("click", (event) => {
+    getPlaylistId()
     document
       .querySelectorAll(".page")
       .forEach((page) => page.classList.remove("show"));
@@ -138,7 +139,7 @@ if (generateDoneBtn) {
 const transferBtn = document.querySelector("#btn08");
 if (transferBtn) {
   transferBtn.addEventListener("click", (event) => {
-    getPlaylistId();
+    sendSongs();
     document
       .querySelectorAll(".page")
       .forEach((page) => page.classList.remove("show"));
@@ -149,7 +150,6 @@ if (transferBtn) {
 const goBack08Btn = document.querySelector("#btnBack08");
 if (goBack08Btn) {
   goBack08Btn.addEventListener("click", (event) => {
-    sendSongs();
     document
       .querySelectorAll(".page")
       .forEach((page) => page.classList.remove("show"));
