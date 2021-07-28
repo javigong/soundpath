@@ -104,6 +104,7 @@ const generateBtn = document.querySelector("#btn06");
 if (generateBtn) {
   generateBtn.addEventListener("click", (event) => {
     getRecommendedSongs();
+    getPlaylistId();
     document
       .querySelectorAll(".page")
       .forEach((page) => page.classList.remove("show"));

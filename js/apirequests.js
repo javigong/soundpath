@@ -127,9 +127,9 @@ async function getRecommendedSongs() {
 // ================================================================= //
 
 let playlistName = document.querySelector("#namePlaylist").value;
-function createPlaylist() {
+async function createPlaylist() {
   const user_id = "fluobox"; // personal user id
-  await fetch(`https://api.spotify.com/v1/users/${user_id}/playlists`, {
+  await fetch(`https://api.spotify.com/v1/users/${user_id}/playlists?offset=0&limit=1`, {
     body: `{"name":"${playlistName}","description":"","public":false}`,
     headers: {
       Accept: "application/json",
@@ -138,27 +138,28 @@ function createPlaylist() {
     },
     method: "POST",
   });
-  console.log("New playlist created");
+  console.log(`New playlist created. Title: ${playlistName}`);
 }
 
 // ================================================================= //
 // =        Get the Last Playlist Created for the User             = //
 // ================================================================= //
 
-const playlistId;
+let playlistId;
 function getPlaylistId() {
-  return fetch("https://api.spotify.com/v1/me/playlists?limit=1", {
+  return fetch(`https://api.spotify.com/v1/users/${user_id}/playlists`", {
     headers: {
       Accept: "application/json",
       Authorization: `Bearer ${access_token}`,
       "Content-Type": "application/json",
-    }}).then((response) => {
+    },
+  }).then((response) => {
       return response.json();
     }).then((jsonResponse) => {
       playlistId = jsonResponse.id;
       console.log(playlistId);
     });
-};
+}
 
 // ***KEEPING THIS FUNCTION JUST FOR GUIDANCE*** Async Function to GET User ID, Playlist Name and Save Playlist
 
