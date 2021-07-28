@@ -170,10 +170,11 @@
     }
 
     #btn06 {
+        margin-top: 15%;
     }
 }
 
-// Start page 07 : Loading Screen ==========
+// Start page 07 & Loading Screen ==========
 
 #content07 {
     display: flex;
@@ -189,6 +190,7 @@
     width: 80px;
     height: 80px;
 }
+
 .loading-ring:after {
     content: " ";
     display: block;
@@ -200,6 +202,7 @@
     border-color: #c42bd7 transparent #c42bd7 transparent;
     animation: loading-ring 1.5s linear infinite;
 }
+
 @keyframes loading-ring {
     0% {
         transform: rotate(0deg);
@@ -217,6 +220,10 @@
         padding: 0.8rem 1rem;
         box-shadow: 0px 3px 18px #00000052;
         background-image: none;
+    }
+
+    #btn08 {
+        margin: 1rem auto;
     }
 
     #outputList {
@@ -268,4 +275,31 @@
     .artistElement::before {
         content: "by ";
     }
+}
+
+// Start page 09 : Transferring ==========
+
+#content09 {
+    display: flex;
+    height: 95vh;
+    margin: auto;
+    justify-content: center;
+    flex-flow: column;
+    text-align: center;
+
+    .loading-ring {
+        margin: 0.5rem auto;
+    }
+}
+
+// Start page 10 : Create another playlist ==========
+
+#content10 {
+    display: flex;
+    height: 95vh;
+    margin: auto;
+    justify-content: center;
+    flex-flow: column;
+    text-align: center;
+    margin-bottom: 0;
 }
