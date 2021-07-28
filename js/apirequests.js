@@ -209,9 +209,7 @@ async function sendSongs() {
     );
   }
 }
-// ================================================================= //
-// =                    Get Playlist URIs                          = //
-// ================================================================= //
+
 
 // ***KEEPING THIS FUNCTION JUST FOR GUIDANCE*** Async Function to GET User ID, Playlist Name and Save Playlist
 
