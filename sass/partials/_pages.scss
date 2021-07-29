@@ -189,3 +189,30 @@
     content: "by ";
   }
 }
+
+#offlineMsg {
+  display: none;
+}
+
+#offlineMsg.showOffline {
+  position: absolute;
+  top: 50%;
+  bottom: 10%;
+  left: 10%;
+  right: 10%;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
+
+// Offline popup message //
+.offlineBox {
+  padding: 0.5rem 2rem;
+  color: $color_offline_popup;
+  background-color: $color_offline_popup_bg;
+  border-radius: 10px;
+
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
