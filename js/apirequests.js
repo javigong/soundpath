@@ -1,9 +1,10 @@
 // ================================================================== //
-//                   GET User's ID                                    //
+//                   GET User's ID & Run on loading                   //
 // ================================================================== //
 
 
 const playlistName = document.querySelector('#namePlaylist');
+const transferToSpot = document.querySelector('#btn08');
 
 let spotID;
 
@@ -21,9 +22,10 @@ async function getSpotId() {
     spotID = await data.id
     console.log(spotID);
 }
+
 let dummyText = true;
 
-function assessCondition() {
+function condition() {
     if (access_token && dummyText) {
         getSpotId();
         dummyText = false;
@@ -32,7 +34,7 @@ function assessCondition() {
 
 
 // ================================================================== //
-//                  Create Playlist                                   //
+//           Create Empty Playlist & transfer to Spot Account         //
 // ================================================================== //
 
 /* get playlist's name */
@@ -54,6 +56,12 @@ async function createPlaylist() {
     let anwser = await playCreation.json();
     console.log(anwser);
 }
+
+transferToSpot.addEventListener('click', createPlaylist);
+
+// ================================================================== //
+//           Pushing songs to Playlist                                //
+// ================================================================== //
 
 
 
@@ -190,45 +198,3 @@ async function getRecommendedSongs() {
 // getRecommendedSongs();
 
 // end GET Playlist Recommendation  ================================ //
-
-// Async Function to GET User ID, Playlist Name and Save Playlist == //
-
-// Parameters
-const namePlaylist = document.querySelector("#namePlaylist").value;
-
-function savePlaylist(playlistName, uriArr) {
-    if (!playlistName || !uriArr.length) {
-        return;
-    }
-    const access_token = getAccessToken();
-    const headers = { Authorization: `Bearer ${access_token}` };
-    let userId;
-
-    return fetch(`https://api.spotify.com/v1/me`, {
-        headers: headers,
-    })
-        .then((response) => {
-            return response.json();
-        })
-        .then((jsonResponse) => {
-            userId = jsonResponse.id;
-            return fetch(`https://api.spotify.com/v1/users/${userId}/playlists`, {
-                headers: headers,
-                method: "POST",
-                body: JSON.stringify({ name: playlistName }),
-            })
-                .then((response) => {
-                    return response.json();
-                })
-                .then((jsonResponse) => {
-                    const playlistId = jsonResponse.id;
-                    return fetch(
-                        `https://api.spotify.com/v1/users/${userId}/playlists/${playlistId}/tracks`, {
-                        headers: headers,
-                        method: "POST",
-                        body: JSON.stringify({ uris: uriArr }),
-                    }
-                    );
-                });
-        });
-}

@@ -1,4 +1,8 @@
 {
     "liveServer.settings.port": 5501,
-    "liveServer.settings.root": ""
+    "liveServer.settings.root": "",
+    "vim.easymotion": true,
+    "vim.highlightedyank.enable": true,
+    "vim.showMarksInGutter": true,
+    "vim.leader": "space"
 }
