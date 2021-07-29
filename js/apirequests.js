@@ -1,7 +1,9 @@
+
 // ================================================================= //
 // =                  Transfer songs to Spotify                    = //
 // ================================================================= //
 
+let device;
 async function saveSongs() {
   let playlistName = document.querySelector("#namePlaylist").value;
   return fetch(`https://api.spotify.com/v1/me`, {
@@ -54,6 +56,7 @@ let songLimit = 20;
 
 let songsArray = [];
 let uriArray = [];
+let uriArrayAlbum = [];
 const genresArray = [];
 
 // Async Function to GET Playlist Recommendation ==================== //
@@ -107,8 +110,11 @@ async function getRecommendedSongs() {
   // Store uris
   for (let i = 0; i < songsArray.length; i++) {
     let thisSong = songsArray[i].uri;
+    let thisAlbum = songsArray[i].album.uri;
     uriArray.push(thisSong);
+    uriArrayAlbum.push(thisAlbum);
   }
+
   console.log(uriArray);
 
   console.log(songsArray);
@@ -174,3 +180,52 @@ async function getRecommendedSongs() {
 // end Async Function to GET Playlist Recommendation ================ //
 
 // end GET Playlist Recommendation  ================================ //
+
+// ======================================================================================== //
+// =   Preview function = Get Device ID + Start User's Playback + Stop User's Playback    = //
+// ======================================================================================== //
+
+let imgPlay = document.querySelector(".songOutput>.coverElement>img");
+
+
+function getDevice() {
+  fetch("https://api.spotify.com/v1/me/player/devices", {
+    headers: {
+      Accept: "application/json",
+      Authorization: `Bearer ${access_token}`,
+      "Content-Type": "application/json",
+    },
+  })
+    .then((res) => res.json())
+    .then(function (data) {
+      console.log(data);
+      return (device = data.devices[0].id);
+    });
+}
+
+function playMusic() {
+  fetch(`https://api.spotify.com/v1/me/player/play?device_id=${device}`, {
+    body: `{"context_uri":"${uriArrayAlbum[0]}","offset":{"position":${songsArray[0].track_number-1}},"position_ms":0}`,
+    headers: {
+      Accept: "application/json",
+      Authorization: `Bearer ${access_token}`,
+      "Content-Type": "application/json",
+    },
+    method: "PUT",
+  });
+  console.log('Music started');
+}
+
+function stopMusic() {
+  fetch(`https://api.spotify.com/v1/me/player/pause?device_id=${device}`, {
+  headers: {
+      Accept: "application/json",
+      Authorization: `Bearer ${access_token}`,
+      "Content-Type": "application/json",
+  },
+  method: "PUT"
+});
+  console.log('Music stopped');
+}
+
+imgPlay.addEventListener('click', playMusic, false);

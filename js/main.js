@@ -107,6 +107,7 @@ if (generateBtn) {
       .forEach((page) => page.classList.remove("show"));
     document.querySelector("#page07").classList.add("show");
 
+    getDevice();
     getRecommendedSongs();
   });
 }
