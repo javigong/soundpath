@@ -18,29 +18,28 @@
 }
 
 .page {
-    min-width: 100vw;
-    min-height: 100vh;
-    display: none;
-  
-    background-image: $color_gradient_dark;
-  }
-  
-  .page.show {
-    display: grid;
-  }
-  
-  // Start page 01 : Initial page with SoundPath Logo ==========
-  
-  #content01 {
-    display: grid;
-    grid-template-rows: 1fr;
-    align-items: center;
-  
-    .logo {
-      width: 250px;
-    }
-  }
+  min-width: 100vw;
+  min-height: 100vh;
+  display: none;
 
+  background-image: $color_gradient_dark;
+}
+
+.page.show {
+  display: grid;
+}
+
+// Start page 01 : Initial page with SoundPath Logo ==========
+
+#content01 {
+  display: grid;
+  grid-template-rows: 1fr;
+  align-items: center;
+
+  .logo {
+    width: 250px;
+  }
+}
 
 // Start page 02 : Login With Spotify ==========
 
