@@ -62,9 +62,9 @@ self.addEventListener("activate", (event) => {
 //event.respondWith(fetch(event.request));
 
 /*
-event.respondWith( ( async() => {
-                const response = await caches.match( event.request);
-                return response || fetch( event.request );          
+event.respondWith( ( async() => {
+                const response = await caches.match( event.request);
+                return response || fetch( event.request );          
              })()
 );
 */
