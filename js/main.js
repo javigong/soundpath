@@ -102,11 +102,12 @@ document.querySelectorAll(".slider").oninput = function () {
 const generateBtn = document.querySelector("#btn06");
 if (generateBtn) {
   generateBtn.addEventListener("click", (event) => {
-    getRecommendedSongs();
     document
       .querySelectorAll(".page")
       .forEach((page) => page.classList.remove("show"));
     document.querySelector("#page07").classList.add("show");
+
+    getRecommendedSongs();
   });
 }
 
@@ -141,6 +142,8 @@ if (transferBtn) {
       .querySelectorAll(".page")
       .forEach((page) => page.classList.remove("show"));
     document.querySelector("#page09").classList.add("show");
+
+    saveSongs();
   });
 }
 
