@@ -181,3 +181,27 @@ if (returnCreatePlayBtn) {
     document.querySelector("#page04").classList.add("show");
   });
 }
+
+// Offline Message //
+
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", function () {
+    function updateOnlineStatus(event) {
+      const condition = navigator.onLine ? "online" : "offline";
+
+      status.className = condition;
+      status.innerHTML = condition.toUpperCase();
+      console.log(condition);
+
+      const getOffline = document.getElementById("offlineMsg");
+
+      getOffline.classList.remove("showOffline");
+      if (condition === "offline") {
+        getOffline.classList.add("showOffline");
+      }
+    }
+
+    window.addEventListener("online", updateOnlineStatus);
+    window.addEventListener("offline", updateOnlineStatus);
+  });
+}

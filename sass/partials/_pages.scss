@@ -189,3 +189,29 @@
     content: "by ";
   }
 }
+
+#offlineMsg {
+  display: none;
+}
+
+#offlineMsg.showOffline {
+  position: absolute;
+  top: 10%;
+  bottom: 10%;
+  left: 10%;
+  right: 10%;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
+
+.offlineBox {
+  padding: 2rem;
+  color: whitesmoke;
+  background-color: rgba(14, 14, 14, 0.95);
+  border-radius: 10px;
+
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
