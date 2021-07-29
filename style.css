@@ -519,7 +519,7 @@ template {
 
 #offlineMsg.showOffline {
   position: absolute;
-  top: 10%;
+  top: 50%;
   bottom: 10%;
   left: 10%;
   right: 10%;
@@ -529,8 +529,8 @@ template {
 }
 
 .offlineBox {
-  padding: 2rem;
-  color: whitesmoke;
+  padding: 0.5rem 2rem;
+  color: #f3f1f1;
   background-color: rgba(14, 14, 14, 0.95);
   border-radius: 10px;
   display: grid;
