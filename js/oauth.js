@@ -71,8 +71,7 @@ function requestAuthorization() {
   url += "&response_type=code";
   url += "&redirect_uri=" + encodeURI(redirect_uri);
   url += "&show_dialog=true";
-  url +=
-    "&scope=user-read-private user-read-email playlist-modify-public playlist-modify-private playlist-read-collaborative playlist-read-private";
+  url += "&scope=user-read-private user-read-email playlist-modify-public playlist-modify-private playlist-read-collaborative playlist-read-private";
   window.location.href = url;
 }
 
