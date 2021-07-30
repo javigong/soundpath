@@ -513,6 +513,31 @@ template {
   content: "by ";
 }
 
+#offlineMsg {
+  display: none;
+}
+
+#offlineMsg.showOffline {
+  position: absolute;
+  top: 50%;
+  bottom: 10%;
+  left: 10%;
+  right: 10%;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
+
+.offlineBox {
+  padding: 0.5rem 2rem;
+  color: #f3f1f1;
+  background-color: rgba(14, 14, 14, 0.95);
+  border-radius: 10px;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
+
 /* 3. Typography =============*/
 body {
   font-family: "Qanelas", sans-serif;
