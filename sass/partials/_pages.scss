@@ -162,7 +162,8 @@
     }
 
     .navbar-bottom {
-        margin-top: 20px;
+        display: flex;
+        margin: 1rem auto;
     }
 
     #form05 {
@@ -263,17 +264,40 @@
         justify-self: start;
         font-size: 19px;
         text-align: left;
+        font-weight: bold;
+
+        @media screen and (min-width: 700px) {
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        @media screen and (min-width: 1100px) {
+            font-size: 45px;
+            font-weight: bold;
+            text-overflow: ellipsis;
+        }
     }
 
     .artistElement {
         grid-row: 2 / 3;
         grid-column: 2 / 3;
         justify-self: start;
-        font-size: 16px;
+        font-size: 14px;
+
+        @media screen and (min-width: 1100px) {
+            font-size: 25px;
+            margin-top: 1rem;
+        }
     }
 
     .artistElement::before {
         content: "by ";
+    }
+
+    .songElement {
+        @media screen and (min-width: 1100px) {
+            font-size: 20px;
+        }
     }
 }
 
