@@ -1,6 +1,5 @@
 // Start page 01 : Initial page with Soundpath Logo ==========
 
-
 const startBtn = document.querySelector("#page01");
 if (startBtn) {
   startBtn.addEventListener("click", (event) => {
@@ -16,10 +15,10 @@ if (startBtn) {
 const loginBtn = document.querySelector("#btn02");
 if (loginBtn) {
   loginBtn.addEventListener("click", (event) => {
-    document
-      .querySelectorAll(".page")
-      .forEach((page) => page.classList.remove("show"));
-    document.querySelector("#page03").classList.add("show");
+    document;
+    //   .querySelectorAll(".page")
+    //   .forEach((page) => page.classList.remove("show"));
+    // document.querySelector("#page03").classList.add("show");
 
     //Testing Spotify oauth
     //implicitGrantFlow()
@@ -62,6 +61,7 @@ if (goBack04Btn) {
     document.querySelector("#page03").classList.add("show");
   });
 }
+
 
 // Camera function =============================================
 
@@ -146,6 +146,7 @@ window.addEventListener('load', function () {
     }
   });
 });
+
 
 // Start page 05 : Add Genres (Max 5) ==========================
 
