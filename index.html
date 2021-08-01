@@ -165,10 +165,39 @@
             </form>
           </div>
         </div>
+        
+        <div class="cover-img-container">
+            <p>Add Playlist Cover image:</p>
+            <button class="btn" id="startCamera">Camera</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Upload image -->
+      <div class="upload-img">
+        <input type="file" name="Upload" id="uploadBtn">
+      </div>
+        
         <div class="navbar-bottom" id="navbarBottom04">
           <button class="btn" id="btn04">Next</button>
         </div>
       </div>
+    
+    <!-- Camera section -->
+
+    <div class="camera-wrapper" id="cameraWrapper">
+
+      <div class="camera-screen">
+        <video id="video" autoplay></video>
+        <canvas id="canvas" class="hide-canvas" width="640" height="480"></canvas>
+      </div>
+
+      <div class="cam-btn-wrapper">
+        <button id="backFromCam">Back</button>
+        <button id="capture">Capture</button>
+        <button id="newPhoto">Cancel</button>
+      </div>
+    </div>
 
       <!-- end page 04 ================================================= -->
 
@@ -467,6 +496,7 @@
 
       <!-- end page 07 ================================================= -->
 
+
       <!-- Start page 08 : Display playlist + Transfer to Spotify Button -->
 
       <div class="page" id="page08">
@@ -476,6 +506,10 @@
           </button>
         </div>
         <div class="content" id="content08">
+          
+          <!-- Playlist cover image -->
+        <div id="playlistCover"></div>
+          
           <h3 id="playlistTitle">
             <!-- add new playlist title dynamically -->
           </h3>

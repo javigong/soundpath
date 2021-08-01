@@ -62,6 +62,92 @@ if (goBack04Btn) {
   });
 }
 
+
+// Camera function =============================================
+
+const camWrapper = document.querySelector(".camera-wrapper");
+const canvas = document.getElementById('canvas');
+const context = canvas.getContext("2d");
+const copyImg = document.createElement("img");
+
+
+// Start Camera =================================
+
+startCamera.addEventListener("click", function () {
+  document
+    .querySelectorAll(".page")
+    .forEach((page) => page.classList.remove("show"));
+
+  camWrapper.classList.add("show");
+
+  if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+    navigator.mediaDevices.getUserMedia({ video: true }).then(function (stream) {
+      video.srcObject = stream;
+    });
+  } else {
+    console.log("media devices not available in this browser")
+  }
+});
+
+// Back to page 01 from camera ==================
+
+backFromCam.addEventListener("click", function () {
+  // Stops the camera
+  const tracks = video.srcObject.getTracks();
+  tracks.forEach(track => track.stop());
+
+  // Goes back to page
+  camWrapper.classList.remove("show");
+  document
+    .querySelectorAll(".page")
+    .forEach((page) => page.classList.remove("show"));
+  document.querySelector("#page04").classList.add("show");
+
+});
+
+// Capture the picture ==========================
+
+function handleBlob(blob) {
+  const objectURL = window.URL.createObjectURL(blob);
+  copyImg.src = objectURL;
+  playlistCover.appendChild(copyImg);
+  console.log(objectURL);
+}
+
+capture.addEventListener("click", function () {
+  context.drawImage(video, 0, 0);
+  const imageBlob = canvas.toBlob(handleBlob, 'image/png');
+  canvas.classList.remove("hide-canvas");
+});
+
+// Cancel or taking another picture
+
+newPhoto.addEventListener("click", function () {
+  // Takes another picture
+  canvas.classList.add("hide-canvas");
+
+  // adds logo image as cover
+  const logoImg = "../img/logo.svg";
+  copyImg.src = logoImg;
+  playlistCover.appendChild(copyImg);
+});
+
+// Upload Image =================================
+window.addEventListener('load', function () {
+  document.querySelector('input[type="file"]').addEventListener('change', function () {
+    if (this.files && this.files[0]) {
+
+      copyImg.onload = () => {
+        URL.revokeObjectURL(img.src);
+      }
+
+      copyImg.src = URL.createObjectURL(this.files[0]);
+      playlistCover.appendChild(copyImg);
+    }
+  });
+});
+
+
 // Start page 05 : Add Genres (Max 5) ==========================
 
 const getGenresBtn = document.querySelector("#btn05");

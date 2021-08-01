@@ -25,6 +25,7 @@
   background-image: $color_gradient_dark;
 }
 
+
 .page.show {
   display: grid;
 
@@ -35,6 +36,7 @@
     grid-template-rows: 1fr;
     align-items: center;
 
+
     .logo {
       width: 40%;
     }
@@ -42,6 +44,59 @@
     height: 95vh;
     margin: auto;
   }
+
+
+// Camera Styling =========================================
+
+.camera-wrapper {
+    min-width: 100vw;
+    min-height: 100vh;
+    display: none;  
+    background: black;
+}
+  
+.camera-wrapper.show {
+    display: flex;
+    justify-content: center;
+    flex-flow: column nowrap; 
+}
+
+.camera-screen {
+    margin: 1rem;
+    position: relative;
+}
+
+#video {
+    border: 1px solid white;
+    display: block;
+    position: relative;
+    z-index: 1;
+    pointer-events: none;
+    margin: auto;
+}
+
+#canvas {
+    border: 1px solid red;
+    position: absolute;
+    z-index: 2;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.cam-btn-wrapper {
+    // border: 1px solid white;
+    margin-top: -3.5rem;
+    z-index: 3;
+}
+
+#canvas.hide-canvas {
+    display: none;
+}
+
+
 
   // Start page 02 : Login With Spotify ==========
 
@@ -53,10 +108,12 @@
     flex-flow: column;
   }
 
+
   #btn02 {
     margin: 5rem;
     height: 35px;
   }
+
 
   // Start page 03 : Greetings, create a new playlist ==========
 
@@ -67,6 +124,7 @@
       flex-flow: column nowrap;
       justify-content: center;
     }
+
 
     #btn03 {
       border-radius: 50%;
@@ -92,6 +150,7 @@
 
   // Start page 04 : Create New Playlist, Name ==========
 
+
   #page04 {
     #btnBack04 {
       background-color: rgba(0, 0, 0, 0.1);
@@ -112,7 +171,9 @@
     justify-content: center;
   }
 
+
   // Start page 05 : Create New Playlist, Genres ==========
+
 
   #page05 {
     #btnBack05 {
@@ -145,6 +206,7 @@
       right: 40%;
     }
 
+
     .input-wrap {
       margin: auto 5%;
     }
@@ -168,6 +230,7 @@
     #form05 {
       margin-left: 45%;
     }
+
 
     #btn06 {
       margin-top: 15%;
