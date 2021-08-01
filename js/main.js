@@ -62,14 +62,12 @@ if (goBack04Btn) {
   });
 }
 
-
 // Camera function =============================================
 
 const camWrapper = document.querySelector(".camera-wrapper");
-const canvas = document.getElementById('canvas');
+const canvas = document.getElementById("canvas");
 const context = canvas.getContext("2d");
 const copyImg = document.createElement("img");
-
 
 // Start Camera =================================
 
@@ -81,11 +79,13 @@ startCamera.addEventListener("click", function () {
   camWrapper.classList.add("show");
 
   if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-    navigator.mediaDevices.getUserMedia({ video: true }).then(function (stream) {
-      video.srcObject = stream;
-    });
+    navigator.mediaDevices
+      .getUserMedia({ video: true })
+      .then(function (stream) {
+        video.srcObject = stream;
+      });
   } else {
-    console.log("media devices not available in this browser")
+    console.log("media devices not available in this browser");
   }
 });
 
@@ -94,7 +94,7 @@ startCamera.addEventListener("click", function () {
 backFromCam.addEventListener("click", function () {
   // Stops the camera
   const tracks = video.srcObject.getTracks();
-  tracks.forEach(track => track.stop());
+  tracks.forEach((track) => track.stop());
 
   // Goes back to page
   camWrapper.classList.remove("show");
@@ -102,7 +102,6 @@ backFromCam.addEventListener("click", function () {
     .querySelectorAll(".page")
     .forEach((page) => page.classList.remove("show"));
   document.querySelector("#page04").classList.add("show");
-
 });
 
 // Capture the picture ==========================
@@ -116,7 +115,7 @@ function handleBlob(blob) {
 
 capture.addEventListener("click", function () {
   context.drawImage(video, 0, 0);
-  const imageBlob = canvas.toBlob(handleBlob, 'image/png');
+  const imageBlob = canvas.toBlob(handleBlob, "image/png");
   canvas.classList.remove("hide-canvas");
 });
 
@@ -133,20 +132,20 @@ newPhoto.addEventListener("click", function () {
 });
 
 // Upload Image =================================
-window.addEventListener('load', function () {
-  document.querySelector('input[type="file"]').addEventListener('change', function () {
-    if (this.files && this.files[0]) {
+window.addEventListener("load", function () {
+  document
+    .querySelector('input[type="file"]')
+    .addEventListener("change", function () {
+      if (this.files && this.files[0]) {
+        copyImg.onload = () => {
+          URL.revokeObjectURL(img.src);
+        };
 
-      copyImg.onload = () => {
-        URL.revokeObjectURL(img.src);
+        copyImg.src = URL.createObjectURL(this.files[0]);
+        playlistCover.appendChild(copyImg);
       }
-
-      copyImg.src = URL.createObjectURL(this.files[0]);
-      playlistCover.appendChild(copyImg);
-    }
-  });
+    });
 });
-
 
 // Start page 05 : Add Genres (Max 5) ==========================
 
