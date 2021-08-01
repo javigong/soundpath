@@ -15,10 +15,10 @@ if (startBtn) {
 const loginBtn = document.querySelector("#btn02");
 if (loginBtn) {
   loginBtn.addEventListener("click", (event) => {
-    document
-      .querySelectorAll(".page")
-      .forEach((page) => page.classList.remove("show"));
-    document.querySelector("#page03").classList.add("show");
+    document;
+    //   .querySelectorAll(".page")
+    //   .forEach((page) => page.classList.remove("show"));
+    // document.querySelector("#page03").classList.add("show");
 
     //Testing Spotify oauth
     //implicitGrantFlow()

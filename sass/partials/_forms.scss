@@ -1,53 +1,86 @@
+// page 04 : Name Playlist ================================== -->
+
+#form04 {
+    text-align: center;
+    input {
+        background-color: rgba(0, 0, 0, 0.1);
+        border: none;
+        border-bottom: 1px solid #c42bd7;
+        color: white;
+        padding: 0.2rem;
+    }
+
+    .input-wrap {
+        div {
+            margin: 1rem;
+        }
+    }
+}
+
 // page 05 : Add Genres ================================== -->
 
 #form05 {
-  display: flex;
-  flex-flow: row nowrap;
-
-  input[type="checkbox"] {
-    display: none;
-  }
-
-  label {
-    display: inline-block;
-    background-color: white;
-    cursor: pointer;
-    border-radius: 5px;
-    padding: 0.3rem 1rem;
-  }
-
-  input[type="checkbox"]:checked + label {
-    background-color: #ffffff;
-    color: #c42bd7;
-  }
-
-  .input-wrap {
     display: flex;
-    flex-flow: row wrap;
-    gap: 1rem;
-  }
+    flex-flow: row nowrap;
+
+    input[type="checkbox"] {
+        display: none;
+    }
+
+    label {
+        display: inline-block;
+        background-color: white;
+        cursor: pointer;
+        border-radius: 5px;
+        padding: 0.3rem 1rem;
+    }
+
+    input[type="checkbox"]:checked + label {
+        background-color: #ffffff;
+        color: #c42bd7;
+    }
+
+    .input-wrap {
+        display: flex;
+        flex-flow: row wrap;
+        gap: 1rem;
+    }
 }
 
 #form06 {
-  display: grid;
-  grid-template-columns: auto;
-  gap: 1.05rem;
-
-  .slider-wrap {
     display: grid;
     grid-template-columns: auto;
-    gap: 1rem;
+    gap: 1.05rem;
 
-    .input-wrap {
-      width: 250px;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      margin: 0 auto;
-      gap: 1rem;
-      
-      label {
-        text-align: left;
-      }
+    .slider-wrap {
+        display: grid;
+        grid-template-columns: auto;
+        gap: 1rem;
+
+        .input-wrap {
+            width: 250px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            margin: 0 auto;
+            gap: 1rem;
+
+            label {
+                text-align: left;
+            }
+        }
     }
-  }
+}
+
+// page 06 : Add Country ================================== -->
+
+#country {
+    background-color: rgba(0, 0, 0, 0.1);
+    border: none;
+    border-bottom: 1px solid #c42bd7;
+    color: white;
+    padding: 0.2rem;
+
+    option {
+        background-color: #110844;
+    }
 }
