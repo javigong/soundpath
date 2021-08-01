@@ -1,11 +1,5 @@
-if ("serviceWorker" in navigator) {
-  navigator.serviceWorker
-    .register("/sw.js")
-    .then((reg) => console.log("service worker registered", reg))
-    .catch((err) => console.log("service worker not registerd", err));
-}
+// Start page 01 : Initial page with Soundpath Logo ==========
 
-// Start page 01 : Initial page with Soundpath Logo ============
 
 const startBtn = document.querySelector("#page01");
 if (startBtn) {
@@ -176,16 +170,29 @@ if (goBack05Btn) {
   });
 }
 
-// Start page 06 : Add country + Generate Playlist Button ======
+// Start page 06 : Add country + Song Attributes + Generate Playlist Button ======
+
+// Sliders: .chrome styling
+
+document.querySelectorAll(".slider").oninput = function () {
+  let value = ((this.value - this.min) / (this.max - this.min)) * 100;
+  this.style.background =
+    "linear-gradient(to right, #82CFD0 0%, #82CFD0 " +
+    value +
+    "%, #fff " +
+    value +
+    "%, white 100%)";
+};
 
 const generateBtn = document.querySelector("#btn06");
 if (generateBtn) {
   generateBtn.addEventListener("click", (event) => {
-    getRecommendedSongs();
     document
       .querySelectorAll(".page")
       .forEach((page) => page.classList.remove("show"));
     document.querySelector("#page07").classList.add("show");
+
+    getRecommendedSongs();
   });
 }
 
@@ -220,6 +227,8 @@ if (transferBtn) {
       .querySelectorAll(".page")
       .forEach((page) => page.classList.remove("show"));
     document.querySelector("#page09").classList.add("show");
+
+    saveSongs();
   });
 }
 
@@ -255,5 +264,29 @@ if (returnCreatePlayBtn) {
       .querySelectorAll(".page")
       .forEach((page) => page.classList.remove("show"));
     document.querySelector("#page04").classList.add("show");
+  });
+}
+
+// Offline Message //
+
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", function () {
+    function updateOnlineStatus(event) {
+      const condition = navigator.onLine ? "online" : "offline";
+
+      status.className = condition;
+      status.innerHTML = condition.toUpperCase();
+      console.log(condition);
+
+      const getOffline = document.getElementById("offlineMsg");
+
+      getOffline.classList.remove("showOffline");
+      if (condition === "offline") {
+        getOffline.classList.add("showOffline");
+      }
+    }
+
+    window.addEventListener("online", updateOnlineStatus);
+    window.addEventListener("offline", updateOnlineStatus);
   });
 }
