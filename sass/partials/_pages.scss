@@ -337,33 +337,33 @@
     margin-bottom: 0;
   }
 
-  #offlineMsg {
-    display: none;
-  }
+  // #offlineMsg {
+  //   display: none;
+  // }
 
-  #offlineMsg.showOffline {
-    position: absolute;
-    top: 50%;
-    bottom: 10%;
-    left: 10%;
-    right: 10%;
-    display: grid;
-    justify-content: center;
-    align-content: center;
-  }
+  // #offlineMsg.showOffline {
+  //   position: absolute;
+  //   top: 50%;
+  //   bottom: 10%;
+  //   left: 10%;
+  //   right: 10%;
+  //   display: grid;
+  //   justify-content: center;
+  //   align-content: center;
+  // }
 
-  // Offline popup message //
-  .offlineBox {
-    padding: 0.5rem 2rem;
-    color: $color_offline_popup;
-    background-color: $color_offline_popup_bg;
-    border-radius: 10px;
+  // // Offline popup message //
+  // .offlineBox {
+  //   padding: 0.5rem 2rem;
+  //   color: $color_offline_popup;
+  //   background-color: $color_offline_popup_bg;
+  //   border-radius: 10px;
 
-    display: grid;
-    justify-content: center;
-    align-content: center;
-    z-index: 100;
-  }
+  //   display: grid;
+  //   justify-content: center;
+  //   align-content: center;
+  //   z-index: 100;
+  // }
 }
 
 // Camera Styling =========================================
@@ -414,4 +414,33 @@
 
 #canvas.hide-canvas {
   display: none;
+}
+
+// Offline msg style //
+#offlineMsg {
+  display: none;
+}
+
+#offlineMsg.showOffline {
+  position: absolute;
+  top: 50%;
+  bottom: 10%;
+  left: 10%;
+  right: 10%;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
+
+// Offline popup message //
+.offlineBox {
+  padding: 0.5rem 2rem;
+  color: $color_offline_popup;
+  background-color: $color_offline_popup_bg;
+  border-radius: 10px;
+
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  z-index: 100;
 }
