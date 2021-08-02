@@ -794,13 +794,14 @@ input[type=range]::-webkit-slider-thumb {
 #form05 label {
   display: inline-block;
   background-color: white;
+  color: black;
   cursor: pointer;
   border-radius: 5px;
   padding: 0.3rem 1rem;
 }
 #form05 input[type=checkbox]:checked + label {
-  background-color: #ffffff;
-  color: #c42bd7;
+  color: #ffffff;
+  background-color: #c42bd7;
 }
 #form05 .input-wrap {
   display: flex;
