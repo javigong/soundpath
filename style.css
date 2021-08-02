@@ -377,8 +377,6 @@ template {
 .page.show {
   display: grid;
 }
-
-
 .page.show #content01 {
   display: grid;
   grid-template-rows: 1fr;
@@ -386,35 +384,26 @@ template {
   height: 95vh;
   margin: auto;
 }
-
 .page.show #content01 .logo {
   width: 40%;
 }
-
-.page.show #c
-ontent02 {
-
+.page.show #content02 {
   display: flex;
   height: 95vh;
   margin: auto;
   justify-content: center;
   flex-flow: column;
 }
-
-
 .page.show #btn02 {
-
   margin: 5rem;
   height: 35px;
 }
-
 .page.show #page03 #content03 {
   height: 100vh;
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
 }
-
 .page.show #page03 #btn03 {
   border-radius: 50%;
   padding: 0.8rem 1rem;
@@ -426,10 +415,7 @@ ontent02 {
   left: 40%;
   right: 40%;
 }
-
-
 .page.show #page03 .section03 {
-
   background-image: linear-gradient(180deg, #4f0056, #110844);
   padding: 2rem;
   flex: 3;
@@ -437,35 +423,27 @@ ontent02 {
   flex-flow: column nowrap;
   justify-content: space-between;
 }
-
 .page.show #page04 #btnBack04 {
   background-color: rgba(0, 0, 0, 0.1);
   padding: 0.8rem 1rem;
   box-shadow: 0px 3px 18px #00000052;
   background-image: none;
 }
-
-
 .page.show #page04 .navbar-bottom {
   margin: auto;
 }
-
 .page.show #content04 {
   height: 80vh;
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
-
 }
-
 .page.show #page05 #btnBack05 {
   background-color: rgba(0, 0, 0, 0.1);
   padding: 0.8rem 1rem;
   box-shadow: 0px 3px 18px #00000052;
   background-image: none;
 }
-
-
 .page.show #page05 .genre-element label {
   background-color: #110844;
   padding: 0.5rem 1rem;
@@ -474,46 +452,35 @@ ontent02 {
   border-radius: 10rem;
   font-weight: lighter;
 }
-
-
 .page.show #page05 .genre-element label:active {
   background-color: #ffffff;
   color: #c42bd7;
 }
-
 .page.show #page05 .navbar-bottom {
   position: absolute;
   bottom: 5%;
   left: 40%;
   right: 40%;
 }
-
 .page.show #page05 .input-wrap {
   margin: auto 5%;
-
 }
-
 .page.show #page06 #btnBack06 {
   background-color: rgba(0, 0, 0, 0.1);
   padding: 0.8rem 1rem;
   box-shadow: 0px 3px 18px #00000052;
   background-image: none;
 }
-
-
 .page.show #page06 .navbar-bottom {
   display: flex;
   margin: 1rem auto;
 }
-
 .page.show #page06 #form05 {
   margin-left: 45%;
 }
-
 .page.show #page06 #btn06 {
   margin-top: 15%;
 }
-
 .page.show #content07 {
   display: flex;
   flex-flow: column nowrap;
@@ -522,13 +489,11 @@ ontent02 {
   justify-content: center;
   text-align: center;
 }
-
 .page.show .loading-ring {
   display: inline-block;
   width: 80px;
   height: 80px;
 }
-
 .page.show .loading-ring:after {
   content: " ";
   display: block;
@@ -540,7 +505,6 @@ ontent02 {
   border-color: #c42bd7 transparent #c42bd7 transparent;
   animation: loading-ring 1.5s linear infinite;
 }
-
 @keyframes loading-ring {
   0% {
     transform: rotate(0deg);
@@ -549,34 +513,26 @@ ontent02 {
     transform: rotate(360deg);
   }
 }
-
 .page.show #page08 #btnBack08 {
-
   background-color: rgba(0, 0, 0, 0.1);
   padding: 0.8rem 1rem;
   box-shadow: 0px 3px 18px #00000052;
   background-image: none;
 }
-
-
 .page.show #page08 #btn08 {
   margin: 1rem auto;
 }
-
 .page.show #page08 #outputList {
-
   display: flex;
   flex-flow: column nowrap;
   gap: 1rem;
 }
-
 .page.show .output-wrap {
   display: flex;
   justify-content: center;
   padding: 0 0.5rem;
   margin: auto 5%;
 }
-
 .page.show .songOutput {
   display: grid;
   grid-template-columns: 1fr 3fr 1fr;
@@ -586,32 +542,26 @@ ontent02 {
   border-bottom: solid 1px #e7aaec;
   padding-bottom: 0.5rem;
 }
-
-
 .page.show .songOutput .coverElement {
   margin-right: 20%;
   object-fit: cover;
   grid-row: 1/3;
   grid-column: 1/2;
 }
-
 .page.show .songOutput .titleElement {
-  grid-row: 1 / 2;
-  grid-column: 2 / 3;
-
+  grid-row: 1/2;
+  grid-column: 2/3;
   justify-self: start;
   font-size: 19px;
   text-align: left;
   font-weight: bold;
 }
-
 @media screen and (min-width: 700px) {
   .page.show .songOutput .titleElement {
     font-size: 30px;
     font-weight: bold;
   }
 }
-
 @media screen and (min-width: 1100px) {
   .page.show .songOutput .titleElement {
     font-size: 45px;
@@ -619,35 +569,26 @@ ontent02 {
     text-overflow: ellipsis;
   }
 }
-
-
 .page.show .songOutput .artistElement {
-  grid-row: 2 / 3;
-  grid-column: 2 / 3;
-
+  grid-row: 2/3;
+  grid-column: 2/3;
   justify-self: start;
   font-size: 14px;
 }
-
-
 @media screen and (min-width: 1100px) {
   .page.show .songOutput .artistElement {
     font-size: 25px;
     margin-top: 1rem;
   }
 }
-
 .page.show .songOutput .artistElement::before {
-
   content: "by ";
 }
-
 @media screen and (min-width: 1100px) {
   .page.show .songOutput .songElement {
     font-size: 20px;
   }
 }
-
 .page.show #content09 {
   display: flex;
   height: 95vh;
@@ -656,11 +597,9 @@ ontent02 {
   flex-flow: column;
   text-align: center;
 }
-
 .page.show #content09 .loading-ring {
   margin: 0.5rem auto;
 }
-
 .page.show #content10 {
   display: flex;
   height: 95vh;
@@ -670,11 +609,9 @@ ontent02 {
   text-align: center;
   margin-bottom: 0;
 }
-
 .page.show #offlineMsg {
   display: none;
 }
-
 .page.show #offlineMsg.showOffline {
   position: absolute;
   top: 50%;
@@ -685,7 +622,6 @@ ontent02 {
   justify-content: center;
   align-content: center;
 }
-
 .page.show .offlineBox {
   padding: 0.5rem 2rem;
   color: #f3f1f1;
@@ -694,6 +630,52 @@ ontent02 {
   display: grid;
   justify-content: center;
   align-content: center;
+  z-index: 100;
+}
+
+.camera-wrapper {
+  min-width: 100vw;
+  min-height: 100vh;
+  display: none;
+  background: black;
+}
+
+.camera-wrapper.show {
+  display: flex;
+  justify-content: center;
+  flex-flow: column nowrap;
+}
+
+.camera-screen {
+  margin: 1rem;
+  position: relative;
+}
+
+#video {
+  display: block;
+  position: relative;
+  z-index: 1;
+  pointer-events: none;
+  margin: auto;
+}
+
+#canvas {
+  position: absolute;
+  z-index: 2;
+  margin: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.cam-btn-wrapper {
+  margin-top: -3.5rem;
+  z-index: 3;
+}
+
+#canvas.hide-canvas {
+  display: none;
 }
 
 /* 3. Typography =============*/
@@ -767,7 +749,6 @@ button {
   transition: all 450ms ease-in;
   -webkit-appearance: none;
 }
-
 .slider::-webkit-slider-thumb {
   width: 6px;
   -webkit-appearance: none;
@@ -776,7 +757,7 @@ button {
   border-radius: 2px;
 }
 
-input[type="range"]::-webkit-slider-thumb {
+input[type=range]::-webkit-slider-thumb {
   width: 12px;
   -webkit-appearance: none;
   height: 12px;
@@ -789,7 +770,6 @@ input[type="range"]::-webkit-slider-thumb {
 #form04 {
   text-align: center;
 }
-
 #form04 input {
   background-color: rgba(0, 0, 0, 0.1);
   border: none;
@@ -797,7 +777,6 @@ input[type="range"]::-webkit-slider-thumb {
   color: white;
   padding: 0.2rem;
 }
-
 #form04 .input-wrap div {
   margin: 1rem;
 }
@@ -824,7 +803,6 @@ input[type="range"]::-webkit-slider-thumb {
   display: flex;
   flex-flow: row wrap;
   gap: 1rem;
-
 }
 
 #form06 {
@@ -832,13 +810,11 @@ input[type="range"]::-webkit-slider-thumb {
   grid-template-columns: auto;
   gap: 1.05rem;
 }
-
 #form06 .slider-wrap {
   display: grid;
   grid-template-columns: auto;
   gap: 1rem;
 }
-
 #form06 .slider-wrap .input-wrap {
   width: 250px;
   display: grid;
@@ -846,7 +822,6 @@ input[type="range"]::-webkit-slider-thumb {
   margin: 0 auto;
   gap: 1rem;
 }
-
 #form06 .slider-wrap .input-wrap label {
   text-align: left;
 }
@@ -858,9 +833,6 @@ input[type="range"]::-webkit-slider-thumb {
   color: white;
   padding: 0.2rem;
 }
-
 #country option {
   background-color: #110844;
-}
-/*# sourceMappingURL=style.css.map */
-
+}/*# sourceMappingURL=style.css.map */
