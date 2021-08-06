@@ -44,8 +44,8 @@ async function saveSongs() {
 // Parameters to GET Song Recommendations =========================== //
 
 // Default Parameters from UI
-let market = "CA";
-let songLimit = 20;
+// let market = "CA";
+// let songLimit = 20;
 
 // Get Request: Recommendations Based on Seeds ====================== //
 // https://developer.spotify.com/console/get-recommendations/
@@ -86,6 +86,9 @@ async function getRecommendedSongs() {
   console.log(genre3);
   console.log(genre4);
   console.log(genre5);
+
+  let songLimit = document.getElementById("numberSongs").value;
+  let market = document.getElementById("country").value;
 
   // API Endpoint URL:
 
