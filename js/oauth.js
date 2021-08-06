@@ -1,6 +1,6 @@
 // const redirect_uri = "http://localhost:5501/"; //Replace with you localhost
 
-const redirect_uri = "https://soundpath.netlify.app/index.html"; //Replace with you localhost
+const redirect_uri = "https://soundpath.netlify.app/index.html"; //Replace with you localhost.
 
 //gustavo
 // let client_id = "a0875c5745d349afa70d58abc2368d8b";
